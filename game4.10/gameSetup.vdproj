@@ -108,7 +108,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Setup\\Release\\Setup.msi"
+        "OutputFilename" = "8:Setup\\Release\\FleabagVsMutt.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -345,17 +345,6 @@
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_103653F85A91438BA0DA3740C03B1818"
-                    {
-                    "Name" = "8:Game Framework 4.6"
-                    "AlwaysCreate" = "11:TRUE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_C0D2E59AEBC14502B5851BE9EB4B7892"
-                        "Folders"
-                        {
-                        }
-                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_DA53CE7843C440EC82D3771D3C6B4914"
                     {
                     "Name" = "8:2022 games"
@@ -440,9 +429,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Game Framework Sample Program 4.10"
-        "ProductCode" = "8:{54989675-FF19-4015-A2C6-49805C805150}"
-        "PackageCode" = "8:{4C3E6EEF-1253-4FEF-BD5C-4AA88FA97C7C}"
+        "ProductName" = "8:Fleabag vs Mutt"
+        "ProductCode" = "8:{32DD0B48-EF8C-4C21-959E-CF9DD49D3A85}"
+        "PackageCode" = "8:{636E19F4-D579-4872-BB05-01A51B2DD5CE}"
         "UpgradeCode" = "8:{01942A20-B1C3-4329-810B-8B846C69A505}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -453,11 +442,11 @@
         "Manufacturer" = "8:NTUT-CSIE-2022Games"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Game Framework Sample Program 4.10"
+        "Title" = "8:Fleabag vs Mutt"
         "Subject" = "8:Game Framework"
         "ARPCONTACT" = "8:108590042 and 108590006"
         "Keywords" = "8:MFC, DirectX, Game, Framework"
-        "ARPCOMMENTS" = "8:Fleabag vs nutt game."
+        "ARPCOMMENTS" = "8:Fleabag vs mutt game, made with Game Framework Sample Program 4.10."
         "ARPURLINFOABOUT" = "8:http://www.csie.ntut.edu.tw/game/"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
@@ -562,23 +551,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4537360510BB41BA82E7D1774689A614"
-            {
-            "Name" = "8:Sample Program"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_FEB1C521B758467A98F7B43033E60D12"
-            "Folder" = "8:_103653F85A91438BA0DA3740C03B1818"
-            "WorkingFolder" = "8:_A62E3FBC3C2C4A6D9157A8D6CE468FB2"
-            "Icon" = "8:_E350ABF676DB4825AB1A7955895D6884"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_87570A8ADE894B29A2298B958A0C7F96"
             {
-            "Name" = "8:Fleabag Vs Mutt"
+            "Name" = "8:Fleabag vs Mutt"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -602,6 +577,20 @@
             "Folder" = "8:_DA53CE7843C440EC82D3771D3C6B4914"
             "WorkingFolder" = "8:_A62E3FBC3C2C4A6D9157A8D6CE468FB2"
             "Icon" = "8:_E350ABF676DB4825AB1A7955895D6884"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BD6F03334A2B47109859EB86A665DE40"
+            {
+            "Name" = "8:ReadMe"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_EE9DD6B69FFF4437AC5B705A1846A163"
+            "Folder" = "8:_DA53CE7843C440EC82D3771D3C6B4914"
+            "WorkingFolder" = "8:_A62E3FBC3C2C4A6D9157A8D6CE468FB2"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -1033,7 +1022,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FEB1C521B758467A98F7B43033E60D12"
             {
-            "SourcePath" = "8:Release\\game.exe"
+            "SourcePath" = "8:Debug\\game.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A62E3FBC3C2C4A6D9157A8D6CE468FB2"
