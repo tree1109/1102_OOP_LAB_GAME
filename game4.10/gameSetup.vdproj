@@ -390,6 +390,17 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_86449AF2BC8E4FCCB43F72F2C45FB1A9"
+                    {
+                    "Name" = "8:GamePicture"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_89F9FEB432784FBFB9A5E75A534DC321"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_EA4AD5C33B81477D82013D9D4380FE5B"
                     {
                     "Name" = "8:Bitmaps"
@@ -431,7 +442,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Game Framework Sample Program 4.10"
         "ProductCode" = "8:{54989675-FF19-4015-A2C6-49805C805150}"
-        "PackageCode" = "8:{D3A9E649-15E8-49AD-A868-D34FD909155D}"
+        "PackageCode" = "8:{4C3E6EEF-1253-4FEF-BD5C-4AA88FA97C7C}"
         "UpgradeCode" = "8:{01942A20-B1C3-4329-810B-8B846C69A505}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -567,7 +578,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_87570A8ADE894B29A2298B958A0C7F96"
             {
-            "Name" = "8:Sample Program"
+            "Name" = "8:Fleabag Vs Mutt"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
