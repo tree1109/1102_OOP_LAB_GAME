@@ -87,7 +87,7 @@ void CGameStateInit::OnInit()
 
 
 	// 初始化遊戲狀態
-	CurrentPage = START_BUTTON_PAGE;
+	CurrentPage = START_BUTTON_PAGE_NO_HOVER;
 
 	// 加載遊戲開始畫面圖片
 	// 遊戲開始畫面
@@ -121,6 +121,26 @@ void CGameStateInit::OnInit()
 	SelectYourLevel_hoverBeginner.SetTopLeft(0, 0);
 	SelectYourLevel_hoverAverage.SetTopLeft(0, 0);
 	SelectYourLevel_hoverBringItOn.SetTopLeft(0, 0);
+
+	// 所有按鈕的CPoint 左上與右下
+	StartPage_StartButtonLT = CPoint(436, 771);
+	StartPage_StartButtonRB = CPoint(912, 839);
+	FleabagVsMuttPage_HowToPlayButtonLT = CPoint(403, 559);
+	FleabagVsMuttPage_HowToPlayButtonRB = CPoint(915, 635);
+	FleabagVsMuttPage_LetsPlayButtonLT = CPoint(400, 709);
+	FleabagVsMuttPage_LetsPlayButtonRB = CPoint(911, 788);
+	HowToPlayPage_LetsPlayButtonLT = CPoint(400, 788);
+	HowToPlayPage_LetsPlayButtonRB = CPoint(912, 866);
+	ChooseGamePage_1PlayerButtonLT = CPoint(398, 350);
+	ChooseGamePage_1PlayerButtonRB = CPoint(597, 563);
+	ChooseGamePage_2PlayerButtonLT = CPoint(678, 364);
+	ChooseGamePage_2PlayerButtonRB = CPoint(912, 563);
+	SelectYourLevelPage_ImBeginnerButtonLT = CPoint(429, 305);
+	SelectYourLevelPage_ImBeginnerButtonRB = CPoint(929, 409);
+	SelectYourLevelPage_ImAverageButtonLT = CPoint(433, 426);
+	SelectYourLevelPage_ImAverageButtonRB = CPoint(893, 539);
+	SelectYourLevelPage_BringItOnButtonLT = CPoint(436, 555);
+	SelectYourLevelPage_BringItOnButtonRB = CPoint(896, 647);
 }
 
 void CGameStateInit::OnBeginState()
@@ -140,12 +160,19 @@ void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 void CGameStateInit::OnMouseMove(UINT nFlags, CPoint point)
 {
 
+	if (CurrentPage == START_BUTTON_PAGE_NO_HOVER || CurrentPage == START_BUTTON_PAGE_HOVER) {
+		if (point.x > StartPage_StartButtonLT.x && point.x < StartPage_StartButtonRB.x && point.y > StartPage_StartButtonLT.y && point.y < StartPage_StartButtonRB.y)
+			CurrentPage = START_BUTTON_PAGE_HOVER;
+		else
+			CurrentPage = START_BUTTON_PAGE_NO_HOVER;
+	}
+
 }
 
 void CGameStateInit::OnLButtonUp(UINT nFlags, CPoint point)
 {
-
-
+	if (CurrentPage == START_BUTTON_PAGE_HOVER)
+		CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 	// GotoGameState(GAME_STATE_RUN);
 }
 
@@ -181,10 +208,39 @@ void CGameStateInit::OnShow()
 
 
 
-	
-
-	// 設置圖片位置
-	StartButton_noHover.ShowBitmap();
+	if (CurrentPage == START_BUTTON_PAGE_NO_HOVER) {
+		StartButton_noHover.ShowBitmap();
+	}
+	else if (CurrentPage == START_BUTTON_PAGE_HOVER) {
+		StartButton_hover.ShowBitmap();
+	}
+	else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_NO_HOVER) {
+		FleabagVsMutt_noHover.ShowBitmap();
+	}
+	else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY) {
+		FleabagVsMutt_hoverHowToPlay.ShowBitmap();
+	}
+	else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY) {
+		FleabagVsMutt_hoverLetsPlay.ShowBitmap();
+	}
+	else if (CurrentPage == HOW_TO_PLAY_PAGE_NO_HOVER) {
+		HowToPlay_noHover.ShowBitmap();
+	}
+	else if (CurrentPage == HOW_TO_PLAY_PAGE_HOVER) {
+		HowToPlay_hover.ShowBitmap();
+	}
+	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_NO_HOVER) {
+		SelectYourLevel_noHover.ShowBitmap();
+	}
+	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER) {
+		SelectYourLevel_hoverBeginner.ShowBitmap();
+	}
+	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE) {
+		SelectYourLevel_hoverAverage.ShowBitmap();
+	}
+	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
+		SelectYourLevel_hoverBringItOn.ShowBitmap();
+	}
 
 }								
 

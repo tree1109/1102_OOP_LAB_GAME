@@ -55,10 +55,17 @@ namespace game_framework {
 
 	// 定義畫面的狀態
 	enum GAME_PAGE_ID {
-		START_BUTTON_PAGE,
-		FLEABAG_VS_MUTT_PAGE,
-		HOW_TO_PLAY_PAGE,
-		SELECT_YOUR_LEVEL_PAGE
+		START_BUTTON_PAGE_NO_HOVER,
+		START_BUTTON_PAGE_HOVER,
+		FLEABAG_VS_MUTT_PAGE_NO_HOVER,
+		FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY,
+		FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY,
+		HOW_TO_PLAY_PAGE_NO_HOVER,
+		HOW_TO_PLAY_PAGE_HOVER,
+		SELECT_YOUR_LEVEL_PAGE_NO_HOVER,
+		SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER,
+		SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE,
+		SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -102,6 +109,26 @@ namespace game_framework {
 
 		// 現在的畫面狀態
 		GAME_PAGE_ID CurrentPage;
+
+		// 所有按鈕的CPoint 左上與右下
+		CPoint StartPage_StartButtonLT;
+		CPoint StartPage_StartButtonRB;
+		CPoint FleabagVsMuttPage_HowToPlayButtonLT;
+		CPoint FleabagVsMuttPage_HowToPlayButtonRB;
+		CPoint FleabagVsMuttPage_LetsPlayButtonLT;
+		CPoint FleabagVsMuttPage_LetsPlayButtonRB;
+		CPoint HowToPlayPage_LetsPlayButtonLT;
+		CPoint HowToPlayPage_LetsPlayButtonRB;
+		CPoint ChooseGamePage_1PlayerButtonLT;
+		CPoint ChooseGamePage_1PlayerButtonRB;
+		CPoint ChooseGamePage_2PlayerButtonLT;
+		CPoint ChooseGamePage_2PlayerButtonRB;
+		CPoint SelectYourLevelPage_ImBeginnerButtonLT;
+		CPoint SelectYourLevelPage_ImBeginnerButtonRB;
+		CPoint SelectYourLevelPage_ImAverageButtonLT;
+		CPoint SelectYourLevelPage_ImAverageButtonRB;
+		CPoint SelectYourLevelPage_BringItOnButtonLT;
+		CPoint SelectYourLevelPage_BringItOnButtonRB;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
