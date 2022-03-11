@@ -169,6 +169,34 @@ namespace game_framework {
 		CEraser			eraser;		// 拍子
 		CInteger		hits_left;	// 剩下的撞擊數
 		CBouncingBall   bball;		// 反覆彈跳的球
+
+
+		// 戰鬥中
+		CMovingBitmap Background;
+
+		// 狗勾
+		CMovingBitmap Dog_Normal;
+		CMovingBitmap Dog_Normal_BadlyHurt;
+		CMovingBitmap Dog_Attack_1;
+		CMovingBitmap Dog_Attack_2;
+		CMovingBitmap Dog_Attack_3;
+		CMovingBitmap Dog_Attack_4;
+		CMovingBitmap Dog_BeingAttacked_Big;
+		CMovingBitmap Dog_BeingAttacked_Little;
+		CMovingBitmap Dog_BeingAttacked_Miss;
+		CMovingBitmap Dog_Weapon;
+
+		// 貓貓
+		CMovingBitmap Cat_Normal;
+		CMovingBitmap Cat_Normal_BadlyHurt;
+		CMovingBitmap Cat_Attack_1;
+		CMovingBitmap Cat_Attack_2;
+		CMovingBitmap Cat_Attack_3;
+		CMovingBitmap Cat_Attack_4;
+		CMovingBitmap Cat_BeingAttacked_Big;
+		CMovingBitmap Cat_BeingAttacked_Little;
+		CMovingBitmap Cat_BeingAttacked_Miss;
+		CMovingBitmap Cat_Weapon;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
