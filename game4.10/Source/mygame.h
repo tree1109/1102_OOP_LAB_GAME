@@ -62,6 +62,9 @@ namespace game_framework {
 		FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY,
 		HOW_TO_PLAY_PAGE_NO_HOVER,
 		HOW_TO_PLAY_PAGE_HOVER,
+		CHOOSE_GAME_PAGE_NO_HOVER,
+		CHOOSE_GAME_PAGE_HOVER_1PLAYER,
+		CHOOSE_GAME_PAGE_HOVER_2PLAYER,
 		SELECT_YOUR_LEVEL_PAGE_NO_HOVER,
 		SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER,
 		SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE,
@@ -100,6 +103,11 @@ namespace game_framework {
 		// 遊戲說明畫面
 		CMovingBitmap HowToPlay_noHover;
 		CMovingBitmap HowToPlay_hover;
+
+		// 玩家人數選擇畫面
+		CMovingBitmap ChooseGame_noHover;
+		CMovingBitmap ChooseGame_hover1P;
+		CMovingBitmap ChooseGame_hover2P;
 
 		// 選擇遊戲難度頁面
 		CMovingBitmap SelectYourLevel_noHover;

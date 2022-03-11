@@ -103,6 +103,11 @@ void CGameStateInit::OnInit()
 	HowToPlay_noHover.LoadBitmap("GamePicture/GameInit/HowToPlay_noHover.bmp");
 	HowToPlay_hover.LoadBitmap("GamePicture/GameInit/HowToPlay_hover.bmp");
 
+	// 玩家人數選擇畫面
+	ChooseGame_noHover.LoadBitmap("GamePicture/GameInit/ChooseGame_noHover.bmp");;
+	ChooseGame_hover1P.LoadBitmap("GamePicture/GameInit/ChooseGame_hover1P.bmp");;
+	ChooseGame_hover2P.LoadBitmap("GamePicture/GameInit/ChooseGame_hover2P.bmp");;
+
 	// 選擇遊戲難度頁面
 	SelectYourLevel_noHover.LoadBitmap("GamePicture/GameInit/SelectYourLevel_noHover.bmp");
 	SelectYourLevel_hoverBeginner.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverBeginner.bmp");
@@ -117,6 +122,9 @@ void CGameStateInit::OnInit()
 	FleabagVsMutt_hoverLetsPlay.SetTopLeft(0, 0);
 	HowToPlay_noHover.SetTopLeft(0, 0);
 	HowToPlay_hover.SetTopLeft(0, 0);
+	ChooseGame_noHover.SetTopLeft(0, 0);
+	ChooseGame_hover1P.SetTopLeft(0, 0);
+	ChooseGame_hover2P.SetTopLeft(0, 0);
 	SelectYourLevel_noHover.SetTopLeft(0, 0);
 	SelectYourLevel_hoverBeginner.SetTopLeft(0, 0);
 	SelectYourLevel_hoverAverage.SetTopLeft(0, 0);
@@ -166,14 +174,70 @@ void CGameStateInit::OnMouseMove(UINT nFlags, CPoint point)
 		else
 			CurrentPage = START_BUTTON_PAGE_NO_HOVER;
 	}
+	else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_NO_HOVER || CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY || CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY) {
+		if (point.x > FleabagVsMuttPage_HowToPlayButtonLT.x && point.x < FleabagVsMuttPage_HowToPlayButtonRB.x && point.y > FleabagVsMuttPage_HowToPlayButtonLT.y && point.y < FleabagVsMuttPage_HowToPlayButtonRB.y)
+			CurrentPage = FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY;
+		else if (point.x > FleabagVsMuttPage_LetsPlayButtonLT.x && point.x < FleabagVsMuttPage_LetsPlayButtonRB.x && point.y > FleabagVsMuttPage_LetsPlayButtonLT.y && point.y < FleabagVsMuttPage_LetsPlayButtonRB.y)
+			CurrentPage = FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY;
+		else
+			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
+	}
+	else if (CurrentPage == HOW_TO_PLAY_PAGE_NO_HOVER || CurrentPage == HOW_TO_PLAY_PAGE_HOVER) {
+		if (point.x > HowToPlayPage_LetsPlayButtonLT.x && point.x < HowToPlayPage_LetsPlayButtonRB.x && point.y > HowToPlayPage_LetsPlayButtonLT.y && point.y < HowToPlayPage_LetsPlayButtonRB.y)
+			CurrentPage = HOW_TO_PLAY_PAGE_HOVER;
+		else
+			CurrentPage = HOW_TO_PLAY_PAGE_NO_HOVER;
+	}
+	else if (CurrentPage == CHOOSE_GAME_PAGE_NO_HOVER || CurrentPage == CHOOSE_GAME_PAGE_HOVER_1PLAYER || CurrentPage == CHOOSE_GAME_PAGE_HOVER_2PLAYER) {
+		if (point.x > ChooseGamePage_1PlayerButtonLT.x && point.x < ChooseGamePage_1PlayerButtonRB.x && point.y > ChooseGamePage_1PlayerButtonLT.y && point.y < ChooseGamePage_1PlayerButtonRB.y)
+			CurrentPage = CHOOSE_GAME_PAGE_HOVER_1PLAYER;
+		else if (point.x > ChooseGamePage_2PlayerButtonLT.x && point.x < ChooseGamePage_2PlayerButtonRB.x && point.y > ChooseGamePage_2PlayerButtonLT.y && point.y < ChooseGamePage_2PlayerButtonRB.y)
+			CurrentPage = CHOOSE_GAME_PAGE_HOVER_2PLAYER;
+		else
+			CurrentPage = CHOOSE_GAME_PAGE_NO_HOVER;
+	}
+	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_NO_HOVER || CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER || CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE || CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
+		if (point.x > SelectYourLevelPage_ImBeginnerButtonLT.x && point.x < SelectYourLevelPage_ImBeginnerButtonRB.x && point.y > SelectYourLevelPage_ImBeginnerButtonLT.y && point.y < SelectYourLevelPage_ImBeginnerButtonRB.y)
+			CurrentPage = SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER;
+		else if (point.x > SelectYourLevelPage_ImAverageButtonLT.x && point.x < SelectYourLevelPage_ImAverageButtonRB.x && point.y > SelectYourLevelPage_ImAverageButtonLT.y && point.y < SelectYourLevelPage_ImAverageButtonRB.y)
+			CurrentPage = SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE;
+		else if (point.x > SelectYourLevelPage_BringItOnButtonLT.x && point.x < SelectYourLevelPage_BringItOnButtonRB.x && point.y > SelectYourLevelPage_BringItOnButtonLT.y && point.y < SelectYourLevelPage_BringItOnButtonRB.y)
+			CurrentPage = SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON;
+		else
+			CurrentPage = SELECT_YOUR_LEVEL_PAGE_NO_HOVER;
+	}
 
 }
 
 void CGameStateInit::OnLButtonUp(UINT nFlags, CPoint point)
 {
-	if (CurrentPage == START_BUTTON_PAGE_HOVER)
+	if (CurrentPage == START_BUTTON_PAGE_HOVER) {
 		CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
-	// GotoGameState(GAME_STATE_RUN);
+	}
+	else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY) {
+		CurrentPage = HOW_TO_PLAY_PAGE_NO_HOVER;
+	}
+	else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY || CurrentPage == HOW_TO_PLAY_PAGE_HOVER) {
+		CurrentPage = CHOOSE_GAME_PAGE_NO_HOVER;
+	}
+	else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_1PLAYER) {
+		CurrentPage = SELECT_YOUR_LEVEL_PAGE_NO_HOVER;
+	}
+	else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_2PLAYER) {
+		GotoGameState(GAME_STATE_RUN);
+	}
+	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER) {
+		// 紀錄難度
+		GotoGameState(GAME_STATE_RUN);
+	}
+	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE) {
+		// 紀錄難度
+		GotoGameState(GAME_STATE_RUN);
+	}
+	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
+		// 紀錄難度
+		GotoGameState(GAME_STATE_RUN);
+	}
 }
 
 void CGameStateInit::OnMove()
@@ -207,13 +271,14 @@ void CGameStateInit::OnShow()
 
 
 
-
+	// 遊戲開始畫面
 	if (CurrentPage == START_BUTTON_PAGE_NO_HOVER) {
 		StartButton_noHover.ShowBitmap();
 	}
 	else if (CurrentPage == START_BUTTON_PAGE_HOVER) {
 		StartButton_hover.ShowBitmap();
 	}
+	// 遊戲大綱畫面
 	else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_NO_HOVER) {
 		FleabagVsMutt_noHover.ShowBitmap();
 	}
@@ -223,12 +288,24 @@ void CGameStateInit::OnShow()
 	else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY) {
 		FleabagVsMutt_hoverLetsPlay.ShowBitmap();
 	}
+	// 遊戲說明畫面
 	else if (CurrentPage == HOW_TO_PLAY_PAGE_NO_HOVER) {
 		HowToPlay_noHover.ShowBitmap();
 	}
 	else if (CurrentPage == HOW_TO_PLAY_PAGE_HOVER) {
 		HowToPlay_hover.ShowBitmap();
 	}
+	// 玩家人數選擇畫面
+	else if (CurrentPage == CHOOSE_GAME_PAGE_NO_HOVER) {
+		ChooseGame_noHover.ShowBitmap();
+	}
+	else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_1PLAYER) {
+		ChooseGame_hover1P.ShowBitmap();
+	}
+	else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_2PLAYER) {
+		ChooseGame_hover2P.ShowBitmap();
+	}
+	// 選擇遊戲難度頁面
 	else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_NO_HOVER) {
 		SelectYourLevel_noHover.ShowBitmap();
 	}
