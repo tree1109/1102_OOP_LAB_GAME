@@ -80,10 +80,47 @@ void CGameStateInit::OnInit()
 	// 開始載入資料
 	//
 	logo.LoadBitmap(IDB_BACKGROUND);
-	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
+	// Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	//
 	// 此OnInit動作會接到CGameStaterRun::OnInit()，所以進度還沒到100%
 	//
+
+
+	// 初始化遊戲狀態
+	CurrentPage = START_BUTTON_PAGE;
+
+	// 加載遊戲開始畫面圖片
+	// 遊戲開始畫面
+	StartButton_noHover.LoadBitmap("GamePicture/GameInit/StartButton_noHover.bmp");
+	StartButton_hover.LoadBitmap("GamePicture/GameInit/StartButton_hover.bmp");
+
+	// 遊戲大綱畫面
+	FleabagVsMutt_noHover.LoadBitmap("GamePicture/GameInit/FleabagVsMutt_noHover.bmp");
+	FleabagVsMutt_hoverHowToPlay.LoadBitmap("GamePicture/GameInit/FleabagVsMutt_hoverHowToPlay.bmp");
+	FleabagVsMutt_hoverLetsPlay.LoadBitmap("GamePicture/GameInit/FleabagVsMutt_hoverLetsPlay.bmp");
+
+	// 遊戲說明畫面
+	HowToPlay_noHover.LoadBitmap("GamePicture/GameInit/HowToPlay_noHover.bmp");
+	HowToPlay_hover.LoadBitmap("GamePicture/GameInit/HowToPlay_hover.bmp");
+
+	// 選擇遊戲難度頁面
+	SelectYourLevel_noHover.LoadBitmap("GamePicture/GameInit/SelectYourLevel_noHover.bmp");
+	SelectYourLevel_hoverBeginner.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverBeginner.bmp");
+	SelectYourLevel_hoverAverage.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverAverage.bmp");
+	SelectYourLevel_hoverBringItOn.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverBringItOn.bmp");
+
+	// 初始化所有圖片位置，因為都是整個畫面所以設置在(0, 0)位置
+	StartButton_noHover.SetTopLeft(0, 0);
+	StartButton_hover.SetTopLeft(0, 0);
+	FleabagVsMutt_noHover.SetTopLeft(0, 0);
+	FleabagVsMutt_hoverHowToPlay.SetTopLeft(0, 0);
+	FleabagVsMutt_hoverLetsPlay.SetTopLeft(0, 0);
+	HowToPlay_noHover.SetTopLeft(0, 0);
+	HowToPlay_hover.SetTopLeft(0, 0);
+	SelectYourLevel_noHover.SetTopLeft(0, 0);
+	SelectYourLevel_hoverBeginner.SetTopLeft(0, 0);
+	SelectYourLevel_hoverAverage.SetTopLeft(0, 0);
+	SelectYourLevel_hoverBringItOn.SetTopLeft(0, 0);
 }
 
 void CGameStateInit::OnBeginState()
@@ -100,9 +137,21 @@ void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 		PostMessage(AfxGetMainWnd()->m_hWnd, WM_CLOSE,0,0);	// 關閉遊戲
 }
 
-void CGameStateInit::OnLButtonDown(UINT nFlags, CPoint point)
+void CGameStateInit::OnMouseMove(UINT nFlags, CPoint point)
 {
-	GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
+
+}
+
+void CGameStateInit::OnLButtonUp(UINT nFlags, CPoint point)
+{
+
+
+	// GotoGameState(GAME_STATE_RUN);
+}
+
+void CGameStateInit::OnMove()
+{
+
 }
 
 void CGameStateInit::OnShow()
@@ -128,6 +177,15 @@ void CGameStateInit::OnShow()
 	pDC->TextOut(5,455,"Press Alt-F4 or ESC to Quit.");
 	pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
 	CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
+
+
+
+
+	
+
+	// 設置圖片位置
+	StartButton_noHover.ShowBitmap();
+
 }								
 
 /////////////////////////////////////////////////////////////////////////////

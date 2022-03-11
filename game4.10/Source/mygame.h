@@ -53,6 +53,14 @@ namespace game_framework {
 		AUDIO_NTUT				// 2
 	};
 
+	// 定義畫面的狀態
+	enum GAME_PAGE_ID {
+		START_BUTTON_PAGE,
+		FLEABAG_VS_MUTT_PAGE,
+		HOW_TO_PLAY_PAGE,
+		SELECT_YOUR_LEVEL_PAGE
+	};
+
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的遊戲開頭畫面物件
 	// 每個Member function的Implementation都要弄懂
@@ -64,11 +72,36 @@ namespace game_framework {
 		void OnInit();  								// 遊戲的初值及圖形設定
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnKeyUp(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
-		void OnLButtonDown(UINT nFlags, CPoint point);  // 處理滑鼠的動作
+		void OnMouseMove(UINT nFlags, CPoint point);	// 處理滑鼠的動作 
+		void OnLButtonUp(UINT nFlags, CPoint point);	// 處理滑鼠的動作
 	protected:
+		void OnMove();									// 判斷要顯示的畫面
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		CMovingBitmap logo;								// csie的logo
+
+
+		// 遊戲開始畫面
+		CMovingBitmap StartButton_noHover;
+		CMovingBitmap StartButton_hover;
+
+		// 遊戲大綱畫面
+		CMovingBitmap FleabagVsMutt_noHover;
+		CMovingBitmap FleabagVsMutt_hoverHowToPlay;
+		CMovingBitmap FleabagVsMutt_hoverLetsPlay;
+
+		// 遊戲說明畫面
+		CMovingBitmap HowToPlay_noHover;
+		CMovingBitmap HowToPlay_hover;
+
+		// 選擇遊戲難度頁面
+		CMovingBitmap SelectYourLevel_noHover;
+		CMovingBitmap SelectYourLevel_hoverBeginner;
+		CMovingBitmap SelectYourLevel_hoverAverage;
+		CMovingBitmap SelectYourLevel_hoverBringItOn;
+
+		// 現在的畫面狀態
+		GAME_PAGE_ID CurrentPage;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

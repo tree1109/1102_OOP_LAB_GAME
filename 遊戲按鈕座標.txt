@@ -1,0 +1,50 @@
+說明：
+按鈕
+左上座標
+右下座標
+
+
+Start Page:
+	Start button
+	436, 771
+	912, 839
+
+
+Fleabag Vs Mutt Page:
+	How To Play button
+	403, 559
+	915, 635
+
+	Lets Play button
+	400, 709
+	911, 788
+
+
+How To Play Page:
+	Lets Play button
+	400, 788
+	912, 866
+
+
+Choose Game Page:
+	1 Player button
+	398, 350
+	597, 563
+
+	2 Player button
+	678, 364
+	912, 563
+
+
+Select Your Level Page:
+	I'm beginner button
+	429, 305
+	929, 409
+
+	I'm average button
+	433, 426
+	893, 539
+
+	Bring it on! button
+	436, 555
+	896, 647
