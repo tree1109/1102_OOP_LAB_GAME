@@ -71,6 +71,18 @@ namespace game_framework {
 		SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON
 	};
 
+	// 定義遊玩中，現在是貓還是狗攻擊的狀態
+	enum GAME_RUN_ID {
+		DOG_PREPARE,
+		DOG_ATTACK_BEGIN,
+		DOG_ATTACK_CHARGE,
+		DOG_ATTACK_FIRE,
+		CAT_PREPARE,
+		CAT_ATTACK_BEGIN,
+		CAT_ATTACK_CHARGE,
+		CAT_ATTACK_FIRE
+	};
+
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的遊戲開頭畫面物件
 	// 每個Member function的Implementation都要弄懂

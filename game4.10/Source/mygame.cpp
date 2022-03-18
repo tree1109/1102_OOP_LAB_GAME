@@ -458,6 +458,9 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// 移動彈跳的球
 	//
 	bball.OnMove();
+
+	Dog_Weapon.SetTopLeft(0, 0);
+	Cat_Weapon.SetTopLeft(0, 0);
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -525,10 +528,10 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	Cat_Weapon.LoadBitmap("GamePicture/GameRun/Cat/Weapon.bmp", RGB(180, 0, 255));
 
 	// 初始化部分圖片位置
-	int DogPositionX = 1032;
-	int DogPositionY = 634;
-	int CatPositionX = 0;
-	int CatPositionY = 559;
+	const int DogPositionX = 1032;
+	const int DogPositionY = 634;
+	const int CatPositionX = 0;
+	const int CatPositionY = 559;
 	Background.SetTopLeft(0, 0);
 	Dog_Normal.SetTopLeft(DogPositionX, DogPositionY);
 	Dog_Normal_BadlyHurt.SetTopLeft(DogPositionX, DogPositionY);
@@ -635,5 +638,10 @@ void CGameStateRun::OnShow()
 
 	// 顯示背景
 	Background.ShowBitmap();
+
+
+	// 顯示武器
+	// Dog_Weapon.ShowBitmap();
+	// Cat_Weapon.ShowBitmap();
 }
 }
