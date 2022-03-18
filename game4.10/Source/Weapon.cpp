@@ -62,4 +62,16 @@ namespace game_framework {
 			Dog_Weapon.ShowBitmap();
 		}
 	}
+
+	void Weapon::SetPower(int power)
+	{
+		velocityX = power;
+		velocityY = 0-power;
+	}
+
+	void Weapon::SetPosition(int x, int y)
+	{
+		weaponPositionX = x;
+		weaponPositionY = y;
+	}
 }

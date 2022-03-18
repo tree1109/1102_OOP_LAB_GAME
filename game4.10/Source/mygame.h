@@ -165,6 +165,7 @@ namespace game_framework {
 		Cat	CatObject;
 
 		GAME_RUN_ID runId;
+		int Timer;
 
 	};
 

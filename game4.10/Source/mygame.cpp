@@ -466,11 +466,23 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// 移動彈跳的球
 	//
 	bball.OnMove();
-		
+	
 
+	
 
 	if (runId == CAT_PREPARE) {
-		runId = CAT_ATTACK_BEGIN;
+		Timer++;
+		if (Timer >= 30) {
+			runId = CAT_ATTACK_TAKE;
+			Timer = 0;
+		}
+	}
+	else if (runId == CAT_ATTACK_TAKE) {
+		Timer++;
+		if (Timer >= 25) {
+			runId = CAT_ATTACK_BEGIN;
+			Timer = 0;
+		}
 	}
 	else if (runId == CAT_ATTACK_BEGIN) {
 		runId = CAT_ATTACK_CHARGE;
@@ -482,16 +494,29 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 		runId = DOG_PREPARE;
 	}
 	else if (runId == DOG_PREPARE) {
-		runId = DOG_ATTACK_BEGIN;
+		Timer++;
+		if (Timer >= 30) {
+			runId = DOG_ATTACK_TAKE;
+			Timer = 0;
+		}
+	}
+	else if (runId == DOG_ATTACK_TAKE) {
+		Timer++;
+		if (Timer >= 25) {
+			runId = DOG_ATTACK_BEGIN;
+			Timer = 0;
+		}
 	}
 	else if (runId == DOG_ATTACK_BEGIN) {
-		runId = DOG_ATTACK_CHARGE;
+		// runId = DOG_ATTACK_CHARGE;
 	}
 	else if (runId == DOG_ATTACK_CHARGE) {
-		runId = DOG_ATTACK_FIRE;
+		Timer++;
+		// runId = DOG_ATTACK_FIRE;
 	}
 	else if (runId == DOG_ATTACK_FIRE) {
 		runId = CAT_PREPARE;
+		Timer = 0;
 	}
 
 }
@@ -535,6 +560,9 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 載入所有戰鬥中的圖片
 	// 背景
 	Background.LoadBitmap("GamePicture/GameRun/Background.bmp");
+
+	// 初始化計時器
+	Timer = 0;
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -572,11 +600,19 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
 {
 	eraser.SetMovingLeft(true);
+
+	if (runId == DOG_ATTACK_BEGIN) {
+		runId = DOG_ATTACK_CHARGE;
+	}
 }
 
 void CGameStateRun::OnLButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 {
 	eraser.SetMovingLeft(false);
+
+	if (runId == DOG_ATTACK_CHARGE) {
+		runId = DOG_ATTACK_FIRE;
+	}
 }
 
 void CGameStateRun::OnMouseMove(UINT nFlags, CPoint point)	// 處理滑鼠的動作
@@ -632,47 +668,41 @@ void CGameStateRun::OnShow()
 	// CatObject.OnShow(runId);
 	// DogObject.OnShow(runId);
 
-	// 根據狀態
+	// Cat
 	if (runId == CAT_PREPARE) {
 		CatObject.OnShow(Normal);
-		Sleep(1000);
+	}
+	else if (runId == CAT_ATTACK_TAKE) {
+		CatObject.OnShow(Attack_1);
 	}
 	else if (runId == CAT_ATTACK_BEGIN) {
-		CatObject.OnShow(Attack_1);
-		Sleep(2000);
 		CatObject.OnShow(Attack_2);
-		Sleep(800);
 	}
 	else if (runId == CAT_ATTACK_CHARGE) {
 		CatObject.OnShow(Attack_3);
-		Sleep(2000);
 	}
 	else if (runId == CAT_ATTACK_FIRE) {
 		CatObject.OnShow(Attack_4);
-		Sleep(2000);
 	}
 	else {
 		CatObject.OnShow(Normal);
 	}
 
-
+	// Dog
 	if (runId == DOG_PREPARE) {
 		DogObject.OnShow(Normal);
-		Sleep(1000);
+	}
+	else if (runId == DOG_ATTACK_TAKE) {
+		DogObject.OnShow(Attack_1);
 	}
 	else if (runId == DOG_ATTACK_BEGIN) {
-		DogObject.OnShow(Attack_1);
-		Sleep(800);
 		DogObject.OnShow(Attack_2);
-		Sleep(800);
 	}
 	else if (runId == DOG_ATTACK_CHARGE) {
 		DogObject.OnShow(Attack_3);
-		Sleep(2000);
 	}
 	else if (runId == DOG_ATTACK_FIRE) {
 		DogObject.OnShow(Attack_4);
-		Sleep(2000);
 	}
 	else {
 		DogObject.OnShow(Normal);
