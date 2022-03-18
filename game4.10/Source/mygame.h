@@ -42,6 +42,7 @@
 #include "CBall.h"
 #include "CBouncingBall.h"
 #include "Cat.h"
+#include "Dog.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -187,33 +188,10 @@ namespace game_framework {
 		// ¾Ô°«¤¤
 		CMovingBitmap Background;
 
-		// ª¯¤Ä
-		CMovingBitmap Dog_Normal;
-		CMovingBitmap Dog_Normal_BadlyHurt;
-		CMovingBitmap Dog_Attack_1;
-		CMovingBitmap Dog_Attack_2;
-		CMovingBitmap Dog_Attack_3;
-		CMovingBitmap Dog_Attack_4;
-		CMovingBitmap Dog_BeingAttacked_Big;
-		CMovingBitmap Dog_BeingAttacked_Little;
-		CMovingBitmap Dog_BeingAttacked_Miss;
-		CMovingBitmap Dog_Weapon;
-
-		// ¿ß¿ß
-		/*
-		CMovingBitmap Cat_Normal;
-		CMovingBitmap Cat_Normal_BadlyHurt;
-		CMovingBitmap Cat_Attack_1;
-		CMovingBitmap Cat_Attack_2;
-		CMovingBitmap Cat_Attack_3;
-		CMovingBitmap Cat_Attack_4;
-		CMovingBitmap Cat_BeingAttacked_Big;
-		CMovingBitmap Cat_BeingAttacked_Little;
-		CMovingBitmap Cat_BeingAttacked_Miss;
-		CMovingBitmap Cat_Weapon;
-		*/
-		//
+		// ª¯¤Ä ¿ß¿ß
+		Dog	DogObject;
 		Cat	CatObject;
+
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

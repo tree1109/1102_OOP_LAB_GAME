@@ -52,6 +52,6 @@ namespace game_framework {
 
 	void Cat::OnShow()
 	{
-		// 根據目前的狀態貼上貓貓圖片
+		Cat_Attack_2.ShowBitmap();
 	}
 }

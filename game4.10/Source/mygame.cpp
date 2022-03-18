@@ -415,8 +415,9 @@ void CGameStateRun::OnBeginState()
 	CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
 
 
-	// 初始化貓咪物件
+	// 初始化貓咪跟狗狗物件
 	CatObject.Initialize();
+	DogObject.Initialize();
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
@@ -462,6 +463,8 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// 移動彈跳的球
 	//
 	bball.OnMove();
+
+	// 
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -503,58 +506,6 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 載入所有戰鬥中的圖片
 	// 背景
 	Background.LoadBitmap("GamePicture/GameRun/Background.bmp");
-
-	// 狗勾
-	Dog_Normal.LoadBitmap("GamePicture/GameRun/Dog/Normal.bmp");
-	Dog_Normal_BadlyHurt.LoadBitmap("GamePicture/GameRun/Dog/Normal_BadlyHurt.bmp");
-	Dog_Attack_1.LoadBitmap("GamePicture/GameRun/Dog/Attack_1.bmp");
-	Dog_Attack_2.LoadBitmap("GamePicture/GameRun/Dog/Attack_2.bmp");
-	Dog_Attack_3.LoadBitmap("GamePicture/GameRun/Dog/Attack_3.bmp");
-	Dog_Attack_4.LoadBitmap("GamePicture/GameRun/Dog/Attack_4.bmp");
-	Dog_BeingAttacked_Big.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Big.bmp");
-	Dog_BeingAttacked_Little.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Little.bmp");
-	Dog_BeingAttacked_Miss.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Miss.bmp");
-	Dog_Weapon.LoadBitmap("GamePicture/GameRun/Dog/Weapon.bmp", RGB(180, 0, 255));
-
-	// 貓貓
-	/*
-	Cat_Normal.LoadBitmap("GamePicture/GameRun/Cat/Normal.bmp");
-	Cat_Normal_BadlyHurt.LoadBitmap("GamePicture/GameRun/Cat/Normal_BadlyHurt.bmp");
-	Cat_Attack_1.LoadBitmap("GamePicture/GameRun/Cat/Attack_1.bmp");
-	Cat_Attack_2.LoadBitmap("GamePicture/GameRun/Cat/Attack_2.bmp");
-	Cat_Attack_3.LoadBitmap("GamePicture/GameRun/Cat/Attack_3.bmp");
-	Cat_Attack_4.LoadBitmap("GamePicture/GameRun/Cat/Attack_4.bmp");
-	Cat_BeingAttacked_Big.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Big.bmp");
-	Cat_BeingAttacked_Little.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Little.bmp");
-	Cat_BeingAttacked_Miss.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Miss.bmp");
-	Cat_Weapon.LoadBitmap("GamePicture/GameRun/Cat/Weapon.bmp", RGB(180, 0, 255));
-	*/
-	// 初始化部分圖片位置
-	const int DogPositionX = 1032;
-	const int DogPositionY = 634;
-	// const int CatPositionX = 0;
-	// const int CatPositionY = 559;
-	Background.SetTopLeft(0, 0);
-	Dog_Normal.SetTopLeft(DogPositionX, DogPositionY);
-	Dog_Normal_BadlyHurt.SetTopLeft(DogPositionX, DogPositionY);
-	Dog_Attack_1.SetTopLeft(DogPositionX, DogPositionY);
-	Dog_Attack_2.SetTopLeft(DogPositionX, DogPositionY);
-	Dog_Attack_3.SetTopLeft(DogPositionX, DogPositionY);
-	Dog_Attack_4.SetTopLeft(DogPositionX, DogPositionY);
-	Dog_BeingAttacked_Big.SetTopLeft(DogPositionX, DogPositionY);
-	Dog_BeingAttacked_Little.SetTopLeft(DogPositionX, DogPositionY);
-	Dog_BeingAttacked_Miss.SetTopLeft(DogPositionX, DogPositionY);
-	/*
-	Cat_Normal.SetTopLeft(CatPositionX, CatPositionY);
-	Cat_Normal_BadlyHurt.SetTopLeft(CatPositionX, CatPositionY);
-	Cat_Attack_1.SetTopLeft(CatPositionX, CatPositionY);
-	Cat_Attack_2.SetTopLeft(CatPositionX, CatPositionY);
-	Cat_Attack_3.SetTopLeft(CatPositionX, CatPositionY);
-	Cat_Attack_4.SetTopLeft(CatPositionX, CatPositionY);
-	Cat_BeingAttacked_Big.SetTopLeft(CatPositionX, CatPositionY);
-	Cat_BeingAttacked_Little.SetTopLeft(CatPositionX, CatPositionY);
-	Cat_BeingAttacked_Miss.SetTopLeft(CatPositionX, CatPositionY);
-	*/
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -647,5 +598,9 @@ void CGameStateRun::OnShow()
 	// 顯示武器
 	// Dog_Weapon.ShowBitmap();
 	// Cat_Weapon.ShowBitmap();
+
+	// 顯示貓貓狗狗
+	CatObject.OnShow();
+	DogObject.OnShow();
 }
 }
