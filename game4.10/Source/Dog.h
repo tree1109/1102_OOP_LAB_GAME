@@ -1,16 +1,17 @@
+#pragma once
+
 namespace game_framework {
 
 	class Dog
 	{
 	public:
 		Dog();
-		void OnMove();					// 根據目前的條件改變狀態
-		void OnShow();					// 根據目前的狀態貼上貓貓圖片
-		void Initialize();				// 設定
+		void OnMove(GAME_RUN_ID runId);			// 根據目前的條件改變狀態
+		void OnShow(PICTURE_STATUS pictureStatus);	// 根據目前的狀態貼上狗勾圖片
+		void Initialize();				// 初始化設定
 		void LoadBitmap();
 
 	protected:
-
 		int DogPositionX;
 		int DogPositionY;
 
@@ -24,6 +25,5 @@ namespace game_framework {
 		CMovingBitmap Dog_BeingAttacked_Big;
 		CMovingBitmap Dog_BeingAttacked_Little;
 		CMovingBitmap Dog_BeingAttacked_Miss;
-		CMovingBitmap Dog_Weapon;
 	};
 }

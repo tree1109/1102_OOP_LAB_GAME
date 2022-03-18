@@ -1,16 +1,17 @@
+#pragma once
+
 namespace game_framework {
 
 	class Cat
 	{
 	public:
 		Cat();
-		void OnMove();					// 根據目前的條件改變狀態
-		void OnShow();					// 根據目前的狀態貼上貓貓圖片
-		void Initialize();				// 設定
+		void OnMove(GAME_RUN_ID runId);				// 根據目前的條件改變狀態
+		void OnShow(PICTURE_STATUS pictureStatus);	// 根據目前的狀態貼上貓貓圖片
+		void Initialize();							// 初始化設定
 		void LoadBitmap();
 
 	protected:
-
 		int CatPositionX;
 		int CatPositionY;
 
@@ -24,6 +25,5 @@ namespace game_framework {
 		CMovingBitmap Cat_BeingAttacked_Big;
 		CMovingBitmap Cat_BeingAttacked_Little;
 		CMovingBitmap Cat_BeingAttacked_Miss;
-		CMovingBitmap Cat_Weapon;
 	};
 }

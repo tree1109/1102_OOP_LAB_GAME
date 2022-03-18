@@ -418,6 +418,9 @@ void CGameStateRun::OnBeginState()
 	// 初始化貓咪跟狗狗物件
 	CatObject.Initialize();
 	DogObject.Initialize();
+
+	// 一開始由狗先行攻擊
+	runId = DOG_PREPARE;
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
@@ -463,8 +466,34 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// 移動彈跳的球
 	//
 	bball.OnMove();
+		
 
-	// 
+
+	if (runId == CAT_PREPARE) {
+		runId = CAT_ATTACK_BEGIN;
+	}
+	else if (runId == CAT_ATTACK_BEGIN) {
+		runId = CAT_ATTACK_CHARGE;
+	}
+	else if (runId == CAT_ATTACK_CHARGE) {
+		runId = CAT_ATTACK_FIRE;
+	}
+	else if (runId == CAT_ATTACK_FIRE) {
+		runId = DOG_PREPARE;
+	}
+	else if (runId == DOG_PREPARE) {
+		runId = DOG_ATTACK_BEGIN;
+	}
+	else if (runId == DOG_ATTACK_BEGIN) {
+		runId = DOG_ATTACK_CHARGE;
+	}
+	else if (runId == DOG_ATTACK_CHARGE) {
+		runId = DOG_ATTACK_FIRE;
+	}
+	else if (runId == DOG_ATTACK_FIRE) {
+		runId = CAT_PREPARE;
+	}
+
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -600,7 +629,54 @@ void CGameStateRun::OnShow()
 	// Cat_Weapon.ShowBitmap();
 
 	// 顯示貓貓狗狗
-	CatObject.OnShow();
-	DogObject.OnShow();
+	// CatObject.OnShow(runId);
+	// DogObject.OnShow(runId);
+
+	// 根據狀態
+	if (runId == CAT_PREPARE) {
+		CatObject.OnShow(Normal);
+		Sleep(1000);
+	}
+	else if (runId == CAT_ATTACK_BEGIN) {
+		CatObject.OnShow(Attack_1);
+		Sleep(2000);
+		CatObject.OnShow(Attack_2);
+		Sleep(800);
+	}
+	else if (runId == CAT_ATTACK_CHARGE) {
+		CatObject.OnShow(Attack_3);
+		Sleep(2000);
+	}
+	else if (runId == CAT_ATTACK_FIRE) {
+		CatObject.OnShow(Attack_4);
+		Sleep(2000);
+	}
+	else {
+		CatObject.OnShow(Normal);
+	}
+
+
+	if (runId == DOG_PREPARE) {
+		DogObject.OnShow(Normal);
+		Sleep(1000);
+	}
+	else if (runId == DOG_ATTACK_BEGIN) {
+		DogObject.OnShow(Attack_1);
+		Sleep(800);
+		DogObject.OnShow(Attack_2);
+		Sleep(800);
+	}
+	else if (runId == DOG_ATTACK_CHARGE) {
+		DogObject.OnShow(Attack_3);
+		Sleep(2000);
+	}
+	else if (runId == DOG_ATTACK_FIRE) {
+		DogObject.OnShow(Attack_4);
+		Sleep(2000);
+	}
+	else {
+		DogObject.OnShow(Normal);
+	}
+
 }
 }

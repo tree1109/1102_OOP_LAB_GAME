@@ -2,11 +2,12 @@
 #include "Resource.h"
 #include <ddraw.h>
 #include "gamelib.h"
+#include "GAMEID.h"
 #include "Dog.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
-	// CEraser: Eraser class
+	// Dog: Dog class
 	/////////////////////////////////////////////////////////////////////////////
 
 	Dog::Dog()
@@ -41,17 +42,46 @@ namespace game_framework {
 		Dog_BeingAttacked_Big.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Big.bmp");
 		Dog_BeingAttacked_Little.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Little.bmp");
 		Dog_BeingAttacked_Miss.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Miss.bmp");
-		Dog_Weapon.LoadBitmap("GamePicture/GameRun/Dog/Weapon.bmp", RGB(180, 0, 255));
-		
 	}
 
-	void Dog::OnMove()
+	void Dog::OnMove(GAME_RUN_ID runId)
 	{
 		// 根據目前的條件改變狀態
 	}
 
-	void Dog::OnShow()
+	void Dog::OnShow(PICTURE_STATUS pictureStatus)
 	{
-		Dog_BeingAttacked_Miss.ShowBitmap();
+		switch (pictureStatus)
+		{
+		case Normal:
+			Dog_Normal.ShowBitmap();
+			break;
+		case Normal_BadlyHurt:
+			Dog_Normal_BadlyHurt.ShowBitmap();
+			break;
+		case Attack_1:
+			Dog_Attack_1.ShowBitmap();
+			break;
+		case Attack_2:
+			Dog_Attack_2.ShowBitmap();
+			break;
+		case Attack_3:
+			Dog_Attack_3.ShowBitmap();
+			break;
+		case Attack_4:
+			Dog_Attack_4.ShowBitmap();
+			break;
+		case BeingAttacked_Big:
+			Dog_BeingAttacked_Big.ShowBitmap();
+			break;
+		case BeingAttacked_Little:
+			Dog_BeingAttacked_Little.ShowBitmap();
+			break;
+		case BeingAttacked_Miss:
+			Dog_BeingAttacked_Miss.ShowBitmap();
+			break;
+		default:
+			break;
+		}
 	}
 }

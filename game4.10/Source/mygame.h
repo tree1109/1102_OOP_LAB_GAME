@@ -41,8 +41,10 @@
 #include "CEraser.h"
 #include "CBall.h"
 #include "CBouncingBall.h"
+#include "GAMEID.h"
 #include "Cat.h"
 #include "Dog.h"
+#include "Weapon.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -53,36 +55,6 @@ namespace game_framework {
 		AUDIO_DING,				// 0
 		AUDIO_LAKE,				// 1
 		AUDIO_NTUT				// 2
-	};
-
-	// 定義畫面的狀態
-	enum GAME_PAGE_ID {
-		START_BUTTON_PAGE_NO_HOVER,
-		START_BUTTON_PAGE_HOVER,
-		FLEABAG_VS_MUTT_PAGE_NO_HOVER,
-		FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY,
-		FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY,
-		HOW_TO_PLAY_PAGE_NO_HOVER,
-		HOW_TO_PLAY_PAGE_HOVER,
-		CHOOSE_GAME_PAGE_NO_HOVER,
-		CHOOSE_GAME_PAGE_HOVER_1PLAYER,
-		CHOOSE_GAME_PAGE_HOVER_2PLAYER,
-		SELECT_YOUR_LEVEL_PAGE_NO_HOVER,
-		SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER,
-		SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE,
-		SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON
-	};
-
-	// 定義遊玩中，現在是貓還是狗攻擊的狀態
-	enum GAME_RUN_ID {
-		DOG_PREPARE,
-		DOG_ATTACK_BEGIN,
-		DOG_ATTACK_CHARGE,
-		DOG_ATTACK_FIRE,
-		CAT_PREPARE,
-		CAT_ATTACK_BEGIN,
-		CAT_ATTACK_CHARGE,
-		CAT_ATTACK_FIRE
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -191,6 +163,8 @@ namespace game_framework {
 		// 狗勾 貓貓
 		Dog	DogObject;
 		Cat	CatObject;
+
+		GAME_RUN_ID runId;
 
 	};
 

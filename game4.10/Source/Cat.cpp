@@ -2,11 +2,12 @@
 #include "Resource.h"
 #include <ddraw.h>
 #include "gamelib.h"
+#include "GAMEID.h"
 #include "Cat.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
-	// CEraser: Eraser class
+	// Cat: Cat class
 	/////////////////////////////////////////////////////////////////////////////
 
 	Cat::Cat()
@@ -41,17 +42,46 @@ namespace game_framework {
 		Cat_BeingAttacked_Big.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Big.bmp");
 		Cat_BeingAttacked_Little.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Little.bmp");
 		Cat_BeingAttacked_Miss.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Miss.bmp");
-		Cat_Weapon.LoadBitmap("GamePicture/GameRun/Cat/Weapon.bmp", RGB(180, 0, 255));
-		
 	}
 
-	void Cat::OnMove()
+	void Cat::OnMove(GAME_RUN_ID runId)
 	{
 		// 根據目前的條件改變狀態
 	}
 
-	void Cat::OnShow()
+	void Cat::OnShow(PICTURE_STATUS pictureStatus)
 	{
-		Cat_Attack_2.ShowBitmap();
+		switch (pictureStatus)
+		{
+		case Normal:
+			Cat_Normal.ShowBitmap();
+			break;
+		case Normal_BadlyHurt:
+			Cat_Normal_BadlyHurt.ShowBitmap();
+			break;
+		case Attack_1:
+			Cat_Attack_1.ShowBitmap();
+			break;
+		case Attack_2:
+			Cat_Attack_2.ShowBitmap();
+			break;
+		case Attack_3:
+			Cat_Attack_3.ShowBitmap();
+			break;
+		case Attack_4:
+			Cat_Attack_4.ShowBitmap();
+			break;
+		case BeingAttacked_Big:
+			Cat_BeingAttacked_Big.ShowBitmap();
+			break;
+		case BeingAttacked_Little:
+			Cat_BeingAttacked_Little.ShowBitmap();
+			break;
+		case BeingAttacked_Miss:
+			Cat_BeingAttacked_Miss.ShowBitmap();
+			break;
+		default:
+			break;
+		}
 	}
 }
