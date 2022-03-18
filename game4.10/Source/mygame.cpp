@@ -510,7 +510,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	Dog_BeingAttacked_Big.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Big.bmp");
 	Dog_BeingAttacked_Little.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Little.bmp");
 	Dog_BeingAttacked_Miss.LoadBitmap("GamePicture/GameRun/Dog/BeingAttacked_Miss.bmp");
-	Dog_Weapon.LoadBitmap("GamePicture/GameRun/Dog/Weapon.bmp");
+	Dog_Weapon.LoadBitmap("GamePicture/GameRun/Dog/Weapon.bmp", RGB(180, 0, 255));
 
 	// 貓貓
 	Cat_Normal.LoadBitmap("GamePicture/GameRun/Cat/Normal.bmp");
@@ -522,7 +522,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	Cat_BeingAttacked_Big.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Big.bmp");
 	Cat_BeingAttacked_Little.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Little.bmp");
 	Cat_BeingAttacked_Miss.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Miss.bmp");
-	Cat_Weapon.LoadBitmap("GamePicture/GameRun/Cat/Weapon.bmp");
+	Cat_Weapon.LoadBitmap("GamePicture/GameRun/Cat/Weapon.bmp", RGB(180, 0, 255));
 
 	// 初始化部分圖片位置
 	int DogPositionX = 1032;
