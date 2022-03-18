@@ -41,6 +41,7 @@
 #include "CEraser.h"
 #include "CBall.h"
 #include "CBouncingBall.h"
+#include "Cat.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -199,6 +200,7 @@ namespace game_framework {
 		CMovingBitmap Dog_Weapon;
 
 		// ¿ß¿ß
+		/*
 		CMovingBitmap Cat_Normal;
 		CMovingBitmap Cat_Normal_BadlyHurt;
 		CMovingBitmap Cat_Attack_1;
@@ -209,6 +211,9 @@ namespace game_framework {
 		CMovingBitmap Cat_BeingAttacked_Little;
 		CMovingBitmap Cat_BeingAttacked_Miss;
 		CMovingBitmap Cat_Weapon;
+		*/
+		//
+		Cat	CatObject;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

@@ -413,6 +413,10 @@ void CGameStateRun::OnBeginState()
 	CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
 	CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
 	CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
+
+
+	// 初始化貓咪物件
+	CatObject.Initialize();
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
@@ -458,9 +462,6 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// 移動彈跳的球
 	//
 	bball.OnMove();
-
-	Dog_Weapon.SetTopLeft(0, 0);
-	Cat_Weapon.SetTopLeft(0, 0);
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -516,6 +517,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	Dog_Weapon.LoadBitmap("GamePicture/GameRun/Dog/Weapon.bmp", RGB(180, 0, 255));
 
 	// 貓貓
+	/*
 	Cat_Normal.LoadBitmap("GamePicture/GameRun/Cat/Normal.bmp");
 	Cat_Normal_BadlyHurt.LoadBitmap("GamePicture/GameRun/Cat/Normal_BadlyHurt.bmp");
 	Cat_Attack_1.LoadBitmap("GamePicture/GameRun/Cat/Attack_1.bmp");
@@ -526,12 +528,12 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	Cat_BeingAttacked_Little.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Little.bmp");
 	Cat_BeingAttacked_Miss.LoadBitmap("GamePicture/GameRun/Cat/BeingAttacked_Miss.bmp");
 	Cat_Weapon.LoadBitmap("GamePicture/GameRun/Cat/Weapon.bmp", RGB(180, 0, 255));
-
+	*/
 	// 初始化部分圖片位置
 	const int DogPositionX = 1032;
 	const int DogPositionY = 634;
-	const int CatPositionX = 0;
-	const int CatPositionY = 559;
+	// const int CatPositionX = 0;
+	// const int CatPositionY = 559;
 	Background.SetTopLeft(0, 0);
 	Dog_Normal.SetTopLeft(DogPositionX, DogPositionY);
 	Dog_Normal_BadlyHurt.SetTopLeft(DogPositionX, DogPositionY);
@@ -542,6 +544,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	Dog_BeingAttacked_Big.SetTopLeft(DogPositionX, DogPositionY);
 	Dog_BeingAttacked_Little.SetTopLeft(DogPositionX, DogPositionY);
 	Dog_BeingAttacked_Miss.SetTopLeft(DogPositionX, DogPositionY);
+	/*
 	Cat_Normal.SetTopLeft(CatPositionX, CatPositionY);
 	Cat_Normal_BadlyHurt.SetTopLeft(CatPositionX, CatPositionY);
 	Cat_Attack_1.SetTopLeft(CatPositionX, CatPositionY);
@@ -551,6 +554,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	Cat_BeingAttacked_Big.SetTopLeft(CatPositionX, CatPositionY);
 	Cat_BeingAttacked_Little.SetTopLeft(CatPositionX, CatPositionY);
 	Cat_BeingAttacked_Miss.SetTopLeft(CatPositionX, CatPositionY);
+	*/
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
