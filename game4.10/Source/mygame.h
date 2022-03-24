@@ -38,9 +38,6 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
-#include "CEraser.h"
-#include "CBall.h"
-#include "CBouncingBall.h"
 #include "GAMEID.h"
 #include "Cat.h"
 #include "Dog.h"
@@ -64,7 +61,7 @@ namespace game_framework {
 
 	class CGameStateInit : public CGameState {
 	public:
-		CGameStateInit(CGame *g);
+		CGameStateInit(CGame* g);
 		void OnInit();  								// 遊戲的初值及圖形設定
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnKeyUp(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
@@ -74,9 +71,6 @@ namespace game_framework {
 		void OnMove();									// 判斷要顯示的畫面
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		CMovingBitmap logo;								// csie的logo
-
-
 		// 遊戲開始畫面
 		CMovingBitmap StartButton_noHover;
 		CMovingBitmap StartButton_hover;
@@ -132,7 +126,7 @@ namespace game_framework {
 
 	class CGameStateRun : public CGameState {
 	public:
-		CGameStateRun(CGame *g);
+		CGameStateRun(CGame* g);
 		~CGameStateRun();
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnInit();  								// 遊戲的初值及圖形設定
@@ -147,16 +141,6 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		const int		NUMBALLS;	// 球的總數
-		CMovingBitmap	background;	// 背景圖
-		CMovingBitmap	help;		// 說明圖
-		CBall			*ball;		// 球的陣列
-		CMovingBitmap	corner;		// 角落圖
-		CEraser			eraser;		// 拍子
-		CInteger		hits_left;	// 剩下的撞擊數
-		CBouncingBall   bball;		// 反覆彈跳的球
-
-
 		// 戰鬥中
 		CMovingBitmap Background;
 
@@ -176,7 +160,7 @@ namespace game_framework {
 
 	class CGameStateOver : public CGameState {
 	public:
-		CGameStateOver(CGame *g);
+		CGameStateOver(CGame* g);
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnInit();
 	protected:
