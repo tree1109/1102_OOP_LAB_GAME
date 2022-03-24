@@ -15,6 +15,7 @@ namespace game_framework {
 		void SetPower(int powerX, int powerY);
 		void SetPosition(int x, int y);
 		void DogFire(int timer);
+		void CatFire(int timer);
 		bool isHitGround();
 
 	protected:
