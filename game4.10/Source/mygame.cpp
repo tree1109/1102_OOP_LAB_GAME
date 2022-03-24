@@ -55,6 +55,7 @@
 #include "Resource.h"
 #include <mmsystem.h>
 #include <ddraw.h>
+#include <cstdlib>
 #include "audio.h"
 #include "gamelib.h"
 #include "mygame.h"
@@ -355,15 +356,28 @@ namespace game_framework {
 			}
 		}
 		else if (runId == CAT_ATTACK_BEGIN) {
-			runId = CAT_ATTACK_CHARGE;
+			Timer ++;
+			if (Timer >= 20) {
+				runId = CAT_ATTACK_CHARGE;
+				Timer = 0;
+			}
 		}
 		else if (runId == CAT_ATTACK_CHARGE) {
-			// ¦h¤H¹CÀ¸
-			// Timer++;
-			runId = CAT_ATTACK_FIRE;
+			Timer++;
+			if (Timer >= 20) {
+				int max = 40;
+				int min = 1;
+				int rand_power = rand() % (max - min + 1) + min;
+
+				WeaponObject.CatFire(rand_power);
+				runId = CAT_ATTACK_FIRE;
+				Timer = 0;
+			}
 		}
 		else if (runId == CAT_ATTACK_FIRE) {
-			runId = DOG_PREPARE;
+			if (WeaponObject.isHitGround()) {
+				runId = DOG_PREPARE;
+			}
 		}
 		else if (runId == DOG_PREPARE) {
 			Timer++;
