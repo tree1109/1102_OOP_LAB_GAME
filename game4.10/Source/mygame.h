@@ -147,6 +147,7 @@ namespace game_framework {
 		// ª¯¤Ä ¿ß¿ß
 		Dog	DogObject;
 		Cat	CatObject;
+		Weapon WeaponObject;
 
 		GAME_RUN_ID runId;
 		int Timer;

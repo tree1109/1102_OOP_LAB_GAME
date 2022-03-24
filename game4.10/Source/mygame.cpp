@@ -324,12 +324,18 @@ namespace game_framework {
 
 	void CGameStateRun::OnBeginState()
 	{
-		// 初始化貓咪跟狗狗物件
+		// 每次進到CGameStateRun都會跑一次
+
+		// 初始化貓咪跟狗狗武器物件
 		CatObject.Initialize();
 		DogObject.Initialize();
+		WeaponObject.Initialize();
 
 		// 一開始由狗先行攻擊
 		runId = DOG_PREPARE;
+
+		// 初始化計時器
+		Timer = 0;
 	}
 
 	void CGameStateRun::OnMove()							// 移動遊戲元素
@@ -352,6 +358,8 @@ namespace game_framework {
 			runId = CAT_ATTACK_CHARGE;
 		}
 		else if (runId == CAT_ATTACK_CHARGE) {
+			// 多人遊戲
+			// Timer++;
 			runId = CAT_ATTACK_FIRE;
 		}
 		else if (runId == CAT_ATTACK_FIRE) {
@@ -368,7 +376,6 @@ namespace game_framework {
 			Timer++;
 			if (Timer >= 25) {
 				runId = DOG_ATTACK_BEGIN;
-				Timer = 0;
 			}
 		}
 		else if (runId == DOG_ATTACK_BEGIN) {
@@ -379,20 +386,25 @@ namespace game_framework {
 			// runId = DOG_ATTACK_FIRE;
 		}
 		else if (runId == DOG_ATTACK_FIRE) {
-			runId = CAT_PREPARE;
-			Timer = 0;
+			if (WeaponObject.isHitGround()) {
+				runId = CAT_PREPARE;
+			}
 		}
 
+		// Weapon位移運算
+		WeaponObject.OnMove(runId);
 	}
 
-	void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
+	void CGameStateRun::OnInit()
 	{
+		// 啟動遊戲時進行遊戲圖形載入
+
 		// 載入所有戰鬥中的圖片
 		// 背景
 		Background.LoadBitmap("GamePicture/GameRun/Background.bmp");
-
-		// 初始化計時器
-		Timer = 0;
+		CatObject.LoadBitmap();
+		DogObject.LoadBitmap();
+		WeaponObject.LoadBitmap();
 	}
 
 	void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -409,6 +421,7 @@ namespace game_framework {
 	{
 		if (runId == DOG_ATTACK_BEGIN) {
 			runId = DOG_ATTACK_CHARGE;
+			Timer = 0;
 		}
 	}
 
@@ -416,6 +429,7 @@ namespace game_framework {
 	{
 		if (runId == DOG_ATTACK_CHARGE) {
 			runId = DOG_ATTACK_FIRE;
+			WeaponObject.DogFire(Timer);
 		}
 	}
 
@@ -444,15 +458,6 @@ namespace game_framework {
 
 		// 顯示背景
 		Background.ShowBitmap();
-
-
-		// 顯示武器
-		// Dog_Weapon.ShowBitmap();
-		// Cat_Weapon.ShowBitmap();
-
-		// 顯示貓貓狗狗
-		// CatObject.OnShow(runId);
-		// DogObject.OnShow(runId);
 
 		// Cat
 		if (runId == CAT_PREPARE) {
@@ -493,6 +498,9 @@ namespace game_framework {
 		else {
 			DogObject.OnShow(Normal);
 		}
+
+		// Weapon
+		WeaponObject.OnShow(runId);
 
 	}
 }

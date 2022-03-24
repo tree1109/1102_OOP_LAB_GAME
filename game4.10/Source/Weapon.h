@@ -12,8 +12,10 @@ namespace game_framework {
 		void OnMove(GAME_RUN_ID runId);					// 根據目前的條件改變狀態
 		void OnShow(GAME_RUN_ID runId);					// 根據目前的狀態貼上貓貓圖片
 		void LoadBitmap();
-		void SetPower(int power);
+		void SetPower(int powerX, int powerY);
 		void SetPosition(int x, int y);
+		void DogFire(int timer);
+		bool isHitGround();
 
 	protected:
 		// 武器投擲物座標

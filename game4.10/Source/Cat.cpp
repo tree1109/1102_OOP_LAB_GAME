@@ -18,8 +18,6 @@ namespace game_framework {
 
 	void Cat::Initialize()
 	{
-		LoadBitmap();
-
 		Cat_Normal.SetTopLeft(CatPositionX, CatPositionY);
 		Cat_Normal_BadlyHurt.SetTopLeft(CatPositionX, CatPositionY);
 		Cat_Attack_1.SetTopLeft(CatPositionX, CatPositionY);

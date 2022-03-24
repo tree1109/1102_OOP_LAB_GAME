@@ -28,8 +28,8 @@ namespace game_framework {
 
 	void Weapon::Initialize()
 	{
-		LoadBitmap();
-
+		SetPower(0, 0);
+		SetPosition(0, 0);
 		Cat_Weapon.SetTopLeft(0, 0);
 		Dog_Weapon.SetTopLeft(0, 0);
 	}
@@ -38,7 +38,6 @@ namespace game_framework {
 	{
 		Cat_Weapon.LoadBitmap("GamePicture/GameRun/Cat/Weapon.bmp", RGB(180, 0, 255));
 		Dog_Weapon.LoadBitmap("GamePicture/GameRun/Dog/Weapon.bmp", RGB(180, 0, 255));
-		
 	}
 
 	void Weapon::OnMove(GAME_RUN_ID runId)
@@ -48,7 +47,8 @@ namespace game_framework {
 			
 		}
 		else if (runId == DOG_ATTACK_FIRE) {
-			
+			SetPower(velocityX, velocityY + 1); // 10 是重力
+			SetPosition(weaponPositionX + velocityX, weaponPositionY + velocityY);
 		}
 	}
 
@@ -63,15 +63,29 @@ namespace game_framework {
 		}
 	}
 
-	void Weapon::SetPower(int power)
+	void Weapon::SetPower(int powerX, int powerY)
 	{
-		velocityX = power;
-		velocityY = 0-power;
+		velocityX = powerX;
+		velocityY = powerY;
 	}
 
 	void Weapon::SetPosition(int x, int y)
 	{
 		weaponPositionX = x;
 		weaponPositionY = y;
+	}
+
+	void Weapon::DogFire(int timer)
+	{
+		int power = 100;
+		SetPosition(1088, 693);		// 骨頭起始發射位置
+		SetPower(-power, -power);	// 往左上角發射
+
+	}
+
+	bool Weapon::isHitGround()
+	{
+		// Y值大於888時代表落地
+		return weaponPositionY > 888;
 	}
 }

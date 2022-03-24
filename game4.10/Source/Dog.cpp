@@ -18,8 +18,6 @@ namespace game_framework {
 
 	void Dog::Initialize()
 	{
-		LoadBitmap();
-
 		Dog_Normal.SetTopLeft(DogPositionX, DogPositionY);
 		Dog_Normal_BadlyHurt.SetTopLeft(DogPositionX, DogPositionY);
 		Dog_Attack_1.SetTopLeft(DogPositionX, DogPositionY);
