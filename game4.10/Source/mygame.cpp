@@ -375,9 +375,33 @@ namespace game_framework {
 			}
 		}
 		else if (runId == CAT_ATTACK_FIRE) {
-			if (WeaponObject.isHitGround()) {
-				runId = DOG_PREPARE;
+			if (WeaponObject.isHitDog() == 1) {
+				runId = DOG_BEGIN_ATTACKED_LITTLE;
+				Timer = 0;
 			}
+			else if (WeaponObject.isHitDog() == 2) {
+				runId = DOG_BEGIN_ATTACKED_BIG;
+				Timer = 0;
+			}
+			else if (WeaponObject.isHitGround()) {
+				runId = DOG_BEGIN_ATTACKED_MISS;
+				Timer = 0;
+			}
+		}
+		else if (runId == CAT_BEGIN_ATTACKED_LITTLE) {
+			Timer++;
+			if (Timer > 30)
+				runId = CAT_PREPARE;
+		}
+		else if (runId == CAT_BEGIN_ATTACKED_BIG) {
+			Timer++;
+			if (Timer > 30)
+				runId = CAT_PREPARE;
+		}
+		else if (runId == CAT_BEGIN_ATTACKED_MISS) {
+			Timer++;
+			if (Timer > 30)
+				runId = CAT_PREPARE;
 		}
 		else if (runId == DOG_PREPARE) {
 			Timer++;
@@ -400,9 +424,33 @@ namespace game_framework {
 			// runId = DOG_ATTACK_FIRE;
 		}
 		else if (runId == DOG_ATTACK_FIRE) {
-			if (WeaponObject.isHitGround()) {
-				runId = CAT_PREPARE;
+			if (WeaponObject.isHitCat() == 1) {
+				runId = CAT_BEGIN_ATTACKED_LITTLE;
+				Timer = 0;
 			}
+			else if (WeaponObject.isHitCat() == 2) {
+				runId = CAT_BEGIN_ATTACKED_BIG;
+				Timer = 0;
+			}
+			else if (WeaponObject.isHitGround()) {
+				runId = CAT_BEGIN_ATTACKED_MISS;
+				Timer = 0;
+			}
+		}
+		else if (runId == DOG_BEGIN_ATTACKED_LITTLE) {
+			Timer++;
+			if (Timer > 30)
+				runId = DOG_PREPARE;
+		}
+		else if (runId == DOG_BEGIN_ATTACKED_BIG) {
+			Timer++;
+			if (Timer > 30)
+				runId = DOG_PREPARE;
+		}
+		else if (runId == DOG_BEGIN_ATTACKED_MISS) {
+			Timer++;
+			if (Timer > 30)
+				runId = DOG_PREPARE;
 		}
 
 		// Weapon¦ì²¾¹Bºâ
@@ -489,6 +537,15 @@ namespace game_framework {
 		else if (runId == CAT_ATTACK_FIRE) {
 			CatObject.OnShow(Attack_4);
 		}
+		else if (runId == CAT_BEGIN_ATTACKED_LITTLE) {
+			CatObject.OnShow(BeingAttacked_Little);
+		}
+		else if (runId == CAT_BEGIN_ATTACKED_BIG) {
+			CatObject.OnShow(BeingAttacked_Big);
+		}
+		else if (runId == CAT_BEGIN_ATTACKED_MISS) {
+			CatObject.OnShow(BeingAttacked_Miss);
+		}
 		else {
 			CatObject.OnShow(Normal);
 		}
@@ -508,6 +565,15 @@ namespace game_framework {
 		}
 		else if (runId == DOG_ATTACK_FIRE) {
 			DogObject.OnShow(Attack_4);
+		}
+		else if (runId == DOG_BEGIN_ATTACKED_LITTLE) {
+			DogObject.OnShow(BeingAttacked_Little);
+		}
+		else if (runId == DOG_BEGIN_ATTACKED_BIG) {
+			DogObject.OnShow(BeingAttacked_Big);
+		}
+		else if (runId == DOG_BEGIN_ATTACKED_MISS) {
+			DogObject.OnShow(BeingAttacked_Miss);
 		}
 		else {
 			DogObject.OnShow(Normal);
