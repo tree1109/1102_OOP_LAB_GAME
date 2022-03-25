@@ -126,7 +126,7 @@ namespace game_framework {
 	bool Weapon::isHitGround()
 	{
 		// Y值大於814時代表落地
-		return weaponPositionY > 814 && (GetX_LT(CAT_ATTACK_FIRE) > 1333 || GetX_RB(DOG_ATTACK_FIRE) < 0);
+		return weaponPositionY > 814 || GetX_LT(CAT_ATTACK_FIRE) > 1333 || GetX_RB(DOG_ATTACK_FIRE) < 0;
 	}
 
 	int Weapon::isHitCat()
