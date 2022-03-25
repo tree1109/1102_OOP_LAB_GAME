@@ -123,14 +123,35 @@ namespace game_framework {
 
 	int Weapon::isHitCat()
 	{
-		// 0:miss, 1:lightly attacked, 2:heavly attacked
-
-
-		return 0;
+		// -1:too far, 0:miss, 1:lightly attacked, 2:heavly attacked]
+		// 判斷武器是不是飛到一半
+		if (GetX_LT(DOG_ATTACK_FIRE) < 1333 / 2 && GetY_RB(DOG_ATTACK_FIRE) > 586) {
+			// 判斷武器是不是完全在重擊區或擦傷區或是miss
+			if (GetX_LT(DOG_ATTACK_FIRE) > 74 && GetX_RB(DOG_ATTACK_FIRE) < 200)
+				return 2;
+			else if (GetX_LT(DOG_ATTACK_FIRE) > 24 && GetX_RB(DOG_ATTACK_FIRE) < 250)
+				return 1;
+			else
+				return 0;
+		}
+		else
+			return -1;
 	}
 
 	int Weapon::isHitDog()
 	{
-		return 0;
+		// -1:too far, 0:miss, 1:lightly attacked, 2:heavly attacked]
+		// 判斷武器是不是飛到一半
+		if (GetX_LT(CAT_ATTACK_FIRE) > 1333 / 2 && GetY_RB(CAT_ATTACK_FIRE) > 677) {
+			// 判斷武器是不是完全在重擊區或擦傷區或是miss
+			if (GetX_LT(CAT_ATTACK_FIRE) > 1092 && GetX_RB(CAT_ATTACK_FIRE) < 1238)
+				return 2;
+			else if (GetX_LT(CAT_ATTACK_FIRE) > 1042 && GetX_RB(CAT_ATTACK_FIRE) < 1288)
+				return 1;
+			else
+				return 0;
+		}
+		else
+			return -1;
 	}
 }
