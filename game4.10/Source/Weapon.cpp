@@ -16,14 +16,36 @@ namespace game_framework {
 		weaponPositionY = 559;
 	}
 
-	int Weapon::GetX1()
+	int Weapon::GetX_LT(GAME_RUN_ID runId)
 	{
-		return weaponPositionX;
+		if (runId == CAT_ATTACK_FIRE)
+			return weaponPositionX + 14;
+		else if (runId == DOG_ATTACK_FIRE)
+			return weaponPositionX + 7;
 	}
 
-	int Weapon::GetY1()
+	int Weapon::GetY_LT(GAME_RUN_ID runId)
 	{
-		return weaponPositionY;
+		if (runId == CAT_ATTACK_FIRE)
+			return weaponPositionX + 3;
+		else if (runId == DOG_ATTACK_FIRE)
+			return weaponPositionY + 21;
+	}
+
+	int Weapon::GetX_RB(GAME_RUN_ID runId)
+	{
+		if (runId == CAT_ATTACK_FIRE)
+			return weaponPositionX + 78;
+		else if (runId == DOG_ATTACK_FIRE)
+			return weaponPositionX + 80;
+	}
+
+	int Weapon::GetY_RB(GAME_RUN_ID runId)
+	{
+		if (runId == CAT_ATTACK_FIRE)
+			return weaponPositionX + 79;
+		else if (runId == DOG_ATTACK_FIRE)
+			return weaponPositionY + 65;
 	}
 
 	void Weapon::Initialize()
@@ -97,5 +119,18 @@ namespace game_framework {
 	{
 		// Y值大於814時代表落地
 		return weaponPositionY > 814;
+	}
+
+	int Weapon::isHitCat()
+	{
+		// 0:miss, 1:lightly attacked, 2:heavly attacked
+
+
+		return 0;
+	}
+
+	int Weapon::isHitDog()
+	{
+		return 0;
 	}
 }
