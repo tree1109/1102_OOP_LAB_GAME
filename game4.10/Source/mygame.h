@@ -71,6 +71,9 @@ namespace game_framework {
 		void OnMove();									// 判斷要顯示的畫面
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
+		// 遊戲開始畫面背景動畫
+		CAnimation StartButtonBackground;
+
 		// 遊戲開始畫面
 		CMovingBitmap StartButton_noHover;
 		CMovingBitmap StartButton_hover;

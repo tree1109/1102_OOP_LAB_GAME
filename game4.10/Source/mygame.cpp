@@ -76,6 +76,15 @@ namespace game_framework {
 		CurrentPage = START_BUTTON_PAGE_NO_HOVER;
 
 		// 加載遊戲開始畫面圖片
+		// 遊戲開始畫面動畫
+		StartButtonBackground.SetDelayCount(4);
+		for (int i = 1; i <= 8; i++) {
+			std::string PicturePath = string("GamePicture/GameInit/StartButton/") + std::to_string(i) + ".bmp";
+			char num_char[40];
+			std::sprintf(num_char, "%s", (PicturePath.c_str()));
+			StartButtonBackground.AddBitmap(num_char);
+		}
+
 		// 遊戲開始畫面
 		StartButton_noHover.LoadBitmap("GamePicture/GameInit/StartButton_noHover.bmp");
 		StartButton_hover.LoadBitmap("GamePicture/GameInit/StartButton_hover.bmp");
@@ -101,8 +110,9 @@ namespace game_framework {
 		SelectYourLevel_hoverBringItOn.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverBringItOn.bmp");
 
 		// 初始化所有圖片位置，因為都是整個畫面所以設置在(0, 0)位置
-		StartButton_noHover.SetTopLeft(0, 0);
-		StartButton_hover.SetTopLeft(0, 0);
+		StartButtonBackground.SetTopLeft(0, 0);
+		StartButton_noHover.SetTopLeft(572, 778);
+		StartButton_hover.SetTopLeft(572, 778);
 		FleabagVsMutt_noHover.SetTopLeft(0, 0);
 		FleabagVsMutt_hoverHowToPlay.SetTopLeft(0, 0);
 		FleabagVsMutt_hoverLetsPlay.SetTopLeft(0, 0);
@@ -223,16 +233,19 @@ namespace game_framework {
 
 	void CGameStateInit::OnMove()
 	{
-
+		// 遊戲開始畫面背景動畫
+		StartButtonBackground.OnMove();
 	}
 
 	void CGameStateInit::OnShow()
 	{
 		// 遊戲開始畫面
 		if (CurrentPage == START_BUTTON_PAGE_NO_HOVER) {
+			StartButtonBackground.OnShow();
 			StartButton_noHover.ShowBitmap();
 		}
 		else if (CurrentPage == START_BUTTON_PAGE_HOVER) {
+			StartButtonBackground.OnShow();
 			StartButton_hover.ShowBitmap();
 		}
 		// 遊戲大綱畫面
