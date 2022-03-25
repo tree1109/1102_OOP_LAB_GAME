@@ -29,7 +29,7 @@ namespace game_framework {
 	int Weapon::GetY_LT(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionX + 3;
+			return weaponPositionY + 3;
 		else if (runId == DOG_ATTACK_FIRE)
 			return weaponPositionY + 21;
 		else
@@ -49,7 +49,7 @@ namespace game_framework {
 	int Weapon::GetY_RB(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionX + 79;
+			return weaponPositionY + 79;
 		else if (runId == DOG_ATTACK_FIRE)
 			return weaponPositionY + 65;
 		else
@@ -126,7 +126,7 @@ namespace game_framework {
 	bool Weapon::isHitGround()
 	{
 		// Y值大於814時代表落地
-		return weaponPositionY > 814 || GetX_LT(CAT_ATTACK_FIRE) > 1333 || GetX_RB(DOG_ATTACK_FIRE) < 0;
+		return weaponPositionY > 814 && (GetX_LT(CAT_ATTACK_FIRE) > 1333 || GetX_RB(DOG_ATTACK_FIRE) < 0);
 	}
 
 	int Weapon::isHitCat()
