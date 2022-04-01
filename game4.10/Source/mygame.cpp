@@ -434,24 +434,23 @@ namespace game_framework {
 				switch (GameData::GameLevel)
 				{
 				case GAME_LEVEL::ImaBeginner:
-					max = 40;
-					min = 1;
+					// 命中率 3/25 == 12%
+					max = 27;
+					min = 3;
 					break;
 				case GAME_LEVEL::ImAverage:
-					max = 25;
-					min = 5;
+					// 命中率 3/15 == 20%
+					max = 22;
+					min = 8;
 					break;
 				case GAME_LEVEL::BringItOn:
-					max = 15;
-					min = 10;
+					// 命中率 3/5 == 60%
+					max = 17;
+					min = 13;
 					break;
 				default:
 					break;
 				}
-
-
-
-
 				int rand_power = rand() % (max - min + 1) + min;
 
 				WeaponObject.CatFire(rand_power);
