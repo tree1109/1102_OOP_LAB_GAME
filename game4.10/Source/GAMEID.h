@@ -55,4 +55,9 @@ namespace game_framework {
 		BeingAttacked_Miss
 	};
 
+	enum class GAME_LEVEL {
+		ImaBeginner,
+		ImAverage,
+		BringItOn
+	};
 }

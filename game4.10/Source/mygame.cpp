@@ -61,6 +61,9 @@
 #include "mygame.h"
 
 namespace game_framework {
+	// 初始化遊戲難度
+	GAME_LEVEL GameData::GameLevel = GAME_LEVEL::ImaBeginner;
+
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的遊戲開頭畫面物件
 	/////////////////////////////////////////////////////////////////////////////
@@ -242,14 +245,17 @@ namespace game_framework {
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER) {
 			// 紀錄難度
+			GameData::GameLevel = GAME_LEVEL::ImaBeginner;
 			GotoGameState(GAME_STATE_RUN);
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE) {
 			// 紀錄難度
+			GameData::GameLevel = GAME_LEVEL::ImAverage;
 			GotoGameState(GAME_STATE_RUN);
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
 			// 紀錄難度
+			GameData::GameLevel = GAME_LEVEL::BringItOn;
 			GotoGameState(GAME_STATE_RUN);
 		}
 	}
@@ -371,7 +377,7 @@ namespace game_framework {
 	CGameStateRun::CGameStateRun(CGame* g)
 		: CGameState(g)
 	{
-
+		
 	}
 
 	CGameStateRun::~CGameStateRun()
@@ -421,8 +427,31 @@ namespace game_framework {
 		else if (runId == CAT_ATTACK_CHARGE) {
 			Timer++;
 			if (Timer >= 20) {
-				int max = 40;
-				int min = 1;
+				int max = 0;
+				int min = 0;
+
+				// 難度每升一級就將攻擊範圍縮小12
+				switch (GameData::GameLevel)
+				{
+				case GAME_LEVEL::ImaBeginner:
+					max = 40;
+					min = 1;
+					break;
+				case GAME_LEVEL::ImAverage:
+					max = 25;
+					min = 5;
+					break;
+				case GAME_LEVEL::BringItOn:
+					max = 15;
+					min = 10;
+					break;
+				default:
+					break;
+				}
+
+
+
+
 				int rand_power = rand() % (max - min + 1) + min;
 
 				WeaponObject.CatFire(rand_power);

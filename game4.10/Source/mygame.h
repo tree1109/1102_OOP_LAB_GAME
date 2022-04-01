@@ -42,6 +42,7 @@
 #include "Cat.h"
 #include "Dog.h"
 #include "Weapon.h"
+#include "GameData.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////

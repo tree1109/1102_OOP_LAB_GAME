@@ -306,6 +306,7 @@
     <ClInclude Include="Source\Cat.h" />
     <ClInclude Include="Source\Dog.h" />
     <ClInclude Include="Source\game.h" />
+    <ClInclude Include="Source\GameData.h" />
     <ClInclude Include="Source\gameDoc.h" />
     <ClInclude Include="Source\GAMEID.h" />
     <ClInclude Include="Source\gameView.h" />
