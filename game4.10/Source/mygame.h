@@ -158,6 +158,9 @@ namespace game_framework {
 		Cat	CatObject;
 		Weapon WeaponObject;
 
+		// ª¯¤Ä§ðÀ»­Ë¤T¨¤
+		CAnimation AttackInvertedTriangle;
+
 		GAME_RUN_ID runId;
 		int Timer;
 

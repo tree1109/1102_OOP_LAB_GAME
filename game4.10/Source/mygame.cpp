@@ -501,11 +501,10 @@ namespace game_framework {
 			}
 		}
 		else if (runId == DOG_ATTACK_BEGIN) {
-			// runId = DOG_ATTACK_CHARGE;
+			AttackInvertedTriangle.OnMove();
 		}
 		else if (runId == DOG_ATTACK_CHARGE) {
 			Timer++;
-			// runId = DOG_ATTACK_FIRE;
 		}
 		else if (runId == DOG_ATTACK_FIRE) {
 			if (WeaponObject.isHitCat() == 1) {
@@ -544,6 +543,17 @@ namespace game_framework {
 	void CGameStateRun::OnInit()
 	{
 		// 啟動遊戲時進行遊戲圖形載入
+		// 狗攻擊時頭上的倒三角形動畫載入
+		AttackInvertedTriangle.SetDelayCount(4);
+		for (int i = 1; i <= 4; i++) {
+			std::string PicturePath = string("GamePicture/GameRun/Dog/AttackInvertedTriangle_") + std::to_string(i) + ".bmp";
+			char num_char[100];
+			std::sprintf(num_char, "%s", (PicturePath.c_str()));
+			AttackInvertedTriangle.AddBitmap(num_char);
+		}
+
+		// 初始化圖片位置
+		AttackInvertedTriangle.SetTopLeft(1175, 546);
 
 		// 載入所有戰鬥中的圖片
 		// 背景
@@ -643,6 +653,7 @@ namespace game_framework {
 		}
 		else if (runId == DOG_ATTACK_BEGIN) {
 			DogObject.OnShow(Attack_2);
+			AttackInvertedTriangle.OnShow();
 		}
 		else if (runId == DOG_ATTACK_CHARGE) {
 			DogObject.OnShow(Attack_3);
