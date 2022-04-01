@@ -80,7 +80,7 @@ namespace game_framework {
 		StartButtonBackground.SetDelayCount(4);
 		for (int i = 1; i <= 8; i++) {
 			std::string PicturePath = string("GamePicture/GameInit/StartButton/") + std::to_string(i) + ".bmp";
-			char num_char[40];
+			char num_char[50];
 			std::sprintf(num_char, "%s", (PicturePath.c_str()));
 			StartButtonBackground.AddBitmap(num_char);
 		}
@@ -103,8 +103,28 @@ namespace game_framework {
 		ChooseGame_hover1P.LoadBitmap("GamePicture/GameInit/ChooseGame_hover1P.bmp");;
 		ChooseGame_hover2P.LoadBitmap("GamePicture/GameInit/ChooseGame_hover2P.bmp");;
 
+		// 選擇遊戲難度頁面各難度動畫
+		SelectYourLevel_hoverBeginnerAnimation.SetDelayCount(3);
+		SelectYourLevel_hoverAverageAnimation.SetDelayCount(3);
+		SelectYourLevel_hoverBringItOnAnimation.SetDelayCount(3);
+		for (int i = 1; i <= 4; i++) {
+			char num_char[60];
+			std::string PicturePath = string("GamePicture/GameInit/SelectYourLevel/1-") + std::to_string(i) + ".bmp";
+			std::sprintf(num_char, "%s", (PicturePath.c_str()));
+			SelectYourLevel_hoverBeginnerAnimation.AddBitmap(num_char);
+			PicturePath = string("GamePicture/GameInit/SelectYourLevel/2-") + std::to_string(i) + ".bmp";
+			std::sprintf(num_char, "%s", (PicturePath.c_str()));
+			SelectYourLevel_hoverAverageAnimation.AddBitmap(num_char);
+		}
+		for (int i = 1; i <= 7; i++) {
+			char num_char[60];
+			std::string PicturePath = string("GamePicture/GameInit/SelectYourLevel/3-") + std::to_string(i) + ".bmp";
+			std::sprintf(num_char, "%s", (PicturePath.c_str()));
+			SelectYourLevel_hoverBringItOnAnimation.AddBitmap(num_char);
+		}
+
 		// 選擇遊戲難度頁面
-		SelectYourLevel_noHover.LoadBitmap("GamePicture/GameInit/SelectYourLevel_noHover.bmp");
+		SelectYourLevelBackground.LoadBitmap("GamePicture/GameInit/SelectYourLevelBackground.bmp");
 		SelectYourLevel_hoverBeginner.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverBeginner.bmp");
 		SelectYourLevel_hoverAverage.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverAverage.bmp");
 		SelectYourLevel_hoverBringItOn.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverBringItOn.bmp");
@@ -121,10 +141,13 @@ namespace game_framework {
 		ChooseGame_noHover.SetTopLeft(0, 0);
 		ChooseGame_hover1P.SetTopLeft(0, 0);
 		ChooseGame_hover2P.SetTopLeft(0, 0);
-		SelectYourLevel_noHover.SetTopLeft(0, 0);
+		SelectYourLevelBackground.SetTopLeft(0, 0);
 		SelectYourLevel_hoverBeginner.SetTopLeft(0, 0);
 		SelectYourLevel_hoverAverage.SetTopLeft(0, 0);
 		SelectYourLevel_hoverBringItOn.SetTopLeft(0, 0);
+		SelectYourLevel_hoverBeginnerAnimation.SetTopLeft(429, 298);
+		SelectYourLevel_hoverAverageAnimation.SetTopLeft(423, 418);
+		SelectYourLevel_hoverBringItOnAnimation.SetTopLeft(435, 548);
 
 		// 所有按鈕的CPoint 左上與右下
 		StartPage_StartButtonLT = CPoint(436, 771);
@@ -234,7 +257,24 @@ namespace game_framework {
 	void CGameStateInit::OnMove()
 	{
 		// 遊戲開始畫面背景動畫
-		StartButtonBackground.OnMove();
+		switch (CurrentPage)
+		{
+		case game_framework::START_BUTTON_PAGE_NO_HOVER:
+		case game_framework::START_BUTTON_PAGE_HOVER:
+			StartButtonBackground.OnMove();
+			break;
+		case game_framework::SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER:
+			SelectYourLevel_hoverBeginnerAnimation.OnMove();
+			break;
+		case game_framework::SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE:
+			SelectYourLevel_hoverAverageAnimation.OnMove();
+			break;
+		case game_framework::SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON:
+			SelectYourLevel_hoverBringItOnAnimation.OnMove();
+			break;
+		default:
+			break;
+		}
 	}
 
 	void CGameStateInit::OnShow()
@@ -277,16 +317,19 @@ namespace game_framework {
 		}
 		// 選擇遊戲難度頁面
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_NO_HOVER) {
-			SelectYourLevel_noHover.ShowBitmap();
+			SelectYourLevelBackground.ShowBitmap();
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER) {
 			SelectYourLevel_hoverBeginner.ShowBitmap();
+			SelectYourLevel_hoverBeginnerAnimation.OnShow();
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE) {
 			SelectYourLevel_hoverAverage.ShowBitmap();
+			SelectYourLevel_hoverAverageAnimation.OnShow();
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
 			SelectYourLevel_hoverBringItOn.ShowBitmap();
+			SelectYourLevel_hoverBringItOnAnimation.OnShow();
 		}
 	}
 

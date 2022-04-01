@@ -92,8 +92,13 @@ namespace game_framework {
 		CMovingBitmap ChooseGame_hover1P;
 		CMovingBitmap ChooseGame_hover2P;
 
+		// 選擇遊戲難度頁面各難度動畫
+		CAnimation SelectYourLevel_hoverBeginnerAnimation;
+		CAnimation SelectYourLevel_hoverAverageAnimation;
+		CAnimation SelectYourLevel_hoverBringItOnAnimation;
+
 		// 選擇遊戲難度頁面
-		CMovingBitmap SelectYourLevel_noHover;
+		CMovingBitmap SelectYourLevelBackground;
 		CMovingBitmap SelectYourLevel_hoverBeginner;
 		CMovingBitmap SelectYourLevel_hoverAverage;
 		CMovingBitmap SelectYourLevel_hoverBringItOn;
