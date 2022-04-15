@@ -258,7 +258,9 @@
   <ItemGroup>
     <ClCompile Include="Source\audio.cpp" />
     <ClCompile Include="Source\Cat.cpp" />
+    <ClCompile Include="Source\CatHP.cpp" />
     <ClCompile Include="Source\Dog.cpp" />
+    <ClCompile Include="Source\DogHP.cpp" />
     <ClCompile Include="Source\game.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -304,7 +306,9 @@
   <ItemGroup>
     <ClInclude Include="Source\audio.h" />
     <ClInclude Include="Source\Cat.h" />
+    <ClInclude Include="Source\CatHP.h" />
     <ClInclude Include="Source\Dog.h" />
+    <ClInclude Include="Source\DogHP.h" />
     <ClInclude Include="Source\game.h" />
     <ClInclude Include="Source\GameData.h" />
     <ClInclude Include="Source\gameDoc.h" />

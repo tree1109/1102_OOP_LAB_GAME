@@ -43,6 +43,8 @@
 #include "Dog.h"
 #include "Weapon.h"
 #include "GameData.h"
+#include "CatHP.h"
+#include "DogHP.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -160,6 +162,10 @@ namespace game_framework {
 
 		// ª¯¤Ä§ðÀ»­Ë¤T¨¤
 		CAnimation AttackInvertedTriangle;
+
+		// ¦å¶q±ø
+		CatHP CatHealthPointBar;
+		DogHP DogHealthPointBar;
 
 		GAME_RUN_ID runId;
 		int Timer;

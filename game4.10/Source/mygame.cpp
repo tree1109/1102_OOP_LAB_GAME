@@ -102,9 +102,9 @@ namespace game_framework {
 		HowToPlay_hover.LoadBitmap("GamePicture/GameInit/HowToPlay_hover.bmp");
 
 		// 玩家人數選擇畫面
-		ChooseGame_noHover.LoadBitmap("GamePicture/GameInit/ChooseGame_noHover.bmp");;
-		ChooseGame_hover1P.LoadBitmap("GamePicture/GameInit/ChooseGame_hover1P.bmp");;
-		ChooseGame_hover2P.LoadBitmap("GamePicture/GameInit/ChooseGame_hover2P.bmp");;
+		ChooseGame_noHover.LoadBitmap("GamePicture/GameInit/ChooseGame_noHover.bmp");
+		ChooseGame_hover1P.LoadBitmap("GamePicture/GameInit/ChooseGame_hover1P.bmp");
+		ChooseGame_hover2P.LoadBitmap("GamePicture/GameInit/ChooseGame_hover2P.bmp");
 
 		// 選擇遊戲難度頁面各難度動畫
 		SelectYourLevel_hoverBeginnerAnimation.SetDelayCount(3);
@@ -394,6 +394,10 @@ namespace game_framework {
 		DogObject.Initialize();
 		WeaponObject.Initialize();
 
+		// 初始化貓咪跟狗狗血量為100%
+		CatHealthPointBar.Initialize();
+		DogHealthPointBar.Initialize();
+
 		// 一開始由狗先行攻擊
 		runId = DOG_PREPARE;
 
@@ -561,6 +565,11 @@ namespace game_framework {
 		CatObject.LoadBitmap();
 		DogObject.LoadBitmap();
 		WeaponObject.LoadBitmap();
+
+		// 血量條
+		CatHealthPointBar.LoadBitmap();
+		DogHealthPointBar.LoadBitmap();
+
 	}
 
 	void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -677,5 +686,8 @@ namespace game_framework {
 		// Weapon
 		WeaponObject.OnShow(runId);
 
+		// 血量條
+		CatHealthPointBar.OnShow();
+		DogHealthPointBar.OnShow();
 	}
 }
