@@ -38,9 +38,13 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
-#include "CEraser.h"
-#include "CBall.h"
-#include "CBouncingBall.h"
+#include "GAMEID.h"
+#include "Cat.h"
+#include "Dog.h"
+#include "Weapon.h"
+#include "GameData.h"
+#include "CatHP.h"
+#include "DogHP.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -53,24 +57,6 @@ namespace game_framework {
 		AUDIO_NTUT				// 2
 	};
 
-	// 定義畫面的狀態
-	enum GAME_PAGE_ID {
-		START_BUTTON_PAGE_NO_HOVER,
-		START_BUTTON_PAGE_HOVER,
-		FLEABAG_VS_MUTT_PAGE_NO_HOVER,
-		FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY,
-		FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY,
-		HOW_TO_PLAY_PAGE_NO_HOVER,
-		HOW_TO_PLAY_PAGE_HOVER,
-		CHOOSE_GAME_PAGE_NO_HOVER,
-		CHOOSE_GAME_PAGE_HOVER_1PLAYER,
-		CHOOSE_GAME_PAGE_HOVER_2PLAYER,
-		SELECT_YOUR_LEVEL_PAGE_NO_HOVER,
-		SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER,
-		SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE,
-		SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON
-	};
-
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的遊戲開頭畫面物件
 	// 每個Member function的Implementation都要弄懂
@@ -78,7 +64,7 @@ namespace game_framework {
 
 	class CGameStateInit : public CGameState {
 	public:
-		CGameStateInit(CGame *g);
+		CGameStateInit(CGame* g);
 		void OnInit();  								// 遊戲的初值及圖形設定
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnKeyUp(UINT, UINT, UINT); 				// 處理鍵盤Up的動作
@@ -88,8 +74,8 @@ namespace game_framework {
 		void OnMove();									// 判斷要顯示的畫面
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		CMovingBitmap logo;								// csie的logo
-
+		// 遊戲開始畫面背景動畫
+		CAnimation StartButtonBackground;
 
 		// 遊戲開始畫面
 		CMovingBitmap StartButton_noHover;
@@ -109,8 +95,13 @@ namespace game_framework {
 		CMovingBitmap ChooseGame_hover1P;
 		CMovingBitmap ChooseGame_hover2P;
 
+		// 選擇遊戲難度頁面各難度動畫
+		CAnimation SelectYourLevel_hoverBeginnerAnimation;
+		CAnimation SelectYourLevel_hoverAverageAnimation;
+		CAnimation SelectYourLevel_hoverBringItOnAnimation;
+
 		// 選擇遊戲難度頁面
-		CMovingBitmap SelectYourLevel_noHover;
+		CMovingBitmap SelectYourLevelBackground;
 		CMovingBitmap SelectYourLevel_hoverBeginner;
 		CMovingBitmap SelectYourLevel_hoverAverage;
 		CMovingBitmap SelectYourLevel_hoverBringItOn;
@@ -146,7 +137,7 @@ namespace game_framework {
 
 	class CGameStateRun : public CGameState {
 	public:
-		CGameStateRun(CGame *g);
+		CGameStateRun(CGame* g);
 		~CGameStateRun();
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnInit();  								// 遊戲的初值及圖形設定
@@ -161,14 +152,24 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		const int		NUMBALLS;	// 球的總數
-		CMovingBitmap	background;	// 背景圖
-		CMovingBitmap	help;		// 說明圖
-		CBall			*ball;		// 球的陣列
-		CMovingBitmap	corner;		// 角落圖
-		CEraser			eraser;		// 拍子
-		CInteger		hits_left;	// 剩下的撞擊數
-		CBouncingBall   bball;		// 反覆彈跳的球
+		// 戰鬥中
+		CMovingBitmap Background;
+
+		// 狗勾 貓貓
+		Dog	DogObject;
+		Cat	CatObject;
+		Weapon WeaponObject;
+
+		// 狗勾攻擊倒三角
+		CAnimation AttackInvertedTriangle;
+
+		// 血量條
+		CatHP CatHealthPointBar;
+		DogHP DogHealthPointBar;
+
+		GAME_RUN_ID runId;
+		int Timer;
+
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -178,7 +179,7 @@ namespace game_framework {
 
 	class CGameStateOver : public CGameState {
 	public:
-		CGameStateOver(CGame *g);
+		CGameStateOver(CGame* g);
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnInit();
 	protected:
@@ -186,6 +187,10 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		int counter;	// 倒數之計數器
+
+		// 遊戲結束畫面
+		CMovingBitmap DogWin;
+		CMovingBitmap CatWin;
 	};
 
 }
