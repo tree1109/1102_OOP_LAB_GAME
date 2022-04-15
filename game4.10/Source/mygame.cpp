@@ -64,6 +64,9 @@ namespace game_framework {
 	// 初始化遊戲難度
 	GAME_LEVEL GameData::GameLevel = GAME_LEVEL::ImaBeginner;
 
+	// 初始化狗狗輸贏
+	bool GameData::isDogWin = false;
+
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的遊戲開頭畫面物件
 	/////////////////////////////////////////////////////////////////////////////
@@ -358,16 +361,26 @@ namespace game_framework {
 	void CGameStateOver::OnBeginState()
 	{
 		counter = 30 * 5; // 5 seconds
+
 	}
 
 	void CGameStateOver::OnInit()
 	{
+		DogWin.LoadBitmap("GamePicture/GameOver/DogWin.bmp");
+		CatWin.LoadBitmap("GamePicture/GameOver/CatWin.bmp");
 
+		DogWin.SetTopLeft(0, 0);
+		CatWin.SetTopLeft(0, 0);
 	}
 
 	void CGameStateOver::OnShow()
 	{
-
+		if (GameData::isDogWin) {
+			DogWin.ShowBitmap();
+		}
+		else {
+			CatWin.ShowBitmap();
+		}
 	}
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -466,14 +479,22 @@ namespace game_framework {
 			if (WeaponObject.isHitDog() == 1) {
 				runId = DOG_BEGIN_ATTACKED_LITTLE;
 				Timer = 0;
+				DogHealthPointBar.SubHP(10);
 			}
 			else if (WeaponObject.isHitDog() == 2) {
 				runId = DOG_BEGIN_ATTACKED_BIG;
 				Timer = 0;
+				DogHealthPointBar.SubHP(25);
 			}
 			else if (WeaponObject.isHitGround()) {
 				runId = DOG_BEGIN_ATTACKED_MISS;
 				Timer = 0;
+			}
+
+			if (DogHealthPointBar.isDead())
+			{
+				GameData::isDogWin = false;
+				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		else if (runId == CAT_BEGIN_ATTACKED_LITTLE) {
@@ -514,14 +535,22 @@ namespace game_framework {
 			if (WeaponObject.isHitCat() == 1) {
 				runId = CAT_BEGIN_ATTACKED_LITTLE;
 				Timer = 0;
+				CatHealthPointBar.SubHP(10);
 			}
 			else if (WeaponObject.isHitCat() == 2) {
 				runId = CAT_BEGIN_ATTACKED_BIG;
 				Timer = 0;
+				CatHealthPointBar.SubHP(25);
 			}
 			else if (WeaponObject.isHitGround()) {
 				runId = CAT_BEGIN_ATTACKED_MISS;
 				Timer = 0;
+			}
+
+			if (CatHealthPointBar.isDead())
+			{
+				GameData::isDogWin = true;
+				GotoGameState(GAME_STATE_OVER);
 			}
 		}
 		else if (runId == DOG_BEGIN_ATTACKED_LITTLE) {

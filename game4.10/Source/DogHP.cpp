@@ -32,7 +32,7 @@ namespace game_framework {
 
 	void DogHP::OnShow()
 	{
-		for (int i = 0; i < (HealthPoint/100) * 467; i++) {
+		for (int i = 0; i < HealthPoint * 467/100; i++) {
 			DogHealthPointPicture[i].ShowBitmap();
 		}
 	}

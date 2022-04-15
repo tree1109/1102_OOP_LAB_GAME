@@ -32,7 +32,7 @@ namespace game_framework {
 
 	void CatHP::OnShow()
 	{
-		for (int i = 0; i < (HealthPoint/100) * 469; i++) {
+		for (int i = 0; i < HealthPoint * 469/100; i++) {
 			CatHealthPointPicture[i].ShowBitmap();
 		}
 	}
