@@ -18,21 +18,21 @@ namespace game_framework {
 	void DogHP::Initialize()
 	{
 		HealthPoint = 100;
-		for (int i = 0; i < 464; i++) {
-			DogHealthPointPicture[i].SetTopLeft(766 + i, 56);
+		for (int i = 0; i < 467; i++) {
+			DogHealthPointPicture[i].SetTopLeft(766 + i, 55);
 		}
 	}
 
 	void DogHP::LoadBitmap()
 	{
-		for (int i = 0; i < 464; i++) {
+		for (int i = 0; i < 467; i++) {
 			DogHealthPointPicture[i].LoadBitmap("GamePicture/GameRun/Dog/HP_semicircle.bmp", RGB(180, 0, 255));
 		}
 	}
 
 	void DogHP::OnShow()
 	{
-		for (int i = 0; i < (HealthPoint/100) * 464; i++) {
+		for (int i = 0; i < (HealthPoint/100) * 467; i++) {
 			DogHealthPointPicture[i].ShowBitmap();
 		}
 	}

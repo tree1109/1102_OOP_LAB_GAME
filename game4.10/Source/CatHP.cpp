@@ -18,21 +18,21 @@ namespace game_framework {
 	void CatHP::Initialize()
 	{
 		HealthPoint = 100;
-		for (int i = 0; i < 464; i++) {
+		for (int i = 0; i < 469; i++) {
 			CatHealthPointPicture[i].SetTopLeft(561 - i, 57);
 		}
 	}
 
 	void CatHP::LoadBitmap()
 	{
-		for (int i = 0; i < 464; i++) {
+		for (int i = 0; i < 469; i++) {
 			CatHealthPointPicture[i].LoadBitmap("GamePicture/GameRun/Cat/HP_semicircle.bmp", RGB(180, 0, 255));
 		}
 	}
 
 	void CatHP::OnShow()
 	{
-		for (int i = 0; i < (HealthPoint/100) * 464; i++) {
+		for (int i = 0; i < (HealthPoint/100) * 469; i++) {
 			CatHealthPointPicture[i].ShowBitmap();
 		}
 	}

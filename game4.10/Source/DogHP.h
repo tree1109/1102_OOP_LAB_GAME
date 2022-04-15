@@ -17,6 +17,6 @@ namespace game_framework {
 		int HealthPoint;
 
 		// 貓咪血量條圖片
-		CMovingBitmap DogHealthPointPicture[464];
+		CMovingBitmap DogHealthPointPicture[467];
 	};
 }

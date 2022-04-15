@@ -683,11 +683,12 @@ namespace game_framework {
 			DogObject.OnShow(Normal);
 		}
 
-		// Weapon
-		WeaponObject.OnShow(runId);
-
 		// ¦å¶q±ø
 		CatHealthPointBar.OnShow();
 		DogHealthPointBar.OnShow();
+
+		// Weapon
+		WeaponObject.OnShow(runId);
+
 	}
 }
