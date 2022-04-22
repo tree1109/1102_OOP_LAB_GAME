@@ -187,7 +187,6 @@ namespace game_framework {
 
 	void CGameStateInit::OnMouseMove(UINT nFlags, CPoint point)
 	{
-
 		if (CurrentPage == START_BUTTON_PAGE_NO_HOVER || CurrentPage == START_BUTTON_PAGE_HOVER) {
 			if (point.x > StartPage_StartButtonLT.x && point.x < StartPage_StartButtonRB.x && point.y > StartPage_StartButtonLT.y && point.y < StartPage_StartButtonRB.y)
 				CurrentPage = START_BUTTON_PAGE_HOVER;
@@ -244,19 +243,27 @@ namespace game_framework {
 			CurrentPage = SELECT_YOUR_LEVEL_PAGE_NO_HOVER;
 		}
 		else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_2PLAYER) {
+			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
+			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			GotoGameState(GAME_STATE_RUN);
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER) {
+			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
+			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			// 紀錄難度
 			GameData::GameLevel = GAME_LEVEL::ImaBeginner;
 			GotoGameState(GAME_STATE_RUN);
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE) {
+			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
+			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			// 紀錄難度
 			GameData::GameLevel = GAME_LEVEL::ImAverage;
 			GotoGameState(GAME_STATE_RUN);
 		}
 		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
+			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
+			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			// 紀錄難度
 			GameData::GameLevel = GAME_LEVEL::BringItOn;
 			GotoGameState(GAME_STATE_RUN);
@@ -353,33 +360,123 @@ namespace game_framework {
 
 	void CGameStateOver::OnMove()
 	{
-		counter--;
-		if (counter < 0)
-			GotoGameState(GAME_STATE_INIT);
+		if (GameData::isDogWin) {
+			DogWin_catAnimation.OnMove();
+			DogWin_dogAnimation.OnMove();
+		}
+		else {
+			CatWin_titleAnimation.OnMove();
+			CatWin_catAnimation.OnMove();
+			CatWin_dogAnimation.OnMove();
+		}
 	}
 
 	void CGameStateOver::OnBeginState()
 	{
-		counter = 30 * 5; // 5 seconds
 
 	}
 
 	void CGameStateOver::OnInit()
 	{
-		DogWin.LoadBitmap("GamePicture/GameOver/DogWin.bmp");
-		CatWin.LoadBitmap("GamePicture/GameOver/CatWin.bmp");
+		isHoverReplay = false;
+		char buffer[100];
 
-		DogWin.SetTopLeft(0, 0);
-		CatWin.SetTopLeft(0, 0);
+		// 貓咪贏
+		CatWin_background.LoadBitmap("GamePicture/GameOver/CatWin/background.bmp");
+		CatWin_replayHover.LoadBitmap("GamePicture/GameOver/CatWin/replayHover.bmp");
+		// 載入遊戲結束動畫
+		CatWin_titleAnimation.SetDelayCount(3);
+		CatWin_catAnimation.SetDelayCount(2);
+		CatWin_dogAnimation.SetDelayCount(3);
+		for (int i = 1; i <= 6; i++) {
+			std::string PicturePath = string("GamePicture/GameOver/CatWin/Title/") + std::to_string(i) + ".bmp";
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			CatWin_titleAnimation.AddBitmap(buffer);
+		}
+		for (int i = 1; i <= 10; i++) {
+			std::string PicturePath = string("GamePicture/GameOver/CatWin/Cat/") + std::to_string(i) + ".bmp";
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			CatWin_catAnimation.AddBitmap(buffer);
+		}
+		for (int i = 1; i <= 4; i++) {
+			std::string PicturePath = string("GamePicture/GameOver/CatWin/Dog/") + std::to_string(i) + ".bmp";
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			CatWin_dogAnimation.AddBitmap(buffer);
+		}
+
+		// 狗溝贏
+		DogWin_background.LoadBitmap("GamePicture/GameOver/DogWin/background.bmp");
+		DogWin_replayHover.LoadBitmap("GamePicture/GameOver/DogWin/replayHover.bmp");
+		// 載入遊戲結束動畫
+		DogWin_catAnimation.SetDelayCount(3);
+		DogWin_dogAnimation.SetDelayCount(4);
+		for (int i = 1; i <= 10; i++) {
+			std::string PicturePath = string("GamePicture/GameOver/DogWin/Cat/") + std::to_string(i) + ".bmp";
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			DogWin_catAnimation.AddBitmap(buffer);
+		}
+		for (int i = 1; i <= 6; i++) {
+			std::string PicturePath = string("GamePicture/GameOver/DogWin/Dog/") + std::to_string(i) + ".bmp";
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			DogWin_dogAnimation.AddBitmap(buffer);
+		}
+
+		// 初始化所有圖片位置
+		CatWin_background.SetTopLeft(0, 0);
+		CatWin_replayHover.SetTopLeft(585, 455);
+		CatWin_titleAnimation.SetTopLeft(417, 310);
+		CatWin_catAnimation.SetTopLeft(0, 501);
+		CatWin_dogAnimation.SetTopLeft(999, 669);
+		DogWin_background.SetTopLeft(0, 0);
+		DogWin_replayHover.SetTopLeft(584, 449);
+		DogWin_catAnimation.SetTopLeft(0, 612);
+		DogWin_dogAnimation.SetTopLeft(1030, 620);
+
+		// replay按鈕的CPoint 左上與右下
+		CatWin_ReplayButtonLT = CPoint(585, 455);
+		CatWin_ReplayButtonRB = CPoint(769, 507);
+		DogWin_ReplayButtonLT = CPoint(584, 449);
+		DogWin_ReplayButtonRB = CPoint(767, 505);
+	}
+
+	void CGameStateOver::OnMouseMove(UINT nFlags, CPoint point)
+	{
+		if (GameData::isDogWin) {
+			if (point.x > DogWin_ReplayButtonLT.x && point.x < DogWin_ReplayButtonRB.x && point.y > DogWin_ReplayButtonLT.y && point.y < DogWin_ReplayButtonRB.y)
+				isHoverReplay = true;
+			else
+				isHoverReplay = false;
+		}
+		else {
+			if (point.x > CatWin_ReplayButtonLT.x && point.x < CatWin_ReplayButtonRB.x && point.y > CatWin_ReplayButtonLT.y && point.y < CatWin_ReplayButtonRB.y)
+				isHoverReplay = true;
+			else
+				isHoverReplay = false;
+		}
+	}
+
+	void CGameStateOver::OnLButtonUp(UINT nFlags, CPoint point)
+	{
+		if (isHoverReplay)
+				GotoGameState(GAME_STATE_INIT);
 	}
 
 	void CGameStateOver::OnShow()
 	{
 		if (GameData::isDogWin) {
-			DogWin.ShowBitmap();
+			DogWin_background.ShowBitmap();
+			DogWin_catAnimation.OnShow();
+			DogWin_dogAnimation.OnShow();
+			if (isHoverReplay)
+				DogWin_replayHover.ShowBitmap();
 		}
 		else {
-			CatWin.ShowBitmap();
+			CatWin_background.ShowBitmap();
+			CatWin_titleAnimation.OnShow();
+			CatWin_catAnimation.OnShow();
+			CatWin_dogAnimation.OnShow();
+			if (isHoverReplay)
+				CatWin_replayHover.ShowBitmap();
 		}
 	}
 
@@ -608,7 +705,18 @@ namespace game_framework {
 
 	void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
+		const char KEY_C = 0x43;
+		const char KEY_D = 0x44;
 
+		// debug專用 按C, D可以扣貓狗一滴血，
+		if (nChar == KEY_C)
+		{
+			CatHealthPointBar.SubHP(100);
+		}
+		if (nChar == KEY_D)
+		{
+			DogHealthPointBar.SubHP(100);
+		}
 	}
 
 	void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
