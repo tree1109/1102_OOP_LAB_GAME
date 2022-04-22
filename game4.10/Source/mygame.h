@@ -109,7 +109,7 @@ namespace game_framework {
 		// 現在的畫面狀態
 		GAME_PAGE_ID CurrentPage;
 
-		// 所有按鈕的CPoint 左上與右下
+		// 所有按鈕的CPoint 左上(LT)與右下(RB)
 		CPoint StartPage_StartButtonLT;
 		CPoint StartPage_StartButtonRB;
 		CPoint FleabagVsMuttPage_HowToPlayButtonLT;
@@ -182,15 +182,32 @@ namespace game_framework {
 		CGameStateOver(CGame* g);
 		void OnBeginState();							// 設定每次重玩所需的變數
 		void OnInit();
+		void OnMouseMove(UINT nFlags, CPoint point);	// 處理滑鼠的動作 
+		void OnLButtonUp(UINT nFlags, CPoint point);	// 處理滑鼠的動作
 	protected:
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		int counter;	// 倒數之計數器
+		bool isHoverReplay;
 
-		// 遊戲結束畫面
-		CMovingBitmap DogWin;
-		CMovingBitmap CatWin;
+		// 貓貓贏了
+		CMovingBitmap CatWin_background;
+		CMovingBitmap CatWin_replayHover;
+		CAnimation CatWin_titleAnimation;
+		CAnimation CatWin_catAnimation;
+		CAnimation CatWin_dogAnimation;
+		
+		// 狗溝贏了
+		CMovingBitmap DogWin_background;
+		CMovingBitmap DogWin_replayHover;
+		CAnimation DogWin_catAnimation;
+		CAnimation DogWin_dogAnimation;
+
+		// replay按鈕的CPoint 左上(LT)與右下(RB)
+		CPoint CatWin_ReplayButtonLT;
+		CPoint CatWin_ReplayButtonRB;
+		CPoint DogWin_ReplayButtonLT;
+		CPoint DogWin_ReplayButtonRB;
 	};
 
 }
