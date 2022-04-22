@@ -308,62 +308,62 @@ namespace game_framework {
 
 	void CGameStateInit::OnShow()
 	{
-		// 遊戲開始畫面
-		if (CurrentPage == START_BUTTON_PAGE_NO_HOVER) {
+		switch (CurrentPage)
+		{
+		case game_framework::START_BUTTON_PAGE_NO_HOVER: // 遊戲開始畫面
 			StartButtonBackground.OnShow();
 			StartButton_noHover.ShowBitmap();
-		}
-		else if (CurrentPage == START_BUTTON_PAGE_HOVER) {
+			break;
+		case game_framework::START_BUTTON_PAGE_HOVER:
 			StartButtonBackground.OnShow();
 			StartButton_hover.ShowBitmap();
-		}
-		// 遊戲大綱畫面
-		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_NO_HOVER) {
+			break;
+		case game_framework::FLEABAG_VS_MUTT_PAGE_NO_HOVER: // 遊戲大綱畫面
 			FleabagVsMutt_noHover.ShowBitmap();
 			FleabagVsMutt_titleCat.OnShow();
-		}
-		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY) {
+			break;
+		case game_framework::FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY:
 			FleabagVsMutt_hoverHowToPlay.ShowBitmap();
 			FleabagVsMutt_titleCat.OnShow();
-		}
-		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY) {
+			break;
+		case game_framework::FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY:
 			FleabagVsMutt_hoverLetsPlay.ShowBitmap();
 			FleabagVsMutt_titleCat.OnShow();
-		}
-		// 遊戲說明畫面
-		else if (CurrentPage == HOW_TO_PLAY_PAGE_NO_HOVER) {
+			break;
+		case game_framework::HOW_TO_PLAY_PAGE_NO_HOVER: // 遊戲說明畫面
 			HowToPlay_noHover.ShowBitmap();
 			FleabagVsMutt_titleCat.OnShow();
-		}
-		else if (CurrentPage == HOW_TO_PLAY_PAGE_HOVER) {
+			break;
+		case game_framework::HOW_TO_PLAY_PAGE_HOVER:
 			HowToPlay_hover.ShowBitmap();
 			FleabagVsMutt_titleCat.OnShow();
-		}
-		// 玩家人數選擇畫面
-		else if (CurrentPage == CHOOSE_GAME_PAGE_NO_HOVER) {
+			break;
+		case game_framework::CHOOSE_GAME_PAGE_NO_HOVER: // 玩家人數選擇畫面
 			ChooseGame_noHover.ShowBitmap();
-		}
-		else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_1PLAYER) {
+			break;
+		case game_framework::CHOOSE_GAME_PAGE_HOVER_1PLAYER:
 			ChooseGame_hover1P.ShowBitmap();
-		}
-		else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_2PLAYER) {
+			break;
+		case game_framework::CHOOSE_GAME_PAGE_HOVER_2PLAYER:
 			ChooseGame_hover2P.ShowBitmap();
-		}
-		// 選擇遊戲難度頁面
-		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_NO_HOVER) {
+			break;
+		case game_framework::SELECT_YOUR_LEVEL_PAGE_NO_HOVER: // 選擇遊戲難度頁面
 			SelectYourLevelBackground.ShowBitmap();
-		}
-		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER) {
+			break;
+		case game_framework::SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER:
 			SelectYourLevel_hoverBeginner.ShowBitmap();
 			SelectYourLevel_hoverBeginnerAnimation.OnShow();
-		}
-		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE) {
+			break;
+		case game_framework::SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE:
 			SelectYourLevel_hoverAverage.ShowBitmap();
 			SelectYourLevel_hoverAverageAnimation.OnShow();
-		}
-		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
+			break;
+		case game_framework::SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON:
 			SelectYourLevel_hoverBringItOn.ShowBitmap();
 			SelectYourLevel_hoverBringItOnAnimation.OnShow();
+			break;
+		default:
+			break;
 		}
 	}
 
