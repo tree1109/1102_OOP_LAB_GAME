@@ -85,6 +85,7 @@ namespace game_framework {
 		CMovingBitmap FleabagVsMutt_noHover;
 		CMovingBitmap FleabagVsMutt_hoverHowToPlay;
 		CMovingBitmap FleabagVsMutt_hoverLetsPlay;
+		CAnimation FleabagVsMutt_titleCat;
 
 		// 遊戲說明畫面
 		CMovingBitmap HowToPlay_noHover;

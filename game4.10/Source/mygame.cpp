@@ -78,6 +78,8 @@ namespace game_framework {
 
 	void CGameStateInit::OnInit()
 	{
+		char buffer[100];
+
 		// 初始化遊戲狀態
 		CurrentPage = START_BUTTON_PAGE_NO_HOVER;
 
@@ -86,9 +88,8 @@ namespace game_framework {
 		StartButtonBackground.SetDelayCount(4);
 		for (int i = 1; i <= 8; i++) {
 			std::string PicturePath = string("GamePicture/GameInit/StartButton/") + std::to_string(i) + ".bmp";
-			char num_char[50];
-			std::sprintf(num_char, "%s", (PicturePath.c_str()));
-			StartButtonBackground.AddBitmap(num_char);
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			StartButtonBackground.AddBitmap(buffer);
 		}
 
 		// 遊戲開始畫面
@@ -99,6 +100,12 @@ namespace game_framework {
 		FleabagVsMutt_noHover.LoadBitmap("GamePicture/GameInit/FleabagVsMutt_noHover.bmp");
 		FleabagVsMutt_hoverHowToPlay.LoadBitmap("GamePicture/GameInit/FleabagVsMutt_hoverHowToPlay.bmp");
 		FleabagVsMutt_hoverLetsPlay.LoadBitmap("GamePicture/GameInit/FleabagVsMutt_hoverLetsPlay.bmp");
+		FleabagVsMutt_titleCat.SetDelayCount(4);
+		for (int i = 1; i <= 5; i++) {
+			std::string PicturePath = string("GamePicture/GameInit/FleabagVsMutt_titleCat/") + std::to_string(i) + ".bmp";
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			FleabagVsMutt_titleCat.AddBitmap(buffer);
+		}
 
 		// 遊戲說明畫面
 		HowToPlay_noHover.LoadBitmap("GamePicture/GameInit/HowToPlay_noHover.bmp");
@@ -114,19 +121,17 @@ namespace game_framework {
 		SelectYourLevel_hoverAverageAnimation.SetDelayCount(3);
 		SelectYourLevel_hoverBringItOnAnimation.SetDelayCount(3);
 		for (int i = 1; i <= 4; i++) {
-			char num_char[60];
 			std::string PicturePath = string("GamePicture/GameInit/SelectYourLevel/1-") + std::to_string(i) + ".bmp";
-			std::sprintf(num_char, "%s", (PicturePath.c_str()));
-			SelectYourLevel_hoverBeginnerAnimation.AddBitmap(num_char);
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			SelectYourLevel_hoverBeginnerAnimation.AddBitmap(buffer);
 			PicturePath = string("GamePicture/GameInit/SelectYourLevel/2-") + std::to_string(i) + ".bmp";
-			std::sprintf(num_char, "%s", (PicturePath.c_str()));
-			SelectYourLevel_hoverAverageAnimation.AddBitmap(num_char);
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			SelectYourLevel_hoverAverageAnimation.AddBitmap(buffer);
 		}
 		for (int i = 1; i <= 7; i++) {
-			char num_char[60];
 			std::string PicturePath = string("GamePicture/GameInit/SelectYourLevel/3-") + std::to_string(i) + ".bmp";
-			std::sprintf(num_char, "%s", (PicturePath.c_str()));
-			SelectYourLevel_hoverBringItOnAnimation.AddBitmap(num_char);
+			std::sprintf(buffer, "%s", (PicturePath.c_str()));
+			SelectYourLevel_hoverBringItOnAnimation.AddBitmap(buffer);
 		}
 
 		// 選擇遊戲難度頁面
@@ -142,6 +147,7 @@ namespace game_framework {
 		FleabagVsMutt_noHover.SetTopLeft(0, 0);
 		FleabagVsMutt_hoverHowToPlay.SetTopLeft(0, 0);
 		FleabagVsMutt_hoverLetsPlay.SetTopLeft(0, 0);
+		FleabagVsMutt_titleCat.SetTopLeft(220, 52);
 		HowToPlay_noHover.SetTopLeft(0, 0);
 		HowToPlay_hover.SetTopLeft(0, 0);
 		ChooseGame_noHover.SetTopLeft(0, 0);
@@ -272,12 +278,19 @@ namespace game_framework {
 
 	void CGameStateInit::OnMove()
 	{
-		// 遊戲開始畫面背景動畫
+		// 遊戲開始畫面動畫
 		switch (CurrentPage)
 		{
 		case game_framework::START_BUTTON_PAGE_NO_HOVER:
 		case game_framework::START_BUTTON_PAGE_HOVER:
 			StartButtonBackground.OnMove();
+			break;
+		case game_framework::FLEABAG_VS_MUTT_PAGE_NO_HOVER:
+		case game_framework::FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY:
+		case game_framework::FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY:
+		case game_framework::HOW_TO_PLAY_PAGE_NO_HOVER:
+		case game_framework::HOW_TO_PLAY_PAGE_HOVER:
+			FleabagVsMutt_titleCat.OnMove();
 			break;
 		case game_framework::SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER:
 			SelectYourLevel_hoverBeginnerAnimation.OnMove();
@@ -307,19 +320,24 @@ namespace game_framework {
 		// 遊戲大綱畫面
 		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_NO_HOVER) {
 			FleabagVsMutt_noHover.ShowBitmap();
+			FleabagVsMutt_titleCat.OnShow();
 		}
 		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY) {
 			FleabagVsMutt_hoverHowToPlay.ShowBitmap();
+			FleabagVsMutt_titleCat.OnShow();
 		}
 		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY) {
 			FleabagVsMutt_hoverLetsPlay.ShowBitmap();
+			FleabagVsMutt_titleCat.OnShow();
 		}
 		// 遊戲說明畫面
 		else if (CurrentPage == HOW_TO_PLAY_PAGE_NO_HOVER) {
 			HowToPlay_noHover.ShowBitmap();
+			FleabagVsMutt_titleCat.OnShow();
 		}
 		else if (CurrentPage == HOW_TO_PLAY_PAGE_HOVER) {
 			HowToPlay_hover.ShowBitmap();
+			FleabagVsMutt_titleCat.OnShow();
 		}
 		// 玩家人數選擇畫面
 		else if (CurrentPage == CHOOSE_GAME_PAGE_NO_HOVER) {
