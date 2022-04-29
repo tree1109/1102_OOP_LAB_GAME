@@ -721,91 +721,79 @@ namespace game_framework {
 		DogHealthPointBar.LoadBitmap();
 
 		// 技能按鈕圖片
-		catSkillDoubleAttackButton.LoadBitmap("GamePicture/GameRun/Background.bmp");
-		catSkillPowerAttackButton.LoadBitmap("");
-		catSkillPoisonGasButton.LoadBitmap("");
-		catSkillBandButton.LoadBitmap("");
-		dogSkillDoubleAttackButton.LoadBitmap("");
-		dogSkillPowerAttackButton.LoadBitmap("");
-		dogSkillPoisonGasButton.LoadBitmap("");
-		dogSkillBandButton.LoadBitmap("");
+		catSkillDoubleAttackButton.LoadBitmap("GamePicture/GameRun/Cat/Skill/DoubleAttack.bmp");
+		dogSkillDoubleAttackButton.LoadBitmap("GamePicture/GameRun/Dog/Skill/DoubleAttack.bmp");
 
 		// 技能按鈕hover動畫
 		// 貓技能
 		catSkillPowerAttackHoverAnimation.SetDelayCount(4);
-		for (int i = 1; i <= 4; i++) {
-			std::string PicturePath = string("") + std::to_string(i) + ".bmp";
+		for (int i = 1; i <= 6; i++) {
+			std::string PicturePath = string("GamePicture/GameRun/Cat/Skill/PowerAttack-") + std::to_string(i) + ".bmp";
 			std::sprintf(num_char, "%s", (PicturePath.c_str()));
 			catSkillPowerAttackHoverAnimation.AddBitmap(num_char);
 		}
 		catSkillPoisonGasHoverAnimation.SetDelayCount(4);
-		for (int i = 1; i <= 4; i++) {
-			std::string PicturePath = string("") + std::to_string(i) + ".bmp";
+		for (int i = 1; i <= 6; i++) {
+			std::string PicturePath = string("GamePicture/GameRun/Cat/Skill/PoisonGas-") + std::to_string(i) + ".bmp";
 			std::sprintf(num_char, "%s", (PicturePath.c_str()));
 			catSkillPoisonGasHoverAnimation.AddBitmap(num_char);
 		}
-		catSkillBandHoverAnimation.SetDelayCount(4);
+		catSkillOKBandHoverAnimation.SetDelayCount(4);
 		for (int i = 1; i <= 4; i++) {
-			std::string PicturePath = string("") + std::to_string(i) + ".bmp";
+			std::string PicturePath = string("GamePicture/GameRun/Cat/Skill/OKBand-") + std::to_string(i) + ".bmp";
 			std::sprintf(num_char, "%s", (PicturePath.c_str()));
-			catSkillBandHoverAnimation.AddBitmap(num_char);
+			catSkillOKBandHoverAnimation.AddBitmap(num_char);
 		}
 		// 狗技能
 		dogSkillPowerAttackHoverAnimation.SetDelayCount(4);
 		for (int i = 1; i <= 4; i++) {
-			std::string PicturePath = string("") + std::to_string(i) + ".bmp";
+			std::string PicturePath = string("GamePicture/GameRun/Dog/Skill/PowerAttack-") + std::to_string(i) + ".bmp";
 			std::sprintf(num_char, "%s", (PicturePath.c_str()));
 			dogSkillPowerAttackHoverAnimation.AddBitmap(num_char);
 		}
 		dogSkillPoisonGasHoverAnimation.SetDelayCount(4);
 		for (int i = 1; i <= 4; i++) {
-			std::string PicturePath = string("") + std::to_string(i) + ".bmp";
+			std::string PicturePath = string("GamePicture/GameRun/Dog/Skill/PoisonGas-") + std::to_string(i) + ".bmp";
 			std::sprintf(num_char, "%s", (PicturePath.c_str()));
 			dogSkillPoisonGasHoverAnimation.AddBitmap(num_char);
 		}
-		dogSkillBandHoverAnimation.SetDelayCount(4);
-		for (int i = 1; i <= 4; i++) {
-			std::string PicturePath = string("") + std::to_string(i) + ".bmp";
+		dogSkillOKBandHoverAnimation.SetDelayCount(4);
+		for (int i = 1; i <= 6; i++) {
+			std::string PicturePath = string("GamePicture/GameRun/Dog/Skill/OKBand-") + std::to_string(i) + ".bmp";
 			std::sprintf(num_char, "%s", (PicturePath.c_str()));
-			dogSkillBandHoverAnimation.AddBitmap(num_char);
+			dogSkillOKBandHoverAnimation.AddBitmap(num_char);
 		}
 
 		// 初始化所有圖片位置
 		// 攻擊倒三角
 		AttackInvertedTriangle.SetTopLeft(1175, 546);
 		// 技能按鈕
-		catSkillDoubleAttackButton.SetTopLeft(0, 0);
-		catSkillPowerAttackButton.SetTopLeft(0, 0);
-		catSkillPowerAttackHoverAnimation.SetTopLeft(0, 0);
-		catSkillPoisonGasButton.SetTopLeft(0, 0);
-		catSkillPoisonGasHoverAnimation.SetTopLeft(0, 0);
-		catSkillBandButton.SetTopLeft(0, 0);
-		catSkillBandHoverAnimation.SetTopLeft(0, 0);
-		dogSkillDoubleAttackButton.SetTopLeft(0, 0);
-		dogSkillPowerAttackButton.SetTopLeft(0, 0);
-		dogSkillPowerAttackHoverAnimation.SetTopLeft(0, 0);
-		dogSkillPoisonGasButton.SetTopLeft(0, 0);
-		dogSkillPoisonGasHoverAnimation.SetTopLeft(0, 0);
-		dogSkillBandButton.SetTopLeft(0, 0);
-		dogSkillBandHoverAnimation.SetTopLeft(0, 0);
+		catSkillDoubleAttackButton.SetTopLeft(123, 94);
+		catSkillPowerAttackHoverAnimation.SetTopLeft(217, 97);
+		catSkillPoisonGasHoverAnimation.SetTopLeft(310, 95);
+		catSkillOKBandHoverAnimation.SetTopLeft(401, 95);
+		dogSkillDoubleAttackButton.SetTopLeft(846, 97);
+		dogSkillPowerAttackHoverAnimation.SetTopLeft(939, 96);
+		dogSkillPoisonGasHoverAnimation.SetTopLeft(1033, 96);
+		dogSkillOKBandHoverAnimation.SetTopLeft(1122, 97);
 
-		// 所有按鈕的CPoint 左上(LT)與右下(RB)
-		catSkillDoubleAttackButtonLT = CPoint(111, 222);
-		catSkillDoubleAttackButtonRB = CPoint(111, 222);
-		catSkillPowerAttackButtonLT = CPoint(111, 222);
-		catSkillPowerAttackButtonRB = CPoint(111, 222);
-		catSkillPoisonGasButtonLT = CPoint(111, 222);
-		catSkillPoisonGasButtonRB = CPoint(111, 222);
-		catSkillBandButtonLT = CPoint(111, 222);
-		catSkillBandButtonRB = CPoint(111, 222);
-		dogSkillDoubleAttackButtonLT = CPoint(111, 222);
-		dogSkillDoubleAttackButtonRB = CPoint(111, 222);
-		dogSkillPowerAttackButtonLT = CPoint(111, 222);
-		dogSkillPowerAttackButtonRB = CPoint(111, 222);
-		dogSkillPoisonGasButtonLT = CPoint(111, 222);
-		dogSkillPoisonGasButtonRB = CPoint(111, 222);
-		dogSkillBandButtonLT = CPoint(111, 222);
-		dogSkillBandButtonRB = CPoint(111, 222);
+		// 所有技能按鈕的CPoint 左上(LT)與右下(RB)
+		catSkillDoubleAttackButtonLT = CPoint(123, 94);
+		catSkillDoubleAttackButtonRB = CPoint(204, 172);
+		catSkillPowerAttackButtonLT = CPoint(217, 97);
+		catSkillPowerAttackButtonRB = CPoint(298, 169);
+		catSkillPoisonGasButtonLT = CPoint(310, 95);
+		catSkillPoisonGasButtonRB = CPoint(388, 170);
+		catSkillOKBandButtonLT = CPoint(401, 95);
+		catSkillOKBandButtonRB = CPoint(479, 169);
+		dogSkillDoubleAttackButtonLT = CPoint(846, 97);
+		dogSkillDoubleAttackButtonRB = CPoint(926, 169);
+		dogSkillPowerAttackButtonLT = CPoint(939, 96);
+		dogSkillPowerAttackButtonRB = CPoint(1021, 170);
+		dogSkillPoisonGasButtonLT = CPoint(1033, 96);
+		dogSkillPoisonGasButtonRB = CPoint(1114, 173);
+		dogSkillOKBandButtonLT = CPoint(1122, 97);
+		dogSkillOKBandButtonRB = CPoint(1200, 172);
 
 	}
 
@@ -849,6 +837,7 @@ namespace game_framework {
 	void CGameStateRun::OnMouseMove(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 	{
 		// 沒事。如果需要處理滑鼠移動的話，寫code在這裡
+
 	}
 
 	void CGameStateRun::OnRButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作

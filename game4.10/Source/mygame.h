@@ -173,21 +173,15 @@ namespace game_framework {
 
 		// 技能按鈕圖片
 		CMovingBitmap catSkillDoubleAttackButton;
-		CMovingBitmap catSkillPowerAttackButton;
-		CMovingBitmap catSkillPoisonGasButton;
-		CMovingBitmap catSkillBandButton;
 		CMovingBitmap dogSkillDoubleAttackButton;
-		CMovingBitmap dogSkillPowerAttackButton;
-		CMovingBitmap dogSkillPoisonGasButton;
-		CMovingBitmap dogSkillBandButton;
 
 		// 技能按鈕hover動畫
 		CAnimation catSkillPowerAttackHoverAnimation;
 		CAnimation catSkillPoisonGasHoverAnimation;
-		CAnimation catSkillBandHoverAnimation;
+		CAnimation catSkillOKBandHoverAnimation;
 		CAnimation dogSkillPowerAttackHoverAnimation;
 		CAnimation dogSkillPoisonGasHoverAnimation;
-		CAnimation dogSkillBandHoverAnimation;
+		CAnimation dogSkillOKBandHoverAnimation;
 
 		// 所有按鈕的CPoint 左上(LT)與右下(RB)
 		CPoint catSkillDoubleAttackButtonLT;
@@ -196,16 +190,16 @@ namespace game_framework {
 		CPoint catSkillPowerAttackButtonRB;
 		CPoint catSkillPoisonGasButtonLT;
 		CPoint catSkillPoisonGasButtonRB;
-		CPoint catSkillBandButtonLT;
-		CPoint catSkillBandButtonRB;
+		CPoint catSkillOKBandButtonLT;
+		CPoint catSkillOKBandButtonRB;
 		CPoint dogSkillDoubleAttackButtonLT;
 		CPoint dogSkillDoubleAttackButtonRB;
 		CPoint dogSkillPowerAttackButtonLT;
 		CPoint dogSkillPowerAttackButtonRB;
 		CPoint dogSkillPoisonGasButtonLT;
 		CPoint dogSkillPoisonGasButtonRB;
-		CPoint dogSkillBandButtonLT;
-		CPoint dogSkillBandButtonRB;
+		CPoint dogSkillOKBandButtonLT;
+		CPoint dogSkillOKBandButtonRB;
 
 	};
 
