@@ -101,7 +101,7 @@ namespace game_framework {
 		FleabagVsMutt_hoverHowToPlay.LoadBitmap("GamePicture/GameInit/FleabagVsMutt_hoverHowToPlay.bmp");
 		FleabagVsMutt_hoverLetsPlay.LoadBitmap("GamePicture/GameInit/FleabagVsMutt_hoverLetsPlay.bmp");
 		FleabagVsMutt_titleCat.SetDelayCount(4);
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 1; i <= 8; i++) {
 			std::string PicturePath = string("GamePicture/GameInit/FleabagVsMutt_titleCat/") + std::to_string(i) + ".bmp";
 			std::sprintf(buffer, "%s", (PicturePath.c_str()));
 			FleabagVsMutt_titleCat.AddBitmap(buffer);
@@ -193,35 +193,46 @@ namespace game_framework {
 
 	void CGameStateInit::OnMouseMove(UINT nFlags, CPoint point)
 	{
-		if (CurrentPage == START_BUTTON_PAGE_NO_HOVER || CurrentPage == START_BUTTON_PAGE_HOVER) {
+		switch (CurrentPage)
+		{
+		case START_BUTTON_PAGE_NO_HOVER:
+		case START_BUTTON_PAGE_HOVER:
 			if (point.x > StartPage_StartButtonLT.x && point.x < StartPage_StartButtonRB.x && point.y > StartPage_StartButtonLT.y && point.y < StartPage_StartButtonRB.y)
 				CurrentPage = START_BUTTON_PAGE_HOVER;
 			else
 				CurrentPage = START_BUTTON_PAGE_NO_HOVER;
-		}
-		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_NO_HOVER || CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY || CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY) {
+			break;
+		case FLEABAG_VS_MUTT_PAGE_NO_HOVER:
+		case FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY:
+		case FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY:
 			if (point.x > FleabagVsMuttPage_HowToPlayButtonLT.x && point.x < FleabagVsMuttPage_HowToPlayButtonRB.x && point.y > FleabagVsMuttPage_HowToPlayButtonLT.y && point.y < FleabagVsMuttPage_HowToPlayButtonRB.y)
 				CurrentPage = FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY;
 			else if (point.x > FleabagVsMuttPage_LetsPlayButtonLT.x && point.x < FleabagVsMuttPage_LetsPlayButtonRB.x && point.y > FleabagVsMuttPage_LetsPlayButtonLT.y && point.y < FleabagVsMuttPage_LetsPlayButtonRB.y)
 				CurrentPage = FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY;
 			else
 				CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
-		}
-		else if (CurrentPage == HOW_TO_PLAY_PAGE_NO_HOVER || CurrentPage == HOW_TO_PLAY_PAGE_HOVER) {
+			break;
+		case HOW_TO_PLAY_PAGE_NO_HOVER:
+		case HOW_TO_PLAY_PAGE_HOVER:
 			if (point.x > HowToPlayPage_LetsPlayButtonLT.x && point.x < HowToPlayPage_LetsPlayButtonRB.x && point.y > HowToPlayPage_LetsPlayButtonLT.y && point.y < HowToPlayPage_LetsPlayButtonRB.y)
 				CurrentPage = HOW_TO_PLAY_PAGE_HOVER;
 			else
 				CurrentPage = HOW_TO_PLAY_PAGE_NO_HOVER;
-		}
-		else if (CurrentPage == CHOOSE_GAME_PAGE_NO_HOVER || CurrentPage == CHOOSE_GAME_PAGE_HOVER_1PLAYER || CurrentPage == CHOOSE_GAME_PAGE_HOVER_2PLAYER) {
+			break;
+		case CHOOSE_GAME_PAGE_NO_HOVER:
+		case CHOOSE_GAME_PAGE_HOVER_1PLAYER:
+		case CHOOSE_GAME_PAGE_HOVER_2PLAYER:
 			if (point.x > ChooseGamePage_1PlayerButtonLT.x && point.x < ChooseGamePage_1PlayerButtonRB.x && point.y > ChooseGamePage_1PlayerButtonLT.y && point.y < ChooseGamePage_1PlayerButtonRB.y)
 				CurrentPage = CHOOSE_GAME_PAGE_HOVER_1PLAYER;
 			else if (point.x > ChooseGamePage_2PlayerButtonLT.x && point.x < ChooseGamePage_2PlayerButtonRB.x && point.y > ChooseGamePage_2PlayerButtonLT.y && point.y < ChooseGamePage_2PlayerButtonRB.y)
 				CurrentPage = CHOOSE_GAME_PAGE_HOVER_2PLAYER;
 			else
 				CurrentPage = CHOOSE_GAME_PAGE_NO_HOVER;
-		}
-		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_NO_HOVER || CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER || CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE || CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
+			break;
+		case SELECT_YOUR_LEVEL_PAGE_NO_HOVER:
+		case SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER:
+		case SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE:
+		case SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON:
 			if (point.x > SelectYourLevelPage_ImBeginnerButtonLT.x && point.x < SelectYourLevelPage_ImBeginnerButtonRB.x && point.y > SelectYourLevelPage_ImBeginnerButtonLT.y && point.y < SelectYourLevelPage_ImBeginnerButtonRB.y)
 				CurrentPage = SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER;
 			else if (point.x > SelectYourLevelPage_ImAverageButtonLT.x && point.x < SelectYourLevelPage_ImAverageButtonRB.x && point.y > SelectYourLevelPage_ImAverageButtonLT.y && point.y < SelectYourLevelPage_ImAverageButtonRB.y)
@@ -230,50 +241,59 @@ namespace game_framework {
 				CurrentPage = SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON;
 			else
 				CurrentPage = SELECT_YOUR_LEVEL_PAGE_NO_HOVER;
+			break;
+		default:
+			break;
 		}
-
 	}
 
 	void CGameStateInit::OnLButtonUp(UINT nFlags, CPoint point)
 	{
-		if (CurrentPage == START_BUTTON_PAGE_HOVER) {
+		switch (CurrentPage)
+		{
+		case START_BUTTON_PAGE_HOVER:
 			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
-		}
-		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY) {
+			break;
+		case FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY:
 			CurrentPage = HOW_TO_PLAY_PAGE_NO_HOVER;
-		}
-		else if (CurrentPage == FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY || CurrentPage == HOW_TO_PLAY_PAGE_HOVER) {
+			break;
+		case FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY:
+		case HOW_TO_PLAY_PAGE_HOVER:
 			CurrentPage = CHOOSE_GAME_PAGE_NO_HOVER;
-		}
-		else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_1PLAYER) {
+			break;
+		case CHOOSE_GAME_PAGE_HOVER_1PLAYER:
 			CurrentPage = SELECT_YOUR_LEVEL_PAGE_NO_HOVER;
-		}
-		else if (CurrentPage == CHOOSE_GAME_PAGE_HOVER_2PLAYER) {
+			break;
+		case CHOOSE_GAME_PAGE_HOVER_2PLAYER:
 			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
 			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			GotoGameState(GAME_STATE_RUN);
-		}
-		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER) {
+			break;
+		case SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER:
 			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
 			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			// 紀錄難度
 			GameData::GameLevel = GAME_LEVEL::ImaBeginner;
 			GotoGameState(GAME_STATE_RUN);
-		}
-		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE) {
+			break;
+		case SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE:
 			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
 			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			// 紀錄難度
 			GameData::GameLevel = GAME_LEVEL::ImAverage;
 			GotoGameState(GAME_STATE_RUN);
-		}
-		else if (CurrentPage == SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON) {
+			break;
+		case SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON:
 			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
 			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			// 紀錄難度
 			GameData::GameLevel = GAME_LEVEL::BringItOn;
 			GotoGameState(GAME_STATE_RUN);
+			break;
+		default:
+			break;
 		}
+
 	}
 
 	void CGameStateInit::OnMove()
@@ -535,28 +555,30 @@ namespace game_framework {
 
 	void CGameStateRun::OnMove()							// 移動遊戲元素
 	{
-		if (runId == CAT_PREPARE) {
+		switch (runId)
+		{
+		case CAT_PREPARE:
 			Timer++;
 			if (Timer >= 30) {
 				runId = CAT_ATTACK_TAKE;
 				Timer = 0;
 			}
-		}
-		else if (runId == CAT_ATTACK_TAKE) {
+			break;
+		case CAT_ATTACK_TAKE:
 			Timer++;
 			if (Timer >= 25) {
 				runId = CAT_ATTACK_BEGIN;
 				Timer = 0;
 			}
-		}
-		else if (runId == CAT_ATTACK_BEGIN) {
+			break;
+		case CAT_ATTACK_BEGIN:
 			Timer ++;
 			if (Timer >= 20) {
 				runId = CAT_ATTACK_CHARGE;
 				Timer = 0;
 			}
-		}
-		else if (runId == CAT_ATTACK_CHARGE) {
+			break;
+		case CAT_ATTACK_CHARGE:
 			Timer++;
 			if (Timer >= 20) {
 				int max = 0;
@@ -589,8 +611,8 @@ namespace game_framework {
 				runId = CAT_ATTACK_FIRE;
 				Timer = 0;
 			}
-		}
-		else if (runId == CAT_ATTACK_FIRE) {
+			break;
+		case CAT_ATTACK_FIRE:
 			if (WeaponObject.isHitDog() == 1) {
 				runId = DOG_BEGIN_ATTACKED_LITTLE;
 				Timer = 0;
@@ -611,42 +633,34 @@ namespace game_framework {
 				GameData::isDogWin = false;
 				GotoGameState(GAME_STATE_OVER);
 			}
-		}
-		else if (runId == CAT_BEGIN_ATTACKED_LITTLE) {
+			break;
+		case CAT_BEGIN_ATTACKED_LITTLE:
+		case CAT_BEGIN_ATTACKED_BIG:
+		case CAT_BEGIN_ATTACKED_MISS:
 			Timer++;
 			if (Timer > 30)
 				runId = CAT_PREPARE;
-		}
-		else if (runId == CAT_BEGIN_ATTACKED_BIG) {
-			Timer++;
-			if (Timer > 30)
-				runId = CAT_PREPARE;
-		}
-		else if (runId == CAT_BEGIN_ATTACKED_MISS) {
-			Timer++;
-			if (Timer > 30)
-				runId = CAT_PREPARE;
-		}
-		else if (runId == DOG_PREPARE) {
+			break;
+		case DOG_PREPARE:
 			Timer++;
 			if (Timer >= 30) {
 				runId = DOG_ATTACK_TAKE;
 				Timer = 0;
 			}
-		}
-		else if (runId == DOG_ATTACK_TAKE) {
+			break;
+		case DOG_ATTACK_TAKE:
 			Timer++;
 			if (Timer >= 25) {
 				runId = DOG_ATTACK_BEGIN;
 			}
-		}
-		else if (runId == DOG_ATTACK_BEGIN) {
+			break;
+		case DOG_ATTACK_BEGIN:
 			AttackInvertedTriangle.OnMove();
-		}
-		else if (runId == DOG_ATTACK_CHARGE) {
+			break;
+		case DOG_ATTACK_CHARGE:
 			Timer++;
-		}
-		else if (runId == DOG_ATTACK_FIRE) {
+			break;
+		case DOG_ATTACK_FIRE:
 			if (WeaponObject.isHitCat() == 1) {
 				runId = CAT_BEGIN_ATTACKED_LITTLE;
 				Timer = 0;
@@ -667,23 +681,17 @@ namespace game_framework {
 				GameData::isDogWin = true;
 				GotoGameState(GAME_STATE_OVER);
 			}
-		}
-		else if (runId == DOG_BEGIN_ATTACKED_LITTLE) {
+			break;
+		case DOG_BEGIN_ATTACKED_LITTLE:
+		case DOG_BEGIN_ATTACKED_BIG:
+		case DOG_BEGIN_ATTACKED_MISS:
 			Timer++;
 			if (Timer > 30)
 				runId = DOG_PREPARE;
+			break;
+		default:
+			break;
 		}
-		else if (runId == DOG_BEGIN_ATTACKED_BIG) {
-			Timer++;
-			if (Timer > 30)
-				runId = DOG_PREPARE;
-		}
-		else if (runId == DOG_BEGIN_ATTACKED_MISS) {
-			Timer++;
-			if (Timer > 30)
-				runId = DOG_PREPARE;
-		}
-
 		// Weapon位移運算
 		WeaponObject.OnMove(runId);
 	}
@@ -780,62 +788,67 @@ namespace game_framework {
 		Background.ShowBitmap();
 
 		// Cat
-		if (runId == CAT_PREPARE) {
+		switch (runId)
+		{
+		case CAT_PREPARE:
 			CatObject.OnShow(Normal);
-		}
-		else if (runId == CAT_ATTACK_TAKE) {
+			break;
+		case CAT_ATTACK_TAKE:
 			CatObject.OnShow(Attack_1);
-		}
-		else if (runId == CAT_ATTACK_BEGIN) {
+			break;
+		case CAT_ATTACK_BEGIN:
 			CatObject.OnShow(Attack_2);
-		}
-		else if (runId == CAT_ATTACK_CHARGE) {
+			break;
+		case CAT_ATTACK_CHARGE:
 			CatObject.OnShow(Attack_3);
-		}
-		else if (runId == CAT_ATTACK_FIRE) {
+			break;
+		case CAT_ATTACK_FIRE:
 			CatObject.OnShow(Attack_4);
-		}
-		else if (runId == CAT_BEGIN_ATTACKED_LITTLE) {
+			break;
+		case CAT_BEGIN_ATTACKED_LITTLE:
 			CatObject.OnShow(BeingAttacked_Little);
-		}
-		else if (runId == CAT_BEGIN_ATTACKED_BIG) {
+			break;
+		case CAT_BEGIN_ATTACKED_BIG:
 			CatObject.OnShow(BeingAttacked_Big);
-		}
-		else if (runId == CAT_BEGIN_ATTACKED_MISS) {
+			break;
+		case CAT_BEGIN_ATTACKED_MISS:
 			CatObject.OnShow(BeingAttacked_Miss);
-		}
-		else {
+			break;
+		default:
 			CatObject.OnShow(Normal);
+			break;
 		}
 
 		// Dog
-		if (runId == DOG_PREPARE) {
+		switch (runId)
+		{
+		case DOG_PREPARE:
 			DogObject.OnShow(Normal);
-		}
-		else if (runId == DOG_ATTACK_TAKE) {
+			break;
+		case DOG_ATTACK_TAKE:
 			DogObject.OnShow(Attack_1);
-		}
-		else if (runId == DOG_ATTACK_BEGIN) {
+			break;
+		case DOG_ATTACK_BEGIN:
 			DogObject.OnShow(Attack_2);
-			AttackInvertedTriangle.OnShow();
-		}
-		else if (runId == DOG_ATTACK_CHARGE) {
+			break;
+		case DOG_ATTACK_CHARGE:
 			DogObject.OnShow(Attack_3);
-		}
-		else if (runId == DOG_ATTACK_FIRE) {
+			break;
+		case DOG_ATTACK_FIRE:
 			DogObject.OnShow(Attack_4);
-		}
-		else if (runId == DOG_BEGIN_ATTACKED_LITTLE) {
+			break;
+		case DOG_BEGIN_ATTACKED_LITTLE:
 			DogObject.OnShow(BeingAttacked_Little);
-		}
-		else if (runId == DOG_BEGIN_ATTACKED_BIG) {
+			break;
+		case DOG_BEGIN_ATTACKED_BIG:
 			DogObject.OnShow(BeingAttacked_Big);
-		}
-		else if (runId == DOG_BEGIN_ATTACKED_MISS) {
+			break;
+		case DOG_BEGIN_ATTACKED_MISS:
 			DogObject.OnShow(BeingAttacked_Miss);
-		}
-		else {
+			break;
+		default:
 			DogObject.OnShow(Normal);
+			break;
 		}
 
 		// 血量條
