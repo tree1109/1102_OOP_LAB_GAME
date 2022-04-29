@@ -171,6 +171,42 @@ namespace game_framework {
 		GAME_RUN_ID runId;
 		int Timer;
 
+		// 技能按鈕圖片
+		CMovingBitmap catSkillDoubleAttackButton;
+		CMovingBitmap catSkillPowerAttackButton;
+		CMovingBitmap catSkillPoisonGasButton;
+		CMovingBitmap catSkillBandButton;
+		CMovingBitmap dogSkillDoubleAttackButton;
+		CMovingBitmap dogSkillPowerAttackButton;
+		CMovingBitmap dogSkillPoisonGasButton;
+		CMovingBitmap dogSkillBandButton;
+
+		// 技能按鈕hover動畫
+		CAnimation catSkillPowerAttackHoverAnimation;
+		CAnimation catSkillPoisonGasHoverAnimation;
+		CAnimation catSkillBandHoverAnimation;
+		CAnimation dogSkillPowerAttackHoverAnimation;
+		CAnimation dogSkillPoisonGasHoverAnimation;
+		CAnimation dogSkillBandHoverAnimation;
+
+		// 所有按鈕的CPoint 左上(LT)與右下(RB)
+		CPoint catSkillDoubleAttackButtonLT;
+		CPoint catSkillDoubleAttackButtonRB;
+		CPoint catSkillPowerAttackButtonLT;
+		CPoint catSkillPowerAttackButtonRB;
+		CPoint catSkillPoisonGasButtonLT;
+		CPoint catSkillPoisonGasButtonRB;
+		CPoint catSkillBandButtonLT;
+		CPoint catSkillBandButtonRB;
+		CPoint dogSkillDoubleAttackButtonLT;
+		CPoint dogSkillDoubleAttackButtonRB;
+		CPoint dogSkillPowerAttackButtonLT;
+		CPoint dogSkillPowerAttackButtonRB;
+		CPoint dogSkillPoisonGasButtonLT;
+		CPoint dogSkillPoisonGasButtonRB;
+		CPoint dogSkillBandButtonLT;
+		CPoint dogSkillBandButtonRB;
+
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
