@@ -171,6 +171,16 @@ namespace game_framework {
 		GAME_RUN_ID runId;
 		int Timer;
 
+		// 技能狀態
+		SKILL_STATUS catSkillDoubleAttackStatus;
+		SKILL_STATUS catSkillPowerAttackStatus;
+		SKILL_STATUS catSkillPoisonGasStatus;
+		SKILL_STATUS catSkillOKBandStatus;
+		SKILL_STATUS dogSkillDoubleAttackStatus;
+		SKILL_STATUS dogSkillPowerAttackStatus;
+		SKILL_STATUS dogSkillPoisonGasStatus;
+		SKILL_STATUS dogSkillOKBandStatus;
+
 		// 技能按鈕圖片
 		CMovingBitmap catSkillDoubleAttackButton;
 		CMovingBitmap dogSkillDoubleAttackButton;

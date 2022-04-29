@@ -60,4 +60,11 @@ namespace game_framework {
 		ImAverage,
 		BringItOn
 	};
+
+	// 定義技能的狀態
+	enum SKILL_STATUS {
+		IS_NOT_HOVER,
+		IS_HOVER,
+		USED
+	};
 }
