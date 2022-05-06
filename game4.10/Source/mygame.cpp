@@ -913,6 +913,7 @@ namespace game_framework {
 			{
 				DogHealthPointBar.AddHP(30);
 				dogSkillOKBandStatus = USED;
+				runId = CAT_PREPARE;
 			}
 			// ¥¿±`§ðÀ»»W¤O
 			else
