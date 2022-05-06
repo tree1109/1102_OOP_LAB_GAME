@@ -34,6 +34,6 @@ namespace game_framework {
 		CMovingBitmap Cat_Weapon;
 		CMovingBitmap Dog_Weapon;
 
-		bool weaponSizeFactor;
+		double weaponSizeFactor;
 	};
 }

@@ -20,9 +20,9 @@ namespace game_framework {
 	int Weapon::GetX_LT(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionX + 14 * weaponSizeFactor;
+			return weaponPositionX + 14 * (int)weaponSizeFactor;
 		else if (runId == DOG_ATTACK_FIRE)
-			return weaponPositionX + 7 * weaponSizeFactor;
+			return weaponPositionX + 7 * (int)weaponSizeFactor;
 		else
 			return -1;
 	}
@@ -30,9 +30,9 @@ namespace game_framework {
 	int Weapon::GetY_LT(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionY + 3 * weaponSizeFactor;
+			return weaponPositionY + 3 * (int)weaponSizeFactor;
 		else if (runId == DOG_ATTACK_FIRE)
-			return weaponPositionY + 21 * weaponSizeFactor;
+			return weaponPositionY + 21 * (int)weaponSizeFactor;
 		else
 			return -1;
 	}
@@ -40,9 +40,9 @@ namespace game_framework {
 	int Weapon::GetX_RB(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionX + 78 * weaponSizeFactor;
+			return weaponPositionX + 78 * (int)weaponSizeFactor;
 		else if (runId == DOG_ATTACK_FIRE)
-			return weaponPositionX + 80 * weaponSizeFactor;
+			return weaponPositionX + 80 * (int)weaponSizeFactor;
 		else
 			return -1;
 	}
@@ -50,9 +50,9 @@ namespace game_framework {
 	int Weapon::GetY_RB(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionY + 79 * weaponSizeFactor;
+			return weaponPositionY + 79 * (int)weaponSizeFactor;
 		else if (runId == DOG_ATTACK_FIRE)
-			return weaponPositionY + 65 * weaponSizeFactor;
+			return weaponPositionY + 65 * (int)weaponSizeFactor;
 		else
 			return -1;
 	}

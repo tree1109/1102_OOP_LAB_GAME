@@ -660,7 +660,10 @@ namespace game_framework {
 				else
 					runId = CAT_PREPARE;
 				if (dogSkillPowerAttackStatus == USING)
+				{
+					WeaponObject.setSize(1);
 					dogSkillPowerAttackStatus = USED;
+				}
 			}
 			break;
 		case DOG_PREPARE:
@@ -708,7 +711,22 @@ namespace game_framework {
 		case DOG_BEGIN_ATTACKED_MISS:
 			Timer++;
 			if (Timer > 30)
-				runId = DOG_PREPARE;
+			{
+				// ≥s¿ª
+				if (catSkillDoubleAttackStatus == USING)
+				{
+					runId = CAT_ATTACK_FIRE;
+					WeaponObject.CatFire(lastPower);
+					catSkillDoubleAttackStatus = USED;
+				}
+				else
+					runId = DOG_PREPARE;
+				if (catSkillPowerAttackStatus == USING)
+				{
+					WeaponObject.setSize(1);
+					catSkillPowerAttackStatus = USED;
+				}
+			}
 			break;
 		default:
 			break;
