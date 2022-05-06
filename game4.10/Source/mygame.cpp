@@ -649,7 +649,17 @@ namespace game_framework {
 		case CAT_BEGIN_ATTACKED_MISS:
 			Timer++;
 			if (Timer > 30)
-				runId = CAT_PREPARE;
+			{
+				// ≥s¿ª
+				if (dogSkillDoubleAttackStatus == USING)
+				{
+					runId = DOG_ATTACK_FIRE;
+					WeaponObject.DogFire(lastPower);
+					dogSkillDoubleAttackStatus = USED;
+				}
+				else
+					runId = CAT_PREPARE;
+			}
 			break;
 		case DOG_PREPARE:
 			Timer++;
@@ -685,7 +695,6 @@ namespace game_framework {
 				runId = CAT_BEGIN_ATTACKED_MISS;
 				Timer = 0;
 			}
-
 			if (CatHealthPointBar.isDead())
 			{
 				GameData::isDogWin = true;
@@ -916,6 +925,8 @@ namespace game_framework {
 		if (runId == DOG_ATTACK_CHARGE) {
 			runId = DOG_ATTACK_FIRE;
 			WeaponObject.DogFire(Timer);
+			if (dogSkillDoubleAttackStatus == USING)
+				lastPower = Timer;
 		}
 	}
 

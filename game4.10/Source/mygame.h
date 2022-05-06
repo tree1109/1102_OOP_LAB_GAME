@@ -170,6 +170,7 @@ namespace game_framework {
 
 		GAME_RUN_ID runId;
 		int Timer;
+		int lastPower;
 
 		// §Þ¯àª¬ºA
 		SKILL_STATUS catSkillDoubleAttackStatus;
