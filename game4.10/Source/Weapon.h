@@ -21,6 +21,7 @@ namespace game_framework {
 		bool isHitGround();
 		int isHitCat();
 		int isHitDog();
+		void setSize(double);
 
 	protected:
 		// 武器投擲物座標
@@ -32,5 +33,7 @@ namespace game_framework {
 
 		CMovingBitmap Cat_Weapon;
 		CMovingBitmap Dog_Weapon;
+
+		bool weaponSizeFactor;
 	};
 }

@@ -14,14 +14,15 @@ namespace game_framework {
 	{
 		weaponPositionX = 0;
 		weaponPositionY = 559;
+		weaponSizeFactor = 1;
 	}
 
 	int Weapon::GetX_LT(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionX + 14;
+			return weaponPositionX + 14 * weaponSizeFactor;
 		else if (runId == DOG_ATTACK_FIRE)
-			return weaponPositionX + 7;
+			return weaponPositionX + 7 * weaponSizeFactor;
 		else
 			return -1;
 	}
@@ -29,9 +30,9 @@ namespace game_framework {
 	int Weapon::GetY_LT(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionY + 3;
+			return weaponPositionY + 3 * weaponSizeFactor;
 		else if (runId == DOG_ATTACK_FIRE)
-			return weaponPositionY + 21;
+			return weaponPositionY + 21 * weaponSizeFactor;
 		else
 			return -1;
 	}
@@ -39,9 +40,9 @@ namespace game_framework {
 	int Weapon::GetX_RB(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionX + 78;
+			return weaponPositionX + 78 * weaponSizeFactor;
 		else if (runId == DOG_ATTACK_FIRE)
-			return weaponPositionX + 80;
+			return weaponPositionX + 80 * weaponSizeFactor;
 		else
 			return -1;
 	}
@@ -49,9 +50,9 @@ namespace game_framework {
 	int Weapon::GetY_RB(GAME_RUN_ID runId)
 	{
 		if (runId == CAT_ATTACK_FIRE)
-			return weaponPositionY + 79;
+			return weaponPositionY + 79 * weaponSizeFactor;
 		else if (runId == DOG_ATTACK_FIRE)
-			return weaponPositionY + 65;
+			return weaponPositionY + 65 * weaponSizeFactor;
 		else
 			return -1;
 	}
@@ -90,10 +91,10 @@ namespace game_framework {
 	{
 		// 根據狀態顯示貓或狗的武器
 		if (runId == CAT_ATTACK_FIRE) {
-			Cat_Weapon.ShowBitmap();
+			Cat_Weapon.ShowBitmap(weaponSizeFactor);
 		}
 		else if (runId == DOG_ATTACK_FIRE) {
-			Dog_Weapon.ShowBitmap();
+			Dog_Weapon.ShowBitmap(weaponSizeFactor);
 		}
 	}
 
@@ -161,5 +162,10 @@ namespace game_framework {
 		}
 		else
 			return -1;
+	}
+
+	void Weapon::setSize(double factor)
+	{
+		weaponSizeFactor = factor;
 	}
 }

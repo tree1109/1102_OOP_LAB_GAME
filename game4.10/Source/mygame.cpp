@@ -659,6 +659,8 @@ namespace game_framework {
 				}
 				else
 					runId = CAT_PREPARE;
+				if (dogSkillPowerAttackStatus == USING)
+					dogSkillPowerAttackStatus = USED;
 			}
 			break;
 		case DOG_PREPARE:
@@ -888,7 +890,10 @@ namespace game_framework {
 				catSkillDoubleAttackStatus = USING;
 			// 重擊
 			else if (catSkillPowerAttackStatus == IS_HOVER && isNotUsingSKill)
+			{
+				WeaponObject.setSize(2);
 				catSkillPowerAttackStatus = USING;
+			}
 			// 毒氣
 			else if (catSkillPoisonGasStatus == IS_HOVER && isNotUsingSKill)
 				catSkillPoisonGasStatus = USING;
@@ -904,7 +909,10 @@ namespace game_framework {
 				dogSkillDoubleAttackStatus = USING;
 			// 重擊
 			else if (dogSkillPowerAttackStatus == IS_HOVER && isNotUsingSKill)
+			{
+				WeaponObject.setSize(2);
 				dogSkillPowerAttackStatus = USING;
+			}
 			// 毒氣
 			else if (dogSkillPoisonGasStatus == IS_HOVER && isNotUsingSKill)
 				dogSkillPoisonGasStatus = USING;
