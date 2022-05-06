@@ -910,7 +910,10 @@ namespace game_framework {
 				dogSkillPoisonGasStatus = USING;
 			// 治癒
 			else if (dogSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
-				dogSkillOKBandStatus = USING;
+			{
+				DogHealthPointBar.AddHP(30);
+				dogSkillOKBandStatus = USED;
+			}
 			// 正常攻擊蓄力
 			else
 			{
