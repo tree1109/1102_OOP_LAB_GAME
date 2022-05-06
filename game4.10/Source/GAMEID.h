@@ -65,6 +65,7 @@ namespace game_framework {
 	enum SKILL_STATUS {
 		IS_NOT_HOVER,
 		IS_HOVER,
-		USED
+		USED,
+		USING
 	};
 }

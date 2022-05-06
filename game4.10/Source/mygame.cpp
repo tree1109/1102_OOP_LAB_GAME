@@ -707,56 +707,43 @@ namespace game_framework {
 		WeaponObject.OnMove(runId);
 
 		// 技能hover動畫撥放
-		if (catSkillPowerAttackStatus != USED)
-		{
-			if (catSkillPowerAttackStatus == IS_HOVER)
-				// 正常播放動畫
-				catSkillPowerAttackHoverAnimation.OnMove();
-			else
-				// 停止撥放動畫
-				catSkillPowerAttackHoverAnimation.Reset();
-		}
+		if (catSkillPowerAttackStatus == IS_HOVER)
+			// 正常播放動畫
+			catSkillPowerAttackHoverAnimation.OnMove();
+		else if (catSkillPowerAttackStatus == IS_NOT_HOVER)
+			// 停止撥放動畫
+			catSkillPowerAttackHoverAnimation.Reset();
+
 		// 毒氣
-		if (catSkillPoisonGasStatus != USED)
-		{
-			if (catSkillPoisonGasStatus == IS_HOVER)
-				catSkillPoisonGasHoverAnimation.OnMove();
-			else
-				catSkillPoisonGasHoverAnimation.Reset();
-		}
+		if (catSkillPoisonGasStatus == IS_HOVER)
+			catSkillPoisonGasHoverAnimation.OnMove();
+		else if (catSkillPoisonGasStatus == IS_NOT_HOVER)
+			catSkillPoisonGasHoverAnimation.Reset();
+
 		// 治癒
-		if (catSkillOKBandStatus != USED)
-		{
-			if (catSkillOKBandStatus == IS_HOVER)
-				catSkillOKBandHoverAnimation.OnMove();
-			else
-				catSkillOKBandHoverAnimation.Reset();
-		}
+		if (catSkillOKBandStatus == IS_HOVER)
+			catSkillOKBandHoverAnimation.OnMove();
+		else if (catSkillOKBandStatus == IS_NOT_HOVER)
+			catSkillOKBandHoverAnimation.Reset();
+
 		// Dog skill
 		// 重擊
-		if (dogSkillPowerAttackStatus != USED)
-		{
-			if (dogSkillPowerAttackStatus == IS_HOVER)
-				dogSkillPowerAttackHoverAnimation.OnMove();
-			else
-				dogSkillPowerAttackHoverAnimation.Reset();
-		}
+		if (dogSkillPowerAttackStatus == IS_HOVER)
+			dogSkillPowerAttackHoverAnimation.OnMove();
+		else if (dogSkillPowerAttackStatus == IS_NOT_HOVER)
+			dogSkillPowerAttackHoverAnimation.Reset();
+
 		// 毒氣
-		if (dogSkillPoisonGasStatus != USED)
-		{
-			if (dogSkillPoisonGasStatus == IS_HOVER)
-				dogSkillPoisonGasHoverAnimation.OnMove();
-			else
-				dogSkillPoisonGasHoverAnimation.Reset();
-		}
+		if (dogSkillPoisonGasStatus == IS_HOVER)
+			dogSkillPoisonGasHoverAnimation.OnMove();
+		else if (dogSkillPoisonGasStatus == IS_NOT_HOVER)
+			dogSkillPoisonGasHoverAnimation.Reset();
+
 		// 治癒
-		if (dogSkillOKBandStatus != USED)
-		{
-			if (dogSkillOKBandStatus == IS_HOVER)
-				dogSkillOKBandHoverAnimation.OnMove();
-			else
-				dogSkillOKBandHoverAnimation.Reset();
-		}
+		if (dogSkillOKBandStatus == IS_HOVER)
+			dogSkillOKBandHoverAnimation.OnMove();
+		else if (dogSkillOKBandStatus == IS_NOT_HOVER)
+			dogSkillOKBandHoverAnimation.Reset();
 	}
 
 	void CGameStateRun::OnInit()
@@ -883,9 +870,44 @@ namespace game_framework {
 
 	void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
 	{
-		if (runId == DOG_ATTACK_BEGIN) {
-			runId = DOG_ATTACK_CHARGE;
-			Timer = 0;
+		// 技能點擊
+		if (runId == CAT_ATTACK_BEGIN)
+		{
+			bool isNotUsingSKill = (catSkillDoubleAttackStatus != USING && catSkillPowerAttackStatus != USING && catSkillPoisonGasStatus != USING && catSkillOKBandStatus != USING);
+			// 連擊
+			if (catSkillDoubleAttackStatus == IS_HOVER && isNotUsingSKill)
+				catSkillDoubleAttackStatus = USING;
+			// 重擊
+			else if (catSkillPowerAttackStatus == IS_HOVER && isNotUsingSKill)
+				catSkillPowerAttackStatus = USING;
+			// 毒氣
+			else if (catSkillPoisonGasStatus == IS_HOVER && isNotUsingSKill)
+				catSkillPoisonGasStatus = USING;
+			// 治癒
+			else if (catSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
+				catSkillOKBandStatus = USING;
+		}
+		else if (runId == DOG_ATTACK_BEGIN)
+		{
+			bool isNotUsingSKill = (dogSkillDoubleAttackStatus != USING && dogSkillPowerAttackStatus != USING && dogSkillPoisonGasStatus != USING && dogSkillOKBandStatus != USING);
+			// 連擊
+			if (dogSkillDoubleAttackStatus == IS_HOVER && isNotUsingSKill)
+				dogSkillDoubleAttackStatus = USING;
+			// 重擊
+			else if (dogSkillPowerAttackStatus == IS_HOVER && isNotUsingSKill)
+				dogSkillPowerAttackStatus = USING;
+			// 毒氣
+			else if (dogSkillPoisonGasStatus == IS_HOVER && isNotUsingSKill)
+				dogSkillPoisonGasStatus = USING;
+			// 治癒
+			else if (dogSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
+				dogSkillOKBandStatus = USING;
+			// 正常攻擊蓄力
+			else
+			{
+				runId = DOG_ATTACK_CHARGE;
+				Timer = 0;
+			}
 		}
 	}
 
@@ -900,8 +922,16 @@ namespace game_framework {
 	void CGameStateRun::OnMouseMove(UINT nFlags, CPoint point)
 	{
 		// Cat skill
+		// 連擊
+		if (catSkillDoubleAttackStatus != USED && catSkillDoubleAttackStatus != USING)
+		{
+			if (point.x > catSkillDoubleAttackButtonLT.x && point.x < catSkillDoubleAttackButtonRB.x && point.y > catSkillDoubleAttackButtonLT.y && point.y < catSkillDoubleAttackButtonRB.y)
+				catSkillDoubleAttackStatus = IS_HOVER;
+			else
+				catSkillDoubleAttackStatus = IS_NOT_HOVER;
+		}
 		// 重擊
-		if (catSkillPowerAttackStatus != USED)
+		if (catSkillPowerAttackStatus != USED && catSkillPowerAttackStatus != USING)
 		{
 			if (point.x > catSkillPowerAttackButtonLT.x && point.x < catSkillPowerAttackButtonRB.x && point.y > catSkillPowerAttackButtonLT.y && point.y < catSkillPowerAttackButtonRB.y)
 				catSkillPowerAttackStatus = IS_HOVER;
@@ -909,7 +939,7 @@ namespace game_framework {
 				catSkillPowerAttackStatus = IS_NOT_HOVER;
 		}
 		// 毒氣
-		if (catSkillPoisonGasStatus != USED)
+		if (catSkillPoisonGasStatus != USED && catSkillPoisonGasStatus != USING)
 		{
 			if (point.x > catSkillPoisonGasButtonLT.x && point.x < catSkillPoisonGasButtonRB.x && point.y > catSkillPoisonGasButtonLT.y && point.y < catSkillPoisonGasButtonRB.y)
 				catSkillPoisonGasStatus = IS_HOVER;
@@ -917,7 +947,7 @@ namespace game_framework {
 				catSkillPoisonGasStatus = IS_NOT_HOVER;
 		}
 		// 治癒
-		if (catSkillOKBandStatus != USED)
+		if (catSkillOKBandStatus != USED && catSkillOKBandStatus != USING)
 		{
 			if (point.x > catSkillOKBandButtonLT.x && point.x < catSkillOKBandButtonRB.x && point.y > catSkillOKBandButtonLT.y && point.y < catSkillOKBandButtonRB.y)
 				catSkillOKBandStatus = IS_HOVER;
@@ -925,8 +955,16 @@ namespace game_framework {
 				catSkillOKBandStatus = IS_NOT_HOVER;
 		}
 		// Dog skill
+		// 連擊
+		if (dogSkillDoubleAttackStatus != USED && dogSkillDoubleAttackStatus != USING)
+		{
+			if (point.x > dogSkillDoubleAttackButtonLT.x && point.x < dogSkillDoubleAttackButtonRB.x && point.y > dogSkillDoubleAttackButtonLT.y && point.y < dogSkillDoubleAttackButtonRB.y)
+				dogSkillDoubleAttackStatus = IS_HOVER;
+			else
+				dogSkillDoubleAttackStatus = IS_NOT_HOVER;
+		}
 		// 重擊
-		if (dogSkillPowerAttackStatus != USED)
+		if (dogSkillPowerAttackStatus != USED && dogSkillPowerAttackStatus != USING)
 		{
 			if (point.x > dogSkillPowerAttackButtonLT.x && point.x < dogSkillPowerAttackButtonRB.x && point.y > dogSkillPowerAttackButtonLT.y && point.y < dogSkillPowerAttackButtonRB.y)
 				dogSkillPowerAttackStatus = IS_HOVER;
@@ -934,7 +972,7 @@ namespace game_framework {
 				dogSkillPowerAttackStatus = IS_NOT_HOVER;
 		}
 		// 毒氣
-		if (dogSkillPoisonGasStatus != USED)
+		if (dogSkillPoisonGasStatus != USED && dogSkillPoisonGasStatus != USING)
 		{
 			if (point.x > dogSkillPoisonGasButtonLT.x && point.x < dogSkillPoisonGasButtonRB.x && point.y > dogSkillPoisonGasButtonLT.y && point.y < dogSkillPoisonGasButtonRB.y)
 				dogSkillPoisonGasStatus = IS_HOVER;
@@ -942,7 +980,7 @@ namespace game_framework {
 				dogSkillPoisonGasStatus = IS_NOT_HOVER;
 		}
 		// 治癒
-		if (dogSkillOKBandStatus != USED)
+		if (dogSkillOKBandStatus != USED && dogSkillOKBandStatus != USING)
 		{
 			if (point.x > dogSkillOKBandButtonLT.x && point.x < dogSkillOKBandButtonRB.x && point.y > dogSkillOKBandButtonLT.y && point.y < dogSkillOKBandButtonRB.y)
 				dogSkillOKBandStatus = IS_HOVER;
@@ -1045,29 +1083,29 @@ namespace game_framework {
 
 		// 技能hover動畫撥放
 		// 二連擊
-		if (catSkillDoubleAttackStatus != USED)
+		if (catSkillDoubleAttackStatus != USED && catSkillDoubleAttackStatus != USING)
 			catSkillDoubleAttackButton.ShowBitmap();
 		// 重擊
-		if (catSkillPowerAttackStatus != USED)
+		if (catSkillPowerAttackStatus != USED && catSkillPowerAttackStatus != USING)
 			catSkillPowerAttackHoverAnimation.OnShow();
 		// 毒氣
-		if (catSkillPoisonGasStatus != USED)
+		if (catSkillPoisonGasStatus != USED && catSkillPoisonGasStatus != USING)
 			catSkillPoisonGasHoverAnimation.OnShow();
 		// 治癒
-		if (catSkillOKBandStatus != USED)
+		if (catSkillOKBandStatus != USED && catSkillOKBandStatus != USING)
 			catSkillOKBandHoverAnimation.OnShow();
 		// Dog skill
 		// 二連擊
-		if (dogSkillDoubleAttackStatus != USED)
+		if (dogSkillDoubleAttackStatus != USED && dogSkillDoubleAttackStatus != USING)
 			dogSkillDoubleAttackButton.ShowBitmap();
 		// 重擊
-		if (dogSkillPowerAttackStatus != USED)
+		if (dogSkillPowerAttackStatus != USED && dogSkillPowerAttackStatus != USING)
 			dogSkillPowerAttackHoverAnimation.OnShow();
 		// 毒氣
-		if (dogSkillPoisonGasStatus != USED)
+		if (dogSkillPoisonGasStatus != USED && dogSkillPoisonGasStatus != USING)
 			dogSkillPoisonGasHoverAnimation.OnShow();
 		// 治癒
-		if (dogSkillOKBandStatus != USED)
+		if (dogSkillOKBandStatus != USED && dogSkillOKBandStatus != USING)
 			dogSkillOKBandHoverAnimation.OnShow();
 	}
 }
