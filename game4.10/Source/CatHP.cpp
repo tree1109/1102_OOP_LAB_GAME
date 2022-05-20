@@ -13,6 +13,7 @@ namespace game_framework {
 	CatHP::CatHP()
 	{
 		HealthPoint = 100;
+		poisoningRound = 0;
 	}
 
 	void CatHP::Initialize()
@@ -58,4 +59,17 @@ namespace game_framework {
 		return HealthPoint == 0;
 	}
 
+	void CatHP::Poisoning()
+	{
+		if (poisoningRound > 0)
+		{
+			SubHP(10);
+			poisoningRound = poisoningRound - 1;
+		}
+	}
+
+	void CatHP::SetPoisoning()
+	{
+		poisoningRound = 3;
+	}
 }

@@ -13,6 +13,7 @@ namespace game_framework {
 	DogHP::DogHP()
 	{
 		HealthPoint = 100;
+		poisoningRound = 0;
 	}
 
 	void DogHP::Initialize()
@@ -58,4 +59,17 @@ namespace game_framework {
 		return HealthPoint == 0;
 	}
 
+	void DogHP::Poisoning()
+	{
+		if (poisoningRound > 0)
+		{
+			SubHP(10);
+			poisoningRound = poisoningRound - 1;
+		}
+	}
+
+	void DogHP::SetPoisoning()
+	{
+		poisoningRound = 3;
+	}
 }

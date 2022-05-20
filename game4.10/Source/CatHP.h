@@ -12,9 +12,12 @@ namespace game_framework {
 		void AddHP(int hp);
 		void SubHP(int hp);
 		bool isDead();
+		void Poisoning();
+		void SetPoisoning();
 
 	protected:
 		int HealthPoint;
+		int poisoningRound;	// 紀錄中毒剩餘回合數，0代表沒有中毒
 
 		// 貓咪血量條圖片
 		CMovingBitmap CatHealthPointPicture[469];
