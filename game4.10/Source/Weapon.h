@@ -22,6 +22,7 @@ namespace game_framework {
 		int isHitCat();
 		int isHitDog();
 		void setSize(double);
+		void setNormalWeapon(bool);
 
 	protected:
 		// 武器投擲物座標
@@ -33,6 +34,11 @@ namespace game_framework {
 
 		CMovingBitmap Cat_Weapon;
 		CMovingBitmap Dog_Weapon;
+
+		CMovingBitmap Cat_PoisionWeapon;
+		CMovingBitmap Dog_PoisionWeapon;
+
+		bool isNormalWeapon;
 
 		double weaponSizeFactor;
 	};

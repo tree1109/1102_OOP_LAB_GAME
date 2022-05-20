@@ -15,6 +15,7 @@ namespace game_framework {
 		weaponPositionX = 0;
 		weaponPositionY = 559;
 		weaponSizeFactor = 1;
+		isNormalWeapon = true;
 	}
 
 	int Weapon::GetX_LT(GAME_RUN_ID runId)
@@ -63,12 +64,17 @@ namespace game_framework {
 		SetPosition(0, 0);
 		Cat_Weapon.SetTopLeft(0, 0);
 		Dog_Weapon.SetTopLeft(0, 0);
+		Cat_PoisionWeapon.SetTopLeft(0, 0);
+		Dog_PoisionWeapon.SetTopLeft(0, 0);
+		isNormalWeapon = true;
 	}
 
 	void Weapon::LoadBitmap()
 	{
 		Cat_Weapon.LoadBitmap("GamePicture/GameRun/Cat/Weapon.bmp", RGB(180, 0, 255));
 		Dog_Weapon.LoadBitmap("GamePicture/GameRun/Dog/Weapon.bmp", RGB(180, 0, 255));
+		Cat_PoisionWeapon.LoadBitmap("GamePicture/GameRun/Cat/PoisionWeapon.bmp", RGB(180, 0, 255));
+		Dog_PoisionWeapon.LoadBitmap("GamePicture/GameRun/Dog/PoisionWeapon.bmp", RGB(180, 0, 255));
 	}
 
 	void Weapon::OnMove(GAME_RUN_ID runId)
@@ -78,23 +84,44 @@ namespace game_framework {
 			SetPosition(weaponPositionX + velocityX, weaponPositionY + velocityY);
 		}
 
-		// 根據目前的條件改變狀態
-		if (runId == CAT_ATTACK_FIRE) {
-			Cat_Weapon.SetTopLeft(weaponPositionX, weaponPositionY);
+		if (isNormalWeapon) {
+			// 根據目前的條件改變狀態
+			if (runId == CAT_ATTACK_FIRE) {
+				Cat_Weapon.SetTopLeft(weaponPositionX, weaponPositionY);
+			}
+			else if (runId == DOG_ATTACK_FIRE) {
+				Dog_Weapon.SetTopLeft(weaponPositionX, weaponPositionY);
+			}
 		}
-		else if (runId == DOG_ATTACK_FIRE) {
-			Dog_Weapon.SetTopLeft(weaponPositionX, weaponPositionY);
+		else {
+			if (runId == CAT_ATTACK_FIRE) {
+				Cat_PoisionWeapon.SetTopLeft(weaponPositionX, weaponPositionY);
+			}
+			else if (runId == DOG_ATTACK_FIRE) {
+				Dog_PoisionWeapon.SetTopLeft(weaponPositionX, weaponPositionY);
+			}
 		}
+
 	}
 
 	void Weapon::OnShow(GAME_RUN_ID runId)
 	{
-		// 根據狀態顯示貓或狗的武器
-		if (runId == CAT_ATTACK_FIRE) {
-			Cat_Weapon.ShowBitmap(weaponSizeFactor);
+		if (isNormalWeapon) {
+			// 根據狀態顯示貓或狗的武器
+			if (runId == CAT_ATTACK_FIRE) {
+				Cat_Weapon.ShowBitmap(weaponSizeFactor);
+			}
+			else if (runId == DOG_ATTACK_FIRE) {
+				Dog_Weapon.ShowBitmap(weaponSizeFactor);
+			}
 		}
-		else if (runId == DOG_ATTACK_FIRE) {
-			Dog_Weapon.ShowBitmap(weaponSizeFactor);
+		else {
+			if (runId == CAT_ATTACK_FIRE) {
+				Cat_PoisionWeapon.ShowBitmap(weaponSizeFactor);
+			}
+			else if (runId == DOG_ATTACK_FIRE) {
+				Dog_PoisionWeapon.ShowBitmap(weaponSizeFactor);
+			}
 		}
 	}
 
@@ -167,5 +194,10 @@ namespace game_framework {
 	void Weapon::setSize(double factor)
 	{
 		weaponSizeFactor = factor;
+	}
+
+	void Weapon::setNormalWeapon(bool normal)
+	{
+		isNormalWeapon = normal;
 	}
 }
