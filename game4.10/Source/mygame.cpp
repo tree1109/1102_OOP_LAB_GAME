@@ -262,9 +262,11 @@ namespace game_framework {
 			CurrentPage = CHOOSE_GAME_PAGE_NO_HOVER;
 			break;
 		case CHOOSE_GAME_PAGE_HOVER_1PLAYER:
+			GameData::is2P = false;
 			CurrentPage = SELECT_YOUR_LEVEL_PAGE_NO_HOVER;
 			break;
 		case CHOOSE_GAME_PAGE_HOVER_2PLAYER:
+			GameData::is2P = true;
 			// 重置CurrentPage到FLEABAG_VS_MUTT頁面，遊戲結束按下reply會回到這個頁面。
 			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			GotoGameState(GAME_STATE_RUN);
@@ -553,10 +555,21 @@ namespace game_framework {
 		Timer = 0;
 
 		// 初始化技能狀態
-		catSkillDoubleAttackStatus = IS_NOT_HOVER;
-		catSkillPowerAttackStatus = IS_NOT_HOVER;
-		catSkillPoisonGasStatus = IS_NOT_HOVER;
-		catSkillOKBandStatus = IS_NOT_HOVER;
+		// 如果是1P 貓咪設定成沒有技能可用
+		if (GameData::is2P)
+		{
+			catSkillDoubleAttackStatus = IS_NOT_HOVER;
+			catSkillPowerAttackStatus = IS_NOT_HOVER;
+			catSkillPoisonGasStatus = IS_NOT_HOVER;
+			catSkillOKBandStatus = IS_NOT_HOVER;
+		}
+		else
+		{
+			catSkillDoubleAttackStatus = USED;
+			catSkillPowerAttackStatus = USED;
+			catSkillPoisonGasStatus = USED;
+			catSkillOKBandStatus = USED;
+		}
 		dogSkillDoubleAttackStatus = IS_NOT_HOVER;
 		dogSkillPowerAttackStatus = IS_NOT_HOVER;
 		dogSkillPoisonGasStatus = IS_NOT_HOVER;
@@ -583,15 +596,23 @@ namespace game_framework {
 			}
 			break;
 		case CAT_ATTACK_BEGIN:
-			Timer ++;
-			if (Timer >= 20) {
-				runId = CAT_ATTACK_CHARGE;
-				Timer = 0;
+			if (GameData::is2P)
+			{
+				CatAttackInvertedTriangle.OnMove();
+			}
+			else
+			{
+				Timer ++;
+				if (Timer >= 20) {
+					runId = CAT_ATTACK_CHARGE;
+					Timer = 0;
+				}
 			}
 			break;
 		case CAT_ATTACK_CHARGE:
 			Timer++;
-			if (Timer >= 20) {
+			// 1P的時候 貓咪由電腦產生力道
+			if (Timer >= 20 && GameData::is2P == false) {
 				int max = 0;
 				int min = 0;
 
@@ -702,10 +723,11 @@ namespace game_framework {
 			Timer++;
 			if (Timer >= 25) {
 				runId = DOG_ATTACK_BEGIN;
+				Timer = 0;
 			}
 			break;
 		case DOG_ATTACK_BEGIN:
-			AttackInvertedTriangle.OnMove();
+			DogAttackInvertedTriangle.OnMove();
 			break;
 		case DOG_ATTACK_CHARGE:
 			Timer++;
@@ -829,12 +851,18 @@ namespace game_framework {
 		char num_char[100];
 
 		// 啟動遊戲時進行遊戲圖形載入
-		// 狗攻擊時頭上的倒三角形動畫載入
-		AttackInvertedTriangle.SetDelayCount(4);
+		// 貓狗攻擊時頭上的倒三角形動畫載入
+		CatAttackInvertedTriangle.SetDelayCount(4);
+		for (int i = 1; i <= 4; i++) {
+			std::string PicturePath = string("GamePicture/GameRun/Cat/AttackInvertedTriangle_") + std::to_string(i) + ".bmp";
+			std::sprintf(num_char, "%s", (PicturePath.c_str()));
+			CatAttackInvertedTriangle.AddBitmap(num_char);
+		}
+		DogAttackInvertedTriangle.SetDelayCount(4);
 		for (int i = 1; i <= 4; i++) {
 			std::string PicturePath = string("GamePicture/GameRun/Dog/AttackInvertedTriangle_") + std::to_string(i) + ".bmp";
 			std::sprintf(num_char, "%s", (PicturePath.c_str()));
-			AttackInvertedTriangle.AddBitmap(num_char);
+			DogAttackInvertedTriangle.AddBitmap(num_char);
 		}
 
 		// 載入所有戰鬥中的圖片
@@ -894,7 +922,8 @@ namespace game_framework {
 
 		// 初始化所有圖片位置
 		// 攻擊倒三角
-		AttackInvertedTriangle.SetTopLeft(1175, 546);
+		CatAttackInvertedTriangle.SetTopLeft(158, 474);
+		DogAttackInvertedTriangle.SetTopLeft(1175, 546);
 		// 技能按鈕
 		catSkillDoubleAttackButton.SetTopLeft(123, 94);
 		catSkillPowerAttackHoverAnimation.SetTopLeft(217, 97);

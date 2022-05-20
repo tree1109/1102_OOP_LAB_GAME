@@ -6,5 +6,6 @@ namespace game_framework {
 	public:
 		static GAME_LEVEL GameLevel;
 		static bool isDogWin;
+		static bool is2P;
 	};
 }

@@ -161,8 +161,9 @@ namespace game_framework {
 		Cat	CatObject;
 		Weapon WeaponObject;
 
-		// ª¯¤Ä§ðÀ»­Ë¤T¨¤
-		CAnimation AttackInvertedTriangle;
+		// §ðÀ»­Ë¤T¨¤
+		CAnimation CatAttackInvertedTriangle;
+		CAnimation DogAttackInvertedTriangle;
 
 		// ¦å¶q±ø
 		CatHP CatHealthPointBar;
