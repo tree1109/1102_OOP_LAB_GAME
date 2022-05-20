@@ -570,6 +570,7 @@ namespace game_framework {
 		case CAT_PREPARE:
 			Timer++;
 			if (Timer >= 30) {
+				CatHealthPointBar.Poisoning(); // 處理中毒
 				runId = CAT_ATTACK_TAKE;
 				Timer = 0;
 			}
@@ -626,12 +627,28 @@ namespace game_framework {
 			if (WeaponObject.isHitDog() == 1) {
 				runId = DOG_BEGIN_ATTACKED_LITTLE;
 				Timer = 0;
-				DogHealthPointBar.SubHP(10);
+				if (catSkillPoisonGasStatus == USING)
+				{
+					DogHealthPointBar.SetPoisoning();
+					DogHealthPointBar.SubHP(5);
+				}
+				else
+				{
+					DogHealthPointBar.SubHP(10);
+				}
 			}
 			else if (WeaponObject.isHitDog() == 2) {
 				runId = DOG_BEGIN_ATTACKED_BIG;
 				Timer = 0;
-				DogHealthPointBar.SubHP(25);
+				if (catSkillPoisonGasStatus == USING)
+				{
+					DogHealthPointBar.SetPoisoning();
+					DogHealthPointBar.SubHP(15);
+				}
+				else
+				{
+					DogHealthPointBar.SubHP(25);
+				}
 			}
 			else if (WeaponObject.isHitGround()) {
 				runId = DOG_BEGIN_ATTACKED_MISS;
@@ -659,16 +676,24 @@ namespace game_framework {
 				}
 				else
 					runId = CAT_PREPARE;
+				// 強力攻擊
 				if (dogSkillPowerAttackStatus == USING)
 				{
 					WeaponObject.setSize(1);
 					dogSkillPowerAttackStatus = USED;
+				}
+				// 中毒
+				if (dogSkillPoisonGasStatus == USING)
+				{
+					WeaponObject.setNormalWeapon(true);
+					dogSkillPoisonGasStatus = USED;
 				}
 			}
 			break;
 		case DOG_PREPARE:
 			Timer++;
 			if (Timer >= 30) {
+				DogHealthPointBar.Poisoning(); // 處理中毒
 				runId = DOG_ATTACK_TAKE;
 				Timer = 0;
 			}
@@ -686,15 +711,32 @@ namespace game_framework {
 			Timer++;
 			break;
 		case DOG_ATTACK_FIRE:
+			
 			if (WeaponObject.isHitCat() == 1) {
 				runId = CAT_BEGIN_ATTACKED_LITTLE;
 				Timer = 0;
-				CatHealthPointBar.SubHP(10);
+				if (dogSkillPoisonGasStatus == USING)
+				{
+					CatHealthPointBar.SetPoisoning();
+					CatHealthPointBar.SubHP(5);
+				}
+				else
+				{
+					CatHealthPointBar.SubHP(10);
+				}
 			}
 			else if (WeaponObject.isHitCat() == 2) {
 				runId = CAT_BEGIN_ATTACKED_BIG;
 				Timer = 0;
-				CatHealthPointBar.SubHP(25);
+				if (dogSkillPoisonGasStatus == USING)
+				{
+					CatHealthPointBar.SetPoisoning();
+					CatHealthPointBar.SubHP(15);
+				}
+				else
+				{
+					CatHealthPointBar.SubHP(25);
+				}
 			}
 			else if (WeaponObject.isHitGround()) {
 				runId = CAT_BEGIN_ATTACKED_MISS;
@@ -721,10 +763,17 @@ namespace game_framework {
 				}
 				else
 					runId = DOG_PREPARE;
+				// 強力攻擊
 				if (catSkillPowerAttackStatus == USING)
 				{
 					WeaponObject.setSize(1);
 					catSkillPowerAttackStatus = USED;
+				}
+				// 中毒
+				if (catSkillPoisonGasStatus == USING)
+				{
+					WeaponObject.setNormalWeapon(true);
+					catSkillPoisonGasStatus = USED;
 				}
 			}
 			break;
@@ -914,7 +963,10 @@ namespace game_framework {
 			}
 			// 毒氣
 			else if (catSkillPoisonGasStatus == IS_HOVER && isNotUsingSKill)
+			{
+				WeaponObject.setNormalWeapon(false);
 				catSkillPoisonGasStatus = USING;
+			}
 			// 治癒
 			else if (catSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
 				catSkillOKBandStatus = USING;
