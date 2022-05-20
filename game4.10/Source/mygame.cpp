@@ -67,6 +67,9 @@ namespace game_framework {
 	// 初始化狗狗輸贏
 	bool GameData::isDogWin = false;
 
+	// 初始化遊戲 1P 2P
+	bool GameData::is2P = false;
+
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的遊戲開頭畫面物件
 	/////////////////////////////////////////////////////////////////////////////
@@ -998,7 +1001,18 @@ namespace game_framework {
 			}
 			// 治癒
 			else if (catSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
+			{
+				CatHealthPointBar.AddHP(30);
 				catSkillOKBandStatus = USING;
+				runId = DOG_PREPARE;
+			}
+			// 正常攻擊蓄力
+			else if (GameData::is2P)
+			{
+				runId = CAT_ATTACK_CHARGE;
+				Timer = 0;
+			}
+
 		}
 		else if (runId == DOG_ATTACK_BEGIN)
 		{
@@ -1014,7 +1028,10 @@ namespace game_framework {
 			}
 			// 毒氣
 			else if (dogSkillPoisonGasStatus == IS_HOVER && isNotUsingSKill)
+			{
+				WeaponObject.setNormalWeapon(false);
 				dogSkillPoisonGasStatus = USING;
+			}
 			// 治癒
 			else if (dogSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
 			{
@@ -1037,6 +1054,13 @@ namespace game_framework {
 			runId = DOG_ATTACK_FIRE;
 			WeaponObject.DogFire(Timer);
 			if (dogSkillDoubleAttackStatus == USING)
+				lastPower = Timer;
+		}
+		// 雙人遊戲時貓咪才可以手動蓄力
+		else if (runId == CAT_ATTACK_CHARGE && GameData::is2P) {
+			runId = CAT_ATTACK_FIRE;
+			WeaponObject.CatFire(Timer);
+			if (catSkillDoubleAttackStatus == USING)
 				lastPower = Timer;
 		}
 	}
@@ -1142,6 +1166,8 @@ namespace game_framework {
 			CatObject.OnShow(Attack_1);
 			break;
 		case CAT_ATTACK_BEGIN:
+			if (GameData::is2P)
+				CatAttackInvertedTriangle.OnShow();
 			CatObject.OnShow(Attack_2);
 			break;
 		case CAT_ATTACK_CHARGE:
@@ -1174,6 +1200,7 @@ namespace game_framework {
 			DogObject.OnShow(Attack_1);
 			break;
 		case DOG_ATTACK_BEGIN:
+			DogAttackInvertedTriangle.OnShow();
 			DogObject.OnShow(Attack_2);
 			break;
 		case DOG_ATTACK_CHARGE:
