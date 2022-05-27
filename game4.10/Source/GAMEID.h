@@ -68,4 +68,24 @@ namespace game_framework {
 		USED,
 		USING
 	};
+
+	// 定義各種音效的編號 0~15
+	enum AUDIO_ID {	
+		AUDIO_SINGLE,				// GameInit 開頭按鈕, 單人遊戲
+		AUDIO_SINGLE_SHORT,			// GameInit 其他畫面按鈕, GameRun 玩家開始
+		AUDIO_DOUBLE,				// GameInit 雙人遊戲, GameOver 重完按鈕
+		AUDIO_INIT_MUSIC,			// GameInit 開頭畫面
+		AUDIO_OVER_MUSIC,			// GameOver 遊戲結束
+		AUDIO_RUNSTART_MUSIC,		// GameRun 遊戲開始
+		AUDIO_CAT_SKILL,			// 貓:	技能
+		AUDIO_CAT_ATTACK,			//		發射武器
+		AUDIO_CAT_ATTACKED_BIG,		//		受到重擊
+		AUDIO_CAT_ATTACKED_LITTLE,	//		受到輕擊
+		AUDIO_CAT_ATTACKED_MISS,	//		沒有擊中
+		AUDIO_DOG_SKILL,			// 狗:	技能
+		AUDIO_DOG_ATTACK,			//		發射武器
+		AUDIO_DOG_ATTACKED_BIG,		//		受到重擊
+		AUDIO_DOG_ATTACKED_LITTLE,	//		受到輕擊
+		AUDIO_DOG_ATTACKED_MISS,	//		沒有擊中
+	};
 }

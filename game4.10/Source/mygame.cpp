@@ -86,6 +86,12 @@ namespace game_framework {
 		// 初始化遊戲狀態
 		CurrentPage = START_BUTTON_PAGE_NO_HOVER;
 
+		// 加載遊戲音效
+		CAudio::Instance()->Load(AUDIO_SINGLE, "GameSFX/GameButtonSingle.mp3");
+		CAudio::Instance()->Load(AUDIO_SINGLE_SHORT, "GameSFX/GameButtonSingleShort.mp3");
+		CAudio::Instance()->Load(AUDIO_DOUBLE, "GameSFX/GameButtonDouble.mp3");
+		CAudio::Instance()->Load(AUDIO_INIT_MUSIC, "GameSFX/GameInitMusic.mp3");
+
 		// 加載遊戲開始畫面圖片
 		// 遊戲開始畫面動畫
 		StartButtonBackground.SetDelayCount(4);
@@ -423,6 +429,9 @@ namespace game_framework {
 	{
 		isHoverReplay = false;
 		char buffer[100];
+
+		// 加載遊戲音效
+		CAudio::Instance()->Load(AUDIO_OVER_MUSIC, "GameSFX/GameOverMusic.mp3");
 
 		// 貓咪贏
 		CatWin_background.LoadBitmap("GamePicture/GameOver/CatWin/background.bmp");
@@ -852,6 +861,19 @@ namespace game_framework {
 	void CGameStateRun::OnInit()
 	{
 		char num_char[100];
+
+		// 加載遊戲音效
+		CAudio::Instance()->Load(AUDIO_RUNSTART_MUSIC, "GameSFX/GameRunStartMusic.mp3");
+		CAudio::Instance()->Load(AUDIO_CAT_SKILL, "GameSFX/Cat/Skill.mp3");
+		CAudio::Instance()->Load(AUDIO_CAT_ATTACK, "GameSFX/Cat/Attack.mp3");
+		CAudio::Instance()->Load(AUDIO_CAT_ATTACKED_BIG, "GameSFX/Cat/BeingAttacked_Big.mp3");
+		CAudio::Instance()->Load(AUDIO_CAT_ATTACKED_LITTLE, "GameSFX/Cat/BeingAttacked_Little.mp3");
+		CAudio::Instance()->Load(AUDIO_CAT_ATTACKED_MISS, "GameSFX/Cat/BeingAttacked_Miss.mp3");
+		CAudio::Instance()->Load(AUDIO_DOG_SKILL, "GameSFX/Dog/Skill.mp3");
+		CAudio::Instance()->Load(AUDIO_DOG_ATTACK, "GameSFX/Dog/Attack.mp3");
+		CAudio::Instance()->Load(AUDIO_DOG_ATTACKED_BIG, "GameSFX/Dog/BeingAttacked_Big.mp3");
+		CAudio::Instance()->Load(AUDIO_DOG_ATTACKED_LITTLE, "GameSFX/Dog/BeingAttacked_Little.mp3");
+		CAudio::Instance()->Load(AUDIO_DOG_ATTACKED_MISS, "GameSFX/Dog/BeingAttacked_Miss.mp3");
 
 		// 啟動遊戲時進行遊戲圖形載入
 		// 貓狗攻擊時頭上的倒三角形動畫載入
