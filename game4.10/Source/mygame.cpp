@@ -657,7 +657,7 @@ namespace game_framework {
 		// 撥放音樂
 		if (gameRunMusicHadNotPlay)
 		{
-			CAudio::Instance()->Play(AUDIO_OVER_MUSIC, false); // 遊戲回合開始音樂
+			CAudio::Instance()->Play(AUDIO_RUNSTART_MUSIC, false); // 遊戲回合開始音樂
 			gameRunMusicHadNotPlay = false;
 		}
 
@@ -962,6 +962,7 @@ namespace game_framework {
 
 		// 加載遊戲音效
 		CAudio::Instance()->Load(AUDIO_RUNSTART_MUSIC, "GameSFX/GameRunStartMusic.mp3");
+		CAudio::Instance()->Load(AUDIO_COM_SKILL_HEAL, "GameSFX/SkillHeal.mp3");
 		CAudio::Instance()->Load(AUDIO_CAT_SKILL, "GameSFX/Cat/Skill.mp3");
 		CAudio::Instance()->Load(AUDIO_CAT_ATTACK, "GameSFX/Cat/Attack.mp3");
 		CAudio::Instance()->Load(AUDIO_CAT_ATTACKED_BIG, "GameSFX/Cat/BeingAttacked_Big.mp3");
@@ -1127,7 +1128,7 @@ namespace game_framework {
 			// 治癒
 			else if (catSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
 			{
-				CAudio::Instance()->Play(AUDIO_CAT_SKILL, false); // Skill按鈕按下音效
+				CAudio::Instance()->Play(AUDIO_COM_SKILL_HEAL, false); // Skill治癒按鈕按下音效
 				CatHealthPointBar.AddHP(30);
 				catSkillOKBandStatus = USING;
 				runId = DOG_PREPARE;
@@ -1166,7 +1167,7 @@ namespace game_framework {
 			// 治癒
 			else if (dogSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
 			{
-				CAudio::Instance()->Play(AUDIO_DOG_SKILL, false); // Skill按鈕按下音效
+				CAudio::Instance()->Play(AUDIO_COM_SKILL_HEAL, false); // Skill治癒按鈕按下音效
 				DogHealthPointBar.AddHP(30);
 				dogSkillOKBandStatus = USED;
 				runId = CAT_PREPARE;

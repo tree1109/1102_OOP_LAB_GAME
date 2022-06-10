@@ -77,6 +77,7 @@ namespace game_framework {
 		AUDIO_INIT_MUSIC,			// GameInit 開頭畫面音樂
 		AUDIO_OVER_MUSIC,			// GameOver 遊戲結束音樂
 		AUDIO_RUNSTART_MUSIC,		// GameRun 遊戲開始音樂
+		AUDIO_COM_SKILL_HEAL,		// 共用:	治癒技能
 		AUDIO_CAT_SKILL,			// 貓:	技能
 		AUDIO_CAT_ATTACK,			//		發射武器
 		AUDIO_CAT_ATTACKED_BIG,		//		受到重擊
