@@ -83,6 +83,9 @@ namespace game_framework {
 	{
 		char buffer[100];
 
+		// 遊戲開始畫面音樂
+		gameStartMusicHadNotPlay = true;
+
 		// 初始化遊戲狀態
 		CurrentPage = START_BUTTON_PAGE_NO_HOVER;
 
@@ -193,6 +196,7 @@ namespace game_framework {
 
 	void CGameStateInit::OnBeginState()
 	{
+
 	}
 
 	void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -207,7 +211,10 @@ namespace game_framework {
 		case START_BUTTON_PAGE_NO_HOVER:
 		case START_BUTTON_PAGE_HOVER:
 			if (point.x > StartPage_StartButtonLT.x && point.x < StartPage_StartButtonRB.x && point.y > StartPage_StartButtonLT.y && point.y < StartPage_StartButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE, false); // Start按鈕hover音效
 				CurrentPage = START_BUTTON_PAGE_HOVER;
+			}
 			else
 				CurrentPage = START_BUTTON_PAGE_NO_HOVER;
 			break;
@@ -215,16 +222,25 @@ namespace game_framework {
 		case FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY:
 		case FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY:
 			if (point.x > FleabagVsMuttPage_HowToPlayButtonLT.x && point.x < FleabagVsMuttPage_HowToPlayButtonRB.x && point.y > FleabagVsMuttPage_HowToPlayButtonLT.y && point.y < FleabagVsMuttPage_HowToPlayButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE_SHORT, false); // How To Play按鈕hover音效
 				CurrentPage = FLEABAG_VS_MUTT_PAGE_HOVER_HOW_TO_PLAY;
+			}
 			else if (point.x > FleabagVsMuttPage_LetsPlayButtonLT.x && point.x < FleabagVsMuttPage_LetsPlayButtonRB.x && point.y > FleabagVsMuttPage_LetsPlayButtonLT.y && point.y < FleabagVsMuttPage_LetsPlayButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE_SHORT, false); // Let's Play按鈕hover音效
 				CurrentPage = FLEABAG_VS_MUTT_PAGE_HOVER_LETS_PLAY;
+			}
 			else
 				CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			break;
 		case HOW_TO_PLAY_PAGE_NO_HOVER:
 		case HOW_TO_PLAY_PAGE_HOVER:
 			if (point.x > HowToPlayPage_LetsPlayButtonLT.x && point.x < HowToPlayPage_LetsPlayButtonRB.x && point.y > HowToPlayPage_LetsPlayButtonLT.y && point.y < HowToPlayPage_LetsPlayButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE_SHORT, false); // Let's Play按鈕hover音效
 				CurrentPage = HOW_TO_PLAY_PAGE_HOVER;
+			}
 			else
 				CurrentPage = HOW_TO_PLAY_PAGE_NO_HOVER;
 			break;
@@ -232,9 +248,15 @@ namespace game_framework {
 		case CHOOSE_GAME_PAGE_HOVER_1PLAYER:
 		case CHOOSE_GAME_PAGE_HOVER_2PLAYER:
 			if (point.x > ChooseGamePage_1PlayerButtonLT.x && point.x < ChooseGamePage_1PlayerButtonRB.x && point.y > ChooseGamePage_1PlayerButtonLT.y && point.y < ChooseGamePage_1PlayerButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE, false); // 1P按鈕hover音效
 				CurrentPage = CHOOSE_GAME_PAGE_HOVER_1PLAYER;
+			}
 			else if (point.x > ChooseGamePage_2PlayerButtonLT.x && point.x < ChooseGamePage_2PlayerButtonRB.x && point.y > ChooseGamePage_2PlayerButtonLT.y && point.y < ChooseGamePage_2PlayerButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_DOUBLE, false); // 2P按鈕hover音效
 				CurrentPage = CHOOSE_GAME_PAGE_HOVER_2PLAYER;
+			}
 			else
 				CurrentPage = CHOOSE_GAME_PAGE_NO_HOVER;
 			break;
@@ -243,11 +265,20 @@ namespace game_framework {
 		case SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE:
 		case SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON:
 			if (point.x > SelectYourLevelPage_ImBeginnerButtonLT.x && point.x < SelectYourLevelPage_ImBeginnerButtonRB.x && point.y > SelectYourLevelPage_ImBeginnerButtonLT.y && point.y < SelectYourLevelPage_ImBeginnerButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE, false); // 按鈕hover音效
 				CurrentPage = SELECT_YOUR_LEVEL_PAGE_HOVER_BEGINNER;
+			}
 			else if (point.x > SelectYourLevelPage_ImAverageButtonLT.x && point.x < SelectYourLevelPage_ImAverageButtonRB.x && point.y > SelectYourLevelPage_ImAverageButtonLT.y && point.y < SelectYourLevelPage_ImAverageButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE, false); // 按鈕hover音效
 				CurrentPage = SELECT_YOUR_LEVEL_PAGE_HOVER_AVERAGE;
+			}
 			else if (point.x > SelectYourLevelPage_BringItOnButtonLT.x && point.x < SelectYourLevelPage_BringItOnButtonRB.x && point.y > SelectYourLevelPage_BringItOnButtonLT.y && point.y < SelectYourLevelPage_BringItOnButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE, false); // 按鈕hover音效
 				CurrentPage = SELECT_YOUR_LEVEL_PAGE_HOVER_BRING_IT_ON;
+			}
 			else
 				CurrentPage = SELECT_YOUR_LEVEL_PAGE_NO_HOVER;
 			break;
@@ -309,6 +340,13 @@ namespace game_framework {
 
 	void CGameStateInit::OnMove()
 	{
+		// 遊戲開始畫面音樂
+		if (gameStartMusicHadNotPlay)
+		{
+			CAudio::Instance()->Play(AUDIO_INIT_MUSIC, false); // 遊戲開頭音樂
+			gameStartMusicHadNotPlay = false;
+		}
+
 		// 遊戲開始畫面動畫
 		switch (CurrentPage)
 		{
@@ -409,6 +447,13 @@ namespace game_framework {
 
 	void CGameStateOver::OnMove()
 	{
+		// 撥放音樂
+		if (gameOverMusicHadNotPlay)
+		{	
+			CAudio::Instance()->Play(AUDIO_OVER_MUSIC, false); // 遊戲結束音樂
+			gameOverMusicHadNotPlay = false;
+		}
+
 		if (GameData::isDogWin) {
 			DogWin_catAnimation.OnMove();
 			DogWin_dogAnimation.OnMove();
@@ -422,13 +467,18 @@ namespace game_framework {
 
 	void CGameStateOver::OnBeginState()
 	{
-
+		// 遊戲開始畫面音樂
+		gameOverMusicHadNotPlay = true;
 	}
 
 	void CGameStateOver::OnInit()
 	{
-		isHoverReplay = false;
 		char buffer[100];
+		
+		isHoverReplay = false;
+
+		// 遊戲開始畫面音樂
+		gameOverMusicHadNotPlay = true;
 
 		// 加載遊戲音效
 		CAudio::Instance()->Load(AUDIO_OVER_MUSIC, "GameSFX/GameOverMusic.mp3");
@@ -495,13 +545,19 @@ namespace game_framework {
 	{
 		if (GameData::isDogWin) {
 			if (point.x > DogWin_ReplayButtonLT.x && point.x < DogWin_ReplayButtonRB.x && point.y > DogWin_ReplayButtonLT.y && point.y < DogWin_ReplayButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_DOUBLE, false);		// Replay按鈕hover音效
 				isHoverReplay = true;
+			}
 			else
 				isHoverReplay = false;
 		}
 		else {
 			if (point.x > CatWin_ReplayButtonLT.x && point.x < CatWin_ReplayButtonRB.x && point.y > CatWin_ReplayButtonLT.y && point.y < CatWin_ReplayButtonRB.y)
+			{
+				CAudio::Instance()->Play(AUDIO_DOUBLE, false);		// Replay按鈕hover音效
 				isHoverReplay = true;
+			}
 			else
 				isHoverReplay = false;
 		}
@@ -510,7 +566,10 @@ namespace game_framework {
 	void CGameStateOver::OnLButtonUp(UINT nFlags, CPoint point)
 	{
 		if (isHoverReplay)
-				GotoGameState(GAME_STATE_INIT);
+		{
+			CAudio::Instance()->Stop(AUDIO_OVER_MUSIC); // 停止遊戲結束音樂
+			GotoGameState(GAME_STATE_INIT);
+		}
 	}
 
 	void CGameStateOver::OnShow()
@@ -551,6 +610,11 @@ namespace game_framework {
 	{
 		// 每次進到CGameStateRun都會跑一次
 
+		// 攻擊方音效
+		catAttackIsNotPlaying = true;
+		dogAttackIsNotPlaying = true;
+		gameRunMusicHadNotPlay = true;
+
 		// 初始化貓咪跟狗狗武器物件
 		CatObject.Initialize();
 		DogObject.Initialize();
@@ -590,6 +654,13 @@ namespace game_framework {
 
 	void CGameStateRun::OnMove()							// 移動遊戲元素
 	{
+		// 撥放音樂
+		if (gameRunMusicHadNotPlay)
+		{
+			CAudio::Instance()->Play(AUDIO_OVER_MUSIC, false); // 遊戲回合開始音樂
+			gameRunMusicHadNotPlay = false;
+		}
+
 		switch (runId)
 		{
 		case CAT_PREPARE:
@@ -608,6 +679,12 @@ namespace game_framework {
 			}
 			break;
 		case CAT_ATTACK_BEGIN:
+			if (catAttackIsNotPlaying)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE, false); // 輪到攻擊方音效
+				catAttackIsNotPlaying = false;
+			}
+
 			if (GameData::is2P)
 			{
 				CatAttackInvertedTriangle.OnMove();
@@ -622,6 +699,8 @@ namespace game_framework {
 			}
 			break;
 		case CAT_ATTACK_CHARGE:
+			catAttackIsNotPlaying = true; // 重置音效
+
 			Timer++;
 			// 1P的時候 貓咪由電腦產生力道
 			if (Timer >= 20 && GameData::is2P == false) {
@@ -658,6 +737,7 @@ namespace game_framework {
 			break;
 		case CAT_ATTACK_FIRE:
 			if (WeaponObject.isHitDog() == 1) {
+				CAudio::Instance()->Play(AUDIO_DOG_ATTACKED_LITTLE, false); // 狗被輕擊音效
 				runId = DOG_BEGIN_ATTACKED_LITTLE;
 				Timer = 0;
 				if (catSkillPoisonGasStatus == USING)
@@ -671,6 +751,7 @@ namespace game_framework {
 				}
 			}
 			else if (WeaponObject.isHitDog() == 2) {
+				CAudio::Instance()->Play(AUDIO_DOG_ATTACKED_BIG, false); // 狗被重擊音效
 				runId = DOG_BEGIN_ATTACKED_BIG;
 				Timer = 0;
 				if (catSkillPoisonGasStatus == USING)
@@ -684,6 +765,7 @@ namespace game_framework {
 				}
 			}
 			else if (WeaponObject.isHitGround()) {
+				CAudio::Instance()->Play(AUDIO_DOG_ATTACKED_MISS, false); // 狗沒被擊中音效
 				runId = DOG_BEGIN_ATTACKED_MISS;
 				Timer = 0;
 			}
@@ -739,14 +821,23 @@ namespace game_framework {
 			}
 			break;
 		case DOG_ATTACK_BEGIN:
+			if (dogAttackIsNotPlaying)
+			{
+				CAudio::Instance()->Play(AUDIO_SINGLE, false); // 輪到攻擊方音效
+				dogAttackIsNotPlaying = false;
+			}
+
 			DogAttackInvertedTriangle.OnMove();
 			break;
 		case DOG_ATTACK_CHARGE:
+			dogAttackIsNotPlaying = true; // 重置音效
+
 			Timer++;
 			break;
 		case DOG_ATTACK_FIRE:
 			
 			if (WeaponObject.isHitCat() == 1) {
+				CAudio::Instance()->Play(AUDIO_CAT_ATTACKED_LITTLE, false); // 貓被輕擊音效
 				runId = CAT_BEGIN_ATTACKED_LITTLE;
 				Timer = 0;
 				if (dogSkillPoisonGasStatus == USING)
@@ -760,6 +851,7 @@ namespace game_framework {
 				}
 			}
 			else if (WeaponObject.isHitCat() == 2) {
+				CAudio::Instance()->Play(AUDIO_CAT_ATTACKED_BIG, false); // 貓被重擊音效
 				runId = CAT_BEGIN_ATTACKED_BIG;
 				Timer = 0;
 				if (dogSkillPoisonGasStatus == USING)
@@ -773,6 +865,7 @@ namespace game_framework {
 				}
 			}
 			else if (WeaponObject.isHitGround()) {
+				CAudio::Instance()->Play(AUDIO_CAT_ATTACKED_MISS, false); // 狗沒被擊中音效
 				runId = CAT_BEGIN_ATTACKED_MISS;
 				Timer = 0;
 			}
@@ -861,6 +954,11 @@ namespace game_framework {
 	void CGameStateRun::OnInit()
 	{
 		char num_char[100];
+
+		// 攻擊方音效
+		catAttackIsNotPlaying = true;
+		dogAttackIsNotPlaying = true;
+		gameRunMusicHadNotPlay = true;
 
 		// 加載遊戲音效
 		CAudio::Instance()->Load(AUDIO_RUNSTART_MUSIC, "GameSFX/GameRunStartMusic.mp3");
@@ -1008,22 +1106,28 @@ namespace game_framework {
 			bool isNotUsingSKill = (catSkillDoubleAttackStatus != USING && catSkillPowerAttackStatus != USING && catSkillPoisonGasStatus != USING && catSkillOKBandStatus != USING);
 			// 連擊
 			if (catSkillDoubleAttackStatus == IS_HOVER && isNotUsingSKill)
+			{
+				CAudio::Instance()->Play(AUDIO_CAT_SKILL, false); // Skill按鈕按下音效
 				catSkillDoubleAttackStatus = USING;
+			}
 			// 重擊
 			else if (catSkillPowerAttackStatus == IS_HOVER && isNotUsingSKill)
 			{
+				CAudio::Instance()->Play(AUDIO_CAT_SKILL, false); // Skill按鈕按下音效
 				WeaponObject.setSize(2);
 				catSkillPowerAttackStatus = USING;
 			}
 			// 毒氣
 			else if (catSkillPoisonGasStatus == IS_HOVER && isNotUsingSKill)
 			{
+				CAudio::Instance()->Play(AUDIO_CAT_SKILL, false); // Skill按鈕按下音效
 				WeaponObject.setNormalWeapon(false);
 				catSkillPoisonGasStatus = USING;
 			}
 			// 治癒
 			else if (catSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
 			{
+				CAudio::Instance()->Play(AUDIO_CAT_SKILL, false); // Skill按鈕按下音效
 				CatHealthPointBar.AddHP(30);
 				catSkillOKBandStatus = USING;
 				runId = DOG_PREPARE;
@@ -1041,22 +1145,28 @@ namespace game_framework {
 			bool isNotUsingSKill = (dogSkillDoubleAttackStatus != USING && dogSkillPowerAttackStatus != USING && dogSkillPoisonGasStatus != USING && dogSkillOKBandStatus != USING);
 			// 連擊
 			if (dogSkillDoubleAttackStatus == IS_HOVER && isNotUsingSKill)
+			{
+				CAudio::Instance()->Play(AUDIO_DOG_SKILL, false); // Skill按鈕按下音效
 				dogSkillDoubleAttackStatus = USING;
+			}
 			// 重擊
 			else if (dogSkillPowerAttackStatus == IS_HOVER && isNotUsingSKill)
 			{
+				CAudio::Instance()->Play(AUDIO_DOG_SKILL, false); // Skill按鈕按下音效
 				WeaponObject.setSize(2);
 				dogSkillPowerAttackStatus = USING;
 			}
 			// 毒氣
 			else if (dogSkillPoisonGasStatus == IS_HOVER && isNotUsingSKill)
 			{
+				CAudio::Instance()->Play(AUDIO_DOG_SKILL, false); // Skill按鈕按下音效
 				WeaponObject.setNormalWeapon(false);
 				dogSkillPoisonGasStatus = USING;
 			}
 			// 治癒
 			else if (dogSkillOKBandStatus == IS_HOVER && isNotUsingSKill)
 			{
+				CAudio::Instance()->Play(AUDIO_DOG_SKILL, false); // Skill按鈕按下音效
 				DogHealthPointBar.AddHP(30);
 				dogSkillOKBandStatus = USED;
 				runId = CAT_PREPARE;
@@ -1073,6 +1183,7 @@ namespace game_framework {
 	void CGameStateRun::OnLButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 	{
 		if (runId == DOG_ATTACK_CHARGE) {
+			CAudio::Instance()->Play(AUDIO_DOG_ATTACK, false); // 丟武器音效
 			runId = DOG_ATTACK_FIRE;
 			WeaponObject.DogFire(Timer);
 			if (dogSkillDoubleAttackStatus == USING)
@@ -1080,6 +1191,7 @@ namespace game_framework {
 		}
 		// 雙人遊戲時貓咪才可以手動蓄力
 		else if (runId == CAT_ATTACK_CHARGE && GameData::is2P) {
+			CAudio::Instance()->Play(AUDIO_CAT_ATTACK, false); // 丟武器音效
 			runId = CAT_ATTACK_FIRE;
 			WeaponObject.CatFire(Timer);
 			if (catSkillDoubleAttackStatus == USING)

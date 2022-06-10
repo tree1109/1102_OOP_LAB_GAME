@@ -69,6 +69,9 @@ namespace game_framework {
 		void OnMove();									// 判斷要顯示的畫面
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
+		// 遊戲開始畫面音樂
+		bool gameStartMusicHadNotPlay;
+
 		// 遊戲開始畫面背景動畫
 		CAnimation StartButtonBackground;
 
@@ -148,6 +151,11 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
+		// 音效
+		bool catAttackIsNotPlaying;
+		bool dogAttackIsNotPlaying;
+		bool gameRunMusicHadNotPlay;
+
 		// 戰鬥中
 		CMovingBitmap Background;
 
@@ -227,6 +235,9 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		bool isHoverReplay;
+
+		// 遊戲開始畫面音樂
+		bool gameOverMusicHadNotPlay;
 
 		// 貓貓贏了
 		CMovingBitmap CatWin_background;
