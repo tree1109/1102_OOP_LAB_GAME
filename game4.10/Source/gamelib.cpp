@@ -915,9 +915,9 @@ bool CDDraw::CreateSurfaceFullScreen()
 {
 	ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_EXCLUSIVE | DDSCL_FULLSCREEN);
 	CheckDDFail("Can not SetCooperativeLevel Exclusive");
-	// 設定在全螢幕時設置成標準解析度 1440*900
+	// 設定在全螢幕時設置成標準解析度 1920x1080
 	// ddrval = lpDD->SetDisplayMode(size_x, size_y, 32, 0, 0);
-	ddrval = lpDD->SetDisplayMode(1440, 900, 32, 0, 0);
+	ddrval = lpDD->SetDisplayMode(1920, 1080, 32, 0, 0);
 	if (ddrval != DD_OK) {
 		ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_NORMAL);
 		CheckDDFail("Can not SetCooperativeLevel Normal");
