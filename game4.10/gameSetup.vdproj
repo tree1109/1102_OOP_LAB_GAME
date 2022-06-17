@@ -93,6 +93,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_13E50363A994455CA82760C02018BF7D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_148151EDAFAE4950947900FDD6E372B2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -111,6 +117,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_184BC7C14FC84761B0B2AC6C64773F08"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1939CEF8F6094D58A2F53EB9ABD21DAC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1C5C58919AAC4537B0E9A0AF974AE50B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1C5F514235DC42A6B08C6A48BFD89968"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -123,13 +147,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_213CE75F52B94D528C3A78DDA45BF00C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2251F5DF725442458241AD259D0DA967"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_22F8A11CB09A44E1AD52AA111BEC0248"
+        "MsmKey" = "8:_23D3F49243C64C11A58F9FB2DCAA260D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -160,6 +190,12 @@
         "Entry"
         {
         "MsmKey" = "8:_2BEA5AB7578A4B6EB7CBB462A30E49A5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E437DE29EC14ECE9D540890C17DD8FA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -303,6 +339,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_563A411261444FBB929D7CA92F40AF65"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_56DA5C58B5C843F685AEB4AE363329AC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -381,7 +423,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_699665747DE548DC8A818FAE5001F866"
+        "MsmKey" = "8:_69AF96D0CF2C4410AF771C859DB17155"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -429,7 +471,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_727EA4B2638240FB9BBC7AC4922B2AAE"
+        "MsmKey" = "8:_72A5D917E7D64CA7B8C2B271EC083B81"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -459,25 +501,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7BDE1386D46444D18D88764965809FB7"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8097BB0F7B2B4305A156A35E42FCD5E2"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_812B003F378041EFA0B918B25BD00FA6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_81A131E02D0E4EB9B44D213A2A8DB36B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -496,12 +520,6 @@
         "Entry"
         {
         "MsmKey" = "8:_84C0849048E74EEBB88A1867368CAF81"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_85DE7A35422F4ED497A5D3AA24C07DDF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -531,18 +549,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8CDB9D48EA494633A296826EC320FBCE"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8DF9F905D2224848AD1B6E6638BC90FB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_8E77E7EC81B040B4BC89A796D1171B81"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -567,6 +573,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_92C4F75E97434E7F8E7F8D263D34E4A7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9587AFE10C0047448E4EFBF51EA08238"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -585,12 +597,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_995571CC7C614DF898F189AABE55B0A5"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_9999D3449B9C4A95AE7D26E91DE5CE29"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -603,7 +609,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9B2305F94F30431A978FF59906B41AD4"
+        "MsmKey" = "8:_9C352217649346CCA3FA4FB4D5477FAA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -621,12 +627,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9F5CC41759D74CC6BBD555D7A040DBB6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A3CA7CEA89D043E291545FD4FB749EAF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -634,6 +634,12 @@
         "Entry"
         {
         "MsmKey" = "8:_A7C9672899D049B188DCEB7510171EDE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A8F3EEEB77084E218484CDA25AF0791F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -723,12 +729,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B5DF9F78F46543BB94AB5A158F66AF0E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B63126F81D3F4876B469DD0ECCA01F4C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -742,6 +742,12 @@
         "Entry"
         {
         "MsmKey" = "8:_B68349D1A85142928BD30FEF03393323"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B9964B7E378E4C5BA7A9000D86653DDC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -772,6 +778,12 @@
         "Entry"
         {
         "MsmKey" = "8:_C6FC3ABA28914A44BDEFC4D1FFB0E465"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C7DB22F0E35240FC840709D567DCD366"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -820,12 +832,6 @@
         "Entry"
         {
         "MsmKey" = "8:_CBF5E52B91684FB98B2D10EAE946F140"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CC523E9A39D64737B08FE0FB27B1F1F6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -921,12 +927,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E286A1198C8E49EABA9EAD5D040AD867"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E350ABF676DB4825AB1A7955895D6884"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -934,12 +934,6 @@
         "Entry"
         {
         "MsmKey" = "8:_E450D528F35F4287843AC921D78B8C47"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E65E50413A564280A05978393D66C3B8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -957,13 +951,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE62FAB1B0624DA98D3B31C6236CD87D"
+        "MsmKey" = "8:_EBF9F81D95604DC5AA4582337F6D0C2B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_EE9DD6B69FFF4437AC5B705A1846A163"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EF4B9E827C5D440D83D25115351F566F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1376,6 +1376,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13E50363A994455CA82760C02018BF7D"
+            {
+            "SourcePath" = "8:GameSFX\\GameButtonSingle.mp3"
+            "TargetName" = "8:GameButtonSingle.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_21EBD9978FDA4DC5A020298DB4C0E523"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_148151EDAFAE4950947900FDD6E372B2"
             {
             "SourcePath" = "8:GamePicture\\GameRun\\Cat\\HP_semicircle.bmp"
@@ -1436,6 +1456,66 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_184BC7C14FC84761B0B2AC6C64773F08"
+            {
+            "SourcePath" = "8:GameSFX\\GameRunStartMusic.mp3"
+            "TargetName" = "8:GameRunStartMusic.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_21EBD9978FDA4DC5A020298DB4C0E523"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1939CEF8F6094D58A2F53EB9ABD21DAC"
+            {
+            "SourcePath" = "8:GameSFX\\Cat\\Skill.mp3"
+            "TargetName" = "8:Skill.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_DAFA3F8BC9254DE098048EB6AB098C93"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C5C58919AAC4537B0E9A0AF974AE50B"
+            {
+            "SourcePath" = "8:GameSFX\\GameInitMusic.mp3"
+            "TargetName" = "8:GameInitMusic.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_21EBD9978FDA4DC5A020298DB4C0E523"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C5F514235DC42A6B08C6A48BFD89968"
             {
             "SourcePath" = "8:GamePicture\\GameRun\\Cat\\Skill\\PowerAttack-5.bmp"
@@ -1476,6 +1556,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_213CE75F52B94D528C3A78DDA45BF00C"
+            {
+            "SourcePath" = "8:GameSFX\\GameButtonDouble.mp3"
+            "TargetName" = "8:GameButtonDouble.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_21EBD9978FDA4DC5A020298DB4C0E523"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2251F5DF725442458241AD259D0DA967"
             {
             "SourcePath" = "8:GamePicture\\GameRun\\Cat\\Skill\\OKBand-4.bmp"
@@ -1496,12 +1596,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22F8A11CB09A44E1AD52AA111BEC0248"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_23D3F49243C64C11A58F9FB2DCAA260D"
             {
-            "SourcePath" = "8:GameSFX\\Dog\\BeingAttacked_MIss.mp3"
-            "TargetName" = "8:BeingAttacked_MIss.mp3"
+            "SourcePath" = "8:GameSFX\\Dog\\Skill.mp3"
+            "TargetName" = "8:Skill.mp3"
             "Tag" = "8:"
-            "Folder" = "8:_7D61B56ABFBF465AABBE29284DBBF845"
+            "Folder" = "8:_6B8237C73C5040A4B7902503343F8050"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1602,6 +1702,26 @@
             "TargetName" = "8:OKBand-4.bmp"
             "Tag" = "8:"
             "Folder" = "8:_32A173824C624FA3896F23C2934F79E8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2E437DE29EC14ECE9D540890C17DD8FA"
+            {
+            "SourcePath" = "8:GameSFX\\Cat\\Attack.mp3"
+            "TargetName" = "8:Attack.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_DAFA3F8BC9254DE098048EB6AB098C93"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2076,6 +2196,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_563A411261444FBB929D7CA92F40AF65"
+            {
+            "SourcePath" = "8:GameSFX\\Dog\\BeingAttacked_Miss.mp3"
+            "TargetName" = "8:BeingAttacked_Miss.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6B8237C73C5040A4B7902503343F8050"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_56DA5C58B5C843F685AEB4AE363329AC"
             {
             "SourcePath" = "8:GamePicture\\GameOver\\CatWin\\Title\\3.bmp"
@@ -2336,12 +2476,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_699665747DE548DC8A818FAE5001F866"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69AF96D0CF2C4410AF771C859DB17155"
             {
-            "SourcePath" = "8:GameSFX\\Cat\\BeingAttacked_Little.mp3"
-            "TargetName" = "8:BeingAttacked_Little.mp3"
+            "SourcePath" = "8:GameSFX\\Cat\\BeingAttacked_Big.mp3"
+            "TargetName" = "8:BeingAttacked_Big.mp3"
             "Tag" = "8:"
-            "Folder" = "8:_95AE20A14EEC4359B43762DBCC9B6F70"
+            "Folder" = "8:_DAFA3F8BC9254DE098048EB6AB098C93"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2496,12 +2636,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_727EA4B2638240FB9BBC7AC4922B2AAE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_72A5D917E7D64CA7B8C2B271EC083B81"
             {
-            "SourcePath" = "8:GameSFX\\Dog\\BeingAttacked_Little.mp3"
-            "TargetName" = "8:BeingAttacked_Little.mp3"
+            "SourcePath" = "8:GameSFX\\GameButtonSingleShort.mp3"
+            "TargetName" = "8:GameButtonSingleShort.mp3"
             "Tag" = "8:"
-            "Folder" = "8:_7D61B56ABFBF465AABBE29284DBBF845"
+            "Folder" = "8:_21EBD9978FDA4DC5A020298DB4C0E523"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2596,72 +2736,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7BDE1386D46444D18D88764965809FB7"
-            {
-            "SourcePath" = "8:GameSFX\\GameButtonSingleShort.mp3"
-            "TargetName" = "8:GameButtonSingleShort.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_1CD561679A70485DA52B47833D9BB9F1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8097BB0F7B2B4305A156A35E42FCD5E2"
-            {
-            "SourcePath" = "8:GameSFX\\GameButtonSingle.mp3"
-            "TargetName" = "8:GameButtonSingle.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_1CD561679A70485DA52B47833D9BB9F1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_812B003F378041EFA0B918B25BD00FA6"
             {
             "SourcePath" = "8:GamePicture\\GameInit\\StartButton\\6.bmp"
             "TargetName" = "8:6.bmp"
             "Tag" = "8:"
             "Folder" = "8:_85349D687BF74281998AE03C69115C73"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_81A131E02D0E4EB9B44D213A2A8DB36B"
-            {
-            "SourcePath" = "8:GameSFX\\Dog\\Attack.mp3"
-            "TargetName" = "8:Attack.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_7D61B56ABFBF465AABBE29284DBBF845"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2722,26 +2802,6 @@
             "TargetName" = "8:4.bmp"
             "Tag" = "8:"
             "Folder" = "8:_85349D687BF74281998AE03C69115C73"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85DE7A35422F4ED497A5D3AA24C07DDF"
-            {
-            "SourcePath" = "8:GameSFX\\Dog\\Skill.mp3"
-            "TargetName" = "8:Skill.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_7D61B56ABFBF465AABBE29284DBBF845"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2836,46 +2896,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8CDB9D48EA494633A296826EC320FBCE"
-            {
-            "SourcePath" = "8:GameSFX\\SkillHeal.mp3"
-            "TargetName" = "8:SkillHeal.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_1CD561679A70485DA52B47833D9BB9F1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8DF9F905D2224848AD1B6E6638BC90FB"
-            {
-            "SourcePath" = "8:GameSFX\\Cat\\Skill.mp3"
-            "TargetName" = "8:Skill.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_95AE20A14EEC4359B43762DBCC9B6F70"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8E77E7EC81B040B4BC89A796D1171B81"
             {
             "SourcePath" = "8:GamePicture\\GameRun\\Cat\\AttackInvertedTriangle_3.bmp"
@@ -2956,6 +2976,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92C4F75E97434E7F8E7F8D263D34E4A7"
+            {
+            "SourcePath" = "8:GameSFX\\Cat\\BeingAttacked_Little.mp3"
+            "TargetName" = "8:BeingAttacked_Little.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_DAFA3F8BC9254DE098048EB6AB098C93"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9587AFE10C0047448E4EFBF51EA08238"
             {
             "SourcePath" = "8:GamePicture\\GameOver\\CatWin\\Title\\5.bmp"
@@ -3016,26 +3056,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_995571CC7C614DF898F189AABE55B0A5"
-            {
-            "SourcePath" = "8:GameSFX\\Dog\\BeingAttacked_Big.mp3"
-            "TargetName" = "8:BeingAttacked_Big.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_7D61B56ABFBF465AABBE29284DBBF845"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9999D3449B9C4A95AE7D26E91DE5CE29"
             {
             "SourcePath" = "8:GamePicture\\GameRun\\Dog\\BeingAttacked_Big.bmp"
@@ -3076,12 +3096,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9B2305F94F30431A978FF59906B41AD4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C352217649346CCA3FA4FB4D5477FAA"
             {
-            "SourcePath" = "8:GameSFX\\Cat\\BeingAttacked_Miss.mp3"
-            "TargetName" = "8:BeingAttacked_Miss.mp3"
+            "SourcePath" = "8:GameSFX\\Dog\\Attack.mp3"
+            "TargetName" = "8:Attack.mp3"
             "Tag" = "8:"
-            "Folder" = "8:_95AE20A14EEC4359B43762DBCC9B6F70"
+            "Folder" = "8:_6B8237C73C5040A4B7902503343F8050"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3136,26 +3156,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9F5CC41759D74CC6BBD555D7A040DBB6"
-            {
-            "SourcePath" = "8:GameSFX\\Cat\\Attack.mp3"
-            "TargetName" = "8:Attack.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_95AE20A14EEC4359B43762DBCC9B6F70"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3CA7CEA89D043E291545FD4FB749EAF"
             {
             "SourcePath" = "8:GamePicture\\GameRun\\Dog\\AttackInvertedTriangle_2.bmp"
@@ -3182,6 +3182,26 @@
             "TargetName" = "8:3-3.bmp"
             "Tag" = "8:"
             "Folder" = "8:_4B1BE2BF8D3B43E48D219A24E65E715D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A8F3EEEB77084E218484CDA25AF0791F"
+            {
+            "SourcePath" = "8:GameSFX\\GameOverMusic.mp3"
+            "TargetName" = "8:GameOverMusic.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_21EBD9978FDA4DC5A020298DB4C0E523"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3476,26 +3496,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B5DF9F78F46543BB94AB5A158F66AF0E"
-            {
-            "SourcePath" = "8:GameSFX\\GameButtonDouble.mp3"
-            "TargetName" = "8:GameButtonDouble.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_1CD561679A70485DA52B47833D9BB9F1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B63126F81D3F4876B469DD0ECCA01F4C"
             {
             "SourcePath" = "8:GamePicture\\GameInit\\StartButton\\5.bmp"
@@ -3542,6 +3542,26 @@
             "TargetName" = "8:PoisionWeapon.bmp"
             "Tag" = "8:"
             "Folder" = "8:_E8F4F338FC204236A637D7605A405350"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B9964B7E378E4C5BA7A9000D86653DDC"
+            {
+            "SourcePath" = "8:GameSFX\\Cat\\BeingAttacked_Miss.mp3"
+            "TargetName" = "8:BeingAttacked_Miss.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_DAFA3F8BC9254DE098048EB6AB098C93"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3642,6 +3662,26 @@
             "TargetName" = "8:PowerAttack-1.bmp"
             "Tag" = "8:"
             "Folder" = "8:_F42012BA281D426289D5C5D4E06E0199"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C7DB22F0E35240FC840709D567DCD366"
+            {
+            "SourcePath" = "8:GameSFX\\Dog\\BeingAttacked_Big.mp3"
+            "TargetName" = "8:BeingAttacked_Big.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6B8237C73C5040A4B7902503343F8050"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3802,26 +3842,6 @@
             "TargetName" = "8:OKBand-1.bmp"
             "Tag" = "8:"
             "Folder" = "8:_F42012BA281D426289D5C5D4E06E0199"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC523E9A39D64737B08FE0FB27B1F1F6"
-            {
-            "SourcePath" = "8:GameSFX\\Cat\\BeingAttacked_Big.mp3"
-            "TargetName" = "8:BeingAttacked_Big.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_95AE20A14EEC4359B43762DBCC9B6F70"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4136,26 +4156,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E286A1198C8E49EABA9EAD5D040AD867"
-            {
-            "SourcePath" = "8:GameSFX\\GameRunStartMusic.mp3"
-            "TargetName" = "8:GameRunStartMusic.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_1CD561679A70485DA52B47833D9BB9F1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E350ABF676DB4825AB1A7955895D6884"
             {
             "SourcePath" = "8:RES\\GAME.ICO"
@@ -4182,26 +4182,6 @@
             "TargetName" = "8:1-1.bmp"
             "Tag" = "8:"
             "Folder" = "8:_4B1BE2BF8D3B43E48D219A24E65E715D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E65E50413A564280A05978393D66C3B8"
-            {
-            "SourcePath" = "8:GameSFX\\GameOverMusic.mp3"
-            "TargetName" = "8:GameOverMusic.mp3"
-            "Tag" = "8:"
-            "Folder" = "8:_1CD561679A70485DA52B47833D9BB9F1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4256,12 +4236,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE62FAB1B0624DA98D3B31C6236CD87D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EBF9F81D95604DC5AA4582337F6D0C2B"
             {
-            "SourcePath" = "8:GameSFX\\GameInitMusic.mp3"
-            "TargetName" = "8:GameInitMusic.mp3"
+            "SourcePath" = "8:GameSFX\\Dog\\BeingAttacked_Little.mp3"
+            "TargetName" = "8:BeingAttacked_Little.mp3"
             "Tag" = "8:"
-            "Folder" = "8:_1CD561679A70485DA52B47833D9BB9F1"
+            "Folder" = "8:_6B8237C73C5040A4B7902503343F8050"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4282,6 +4262,26 @@
             "TargetName" = "8:ReadMe.txt"
             "Tag" = "8:"
             "Folder" = "8:_A62E3FBC3C2C4A6D9157A8D6CE468FB2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EF4B9E827C5D440D83D25115351F566F"
+            {
+            "SourcePath" = "8:GameSFX\\SkillHeal.mp3"
+            "TargetName" = "8:SkillHeal.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_21EBD9978FDA4DC5A020298DB4C0E523"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4554,33 +4554,33 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_1CD561679A70485DA52B47833D9BB9F1"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_21EBD9978FDA4DC5A020298DB4C0E523"
                     {
                     "Name" = "8:GameSFX"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_A4BED0CA23C544018C297F7FC5D4E477"
+                    "Property" = "8:_0C7FCFA3278E4A50A7BA98E2FAF8D9C8"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_7D61B56ABFBF465AABBE29284DBBF845"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_6B8237C73C5040A4B7902503343F8050"
                             {
                             "Name" = "8:Dog"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_84CBFD356E8E49D79C6D635629C72FB1"
+                            "Property" = "8:_E56FE115BD0E4427AF4D6BB41952B246"
                                 "Folders"
                                 {
                                 }
                             }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_95AE20A14EEC4359B43762DBCC9B6F70"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_DAFA3F8BC9254DE098048EB6AB098C93"
                             {
                             "Name" = "8:Cat"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_F0B3BAF5B9804C34BAA6BC4785876BD2"
+                            "Property" = "8:_A8A6E90C94C34903BC38034FD9E6C976"
                                 "Folders"
                                 {
                                 }
@@ -4814,15 +4814,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Fleabag vs Mutt"
-        "ProductCode" = "8:{D83D5CA0-0D99-467B-AE8E-B210E0B926B6}"
-        "PackageCode" = "8:{0F205B67-8B62-4693-AECF-16FE27FC2FE5}"
+        "ProductCode" = "8:{8D9A6BB4-F4AD-446C-9D50-F4E3B0F5E375}"
+        "PackageCode" = "8:{2DCEDA74-7598-4072-BA0A-D6F9C7C29103}"
         "UpgradeCode" = "8:{01942A20-B1C3-4329-810B-8B846C69A505}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.8.1"
+        "ProductVersion" = "8:4.8.2"
         "Manufacturer" = "8:NTUT-CSIE-2022Games"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -5406,7 +5406,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FEB1C521B758467A98F7B43033E60D12"
             {
-            "SourcePath" = "8:Debug\\game.exe"
+            "SourcePath" = "8:Release\\game.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A62E3FBC3C2C4A6D9157A8D6CE468FB2"
