@@ -7,6 +7,7 @@ namespace game_framework {
 
 	// 定義畫面的狀態
 	enum GAME_PAGE_ID {
+		ABOUT_PICTURE,
 		START_BUTTON_PAGE_NO_HOVER,
 		START_BUTTON_PAGE_HOVER,
 		FLEABAG_VS_MUTT_PAGE_NO_HOVER,

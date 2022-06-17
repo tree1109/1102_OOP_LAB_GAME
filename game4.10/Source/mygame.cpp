@@ -84,16 +84,20 @@ namespace game_framework {
 		char buffer[100];
 
 		// 遊戲開始畫面音樂
-		gameStartMusicHadNotPlay = true;
+		gameStartMusicDidNotPlay = false;
 
-		// 初始化遊戲狀態
-		CurrentPage = START_BUTTON_PAGE_NO_HOVER;
+		// 初始化遊戲狀態，一開始進入到About畫面
+		CurrentPage = ABOUT_PICTURE;
 
 		// 加載遊戲音效
 		CAudio::Instance()->Load(AUDIO_SINGLE, "GameSFX/GameButtonSingle.mp3");
 		CAudio::Instance()->Load(AUDIO_SINGLE_SHORT, "GameSFX/GameButtonSingleShort.mp3");
 		CAudio::Instance()->Load(AUDIO_DOUBLE, "GameSFX/GameButtonDouble.mp3");
 		CAudio::Instance()->Load(AUDIO_INIT_MUSIC, "GameSFX/GameInitMusic.mp3");
+
+
+		// 加載About介紹畫面
+		AboutPicture.LoadBitmap("GamePicture/About.bmp");
 
 		// 加載遊戲開始畫面圖片
 		// 遊戲開始畫面動畫
@@ -153,6 +157,7 @@ namespace game_framework {
 		SelectYourLevel_hoverBringItOn.LoadBitmap("GamePicture/GameInit/SelectYourLevel_hoverBringItOn.bmp");
 
 		// 初始化所有圖片位置，因為都是整個畫面所以設置在(0, 0)位置
+		AboutPicture.SetTopLeft(0, 0);
 		StartButtonBackground.SetTopLeft(0, 0);
 		StartButton_noHover.SetTopLeft(572, 778);
 		StartButton_hover.SetTopLeft(572, 778);
@@ -291,6 +296,10 @@ namespace game_framework {
 	{
 		switch (CurrentPage)
 		{
+		case game_framework::ABOUT_PICTURE: // About畫面
+			CurrentPage = START_BUTTON_PAGE_NO_HOVER;
+			gameStartMusicDidNotPlay = true; // 等一下進入遊戲開始畫面才會播放音樂
+			break;
 		case START_BUTTON_PAGE_HOVER:
 			CurrentPage = FLEABAG_VS_MUTT_PAGE_NO_HOVER;
 			break;
@@ -341,10 +350,10 @@ namespace game_framework {
 	void CGameStateInit::OnMove()
 	{
 		// 遊戲開始畫面音樂
-		if (gameStartMusicHadNotPlay)
+		if (gameStartMusicDidNotPlay)
 		{
 			CAudio::Instance()->Play(AUDIO_INIT_MUSIC, false); // 遊戲開頭音樂
-			gameStartMusicHadNotPlay = false;
+			gameStartMusicDidNotPlay = false;
 		}
 
 		// 遊戲開始畫面動畫
@@ -379,6 +388,9 @@ namespace game_framework {
 	{
 		switch (CurrentPage)
 		{
+		case game_framework::ABOUT_PICTURE: // About畫面
+			AboutPicture.ShowBitmap();
+			break;
 		case game_framework::START_BUTTON_PAGE_NO_HOVER: // 遊戲開始畫面
 			StartButtonBackground.OnShow();
 			StartButton_noHover.ShowBitmap();

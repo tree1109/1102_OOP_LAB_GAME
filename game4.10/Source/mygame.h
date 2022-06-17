@@ -70,7 +70,10 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		// 遊戲開始畫面音樂
-		bool gameStartMusicHadNotPlay;
+		bool gameStartMusicDidNotPlay;
+
+		// About畫面
+		CMovingBitmap AboutPicture;
 
 		// 遊戲開始畫面背景動畫
 		CAnimation StartButtonBackground;
