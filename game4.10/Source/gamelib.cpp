@@ -913,11 +913,13 @@ bool CDDraw::CreateSurface()
 
 bool CDDraw::CreateSurfaceFullScreen()
 {
-    ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_EXCLUSIVE | DDSCL_FULLSCREEN);
-    CheckDDFail("Can not SetCooperativeLevel Exclusive");
-    ddrval = lpDD->SetDisplayMode(size_x, size_y, 32, 0, 0);
+	ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_EXCLUSIVE | DDSCL_FULLSCREEN);
+	CheckDDFail("Can not SetCooperativeLevel Exclusive");
+	// 設定在全螢幕時設置成標準解析度 1440*900
+	// ddrval = lpDD->SetDisplayMode(size_x, size_y, 32, 0, 0);
+	ddrval = lpDD->SetDisplayMode(1440, 900, 32, 0, 0);
 	if (ddrval != DD_OK) {
-	    ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_NORMAL);
+		ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_NORMAL);
 		CheckDDFail("Can not SetCooperativeLevel Normal");
 		return false;
 	}
@@ -925,45 +927,45 @@ bool CDDraw::CreateSurfaceFullScreen()
 
 	DDSURFACEDESC ddsd;
 	ZeroMemory(&ddsd,sizeof(ddsd));
-    ddsd.dwSize = sizeof(ddsd);
-    ddsd.dwFlags = DDSD_CAPS;
-    ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
-    ddrval = lpDD->CreateSurface( &ddsd, &lpDDSPrimary, NULL );
+	ddsd.dwSize = sizeof(ddsd);
+	ddsd.dwFlags = DDSD_CAPS;
+	ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
+	ddrval = lpDD->CreateSurface( &ddsd, &lpDDSPrimary, NULL );
 	CheckDDFail("Create Primary Surface failed");
 
 	// Create clippers for the primary and back surfaces
-    // ddrval = lpDD->CreateClipper(0, &lpClipperPrimary, NULL);
+	// ddrval = lpDD->CreateClipper(0, &lpClipperPrimary, NULL);
 	// CheckDDFail("Create Primay Surface Clipper FAILED"); 
-    ddrval = lpDD->CreateClipper(0, &lpClipperBack, NULL);
+	ddrval = lpDD->CreateClipper(0, &lpClipperBack, NULL);
 	CheckDDFail("Create Back Surface Clipper FAILED"); 
 
 	typedef struct {
 		RGNDATAHEADER hdr;
 		RECT rgndata[4]; 
-    } CLIPLIST, *LPCLIPLIST; 
+	} CLIPLIST, *LPCLIPLIST; 
 	CLIPLIST    ClipList; 
 	RECT rc;
 	SetRect(&rc, 0, 0, size_x, size_y);  
-    ClipList.hdr.dwSize = sizeof(RGNDATAHEADER); 
-    ClipList.hdr.iType = RDH_RECTANGLES;
+	ClipList.hdr.dwSize = sizeof(RGNDATAHEADER); 
+	ClipList.hdr.iType = RDH_RECTANGLES;
 	ClipList.hdr.nCount = 1; 
-    ClipList.hdr.nRgnSize = 0; 
-    memcpy(&ClipList.hdr.rcBound, &rc, sizeof(RECT)); 
-    memcpy(&ClipList.rgndata, &rc, sizeof(RECT)); 
+	ClipList.hdr.nRgnSize = 0; 
+	memcpy(&ClipList.hdr.rcBound, &rc, sizeof(RECT)); 
+	memcpy(&ClipList.rgndata, &rc, sizeof(RECT)); 
 	ddrval = lpClipperBack->SetClipList((LPRGNDATA)&ClipList,0); 
 	CheckDDFail("SetHWnd FAILED"); 
 
 	// Create Back (Secondary) Surface
 	ddsd.dwFlags = DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH;
-    ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN;
+	ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN;
 	ddsd.dwHeight = size_y; ddsd.dwWidth = size_x;
-    ddrval = lpDD->CreateSurface( &ddsd, &lpDDSBack, NULL );
+	ddrval = lpDD->CreateSurface( &ddsd, &lpDDSBack, NULL );
 	CheckDDFail("Can not create back plain");
 
 	// In fullscreen mode, the clipper for primary surafce is fixed to screen size
 	ddrval = lpDDSPrimary->SetClipper(lpClipperBack);
 	CheckDDFail("SetClipper FAILED");  
-    ddrval = lpDDSBack->SetClipper(lpClipperBack);
+	ddrval = lpDDSBack->SetClipper(lpClipperBack);
 	CheckDDFail("SetClipper FAILED");  
 	lpClipperBack->Release();
 
@@ -974,53 +976,53 @@ bool CDDraw::CreateSurfaceFullScreen()
 
 bool CDDraw::CreateSurfaceWindowed()
 {
-    ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_NORMAL);
-    CheckDDFail("Can not SetCooperativeLevel ");
+	ddrval = lpDD->SetCooperativeLevel(AfxGetMainWnd()->m_hWnd, DDSCL_NORMAL);
+	CheckDDFail("Can not SetCooperativeLevel ");
 
 	DDSURFACEDESC ddsd;
 	ZeroMemory(&ddsd,sizeof(ddsd));
-    ddsd.dwSize = sizeof(ddsd);
-    ddsd.dwFlags = DDSD_CAPS;
-    ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
-    ddrval = lpDD->CreateSurface( &ddsd, &lpDDSPrimary, NULL );
+	ddsd.dwSize = sizeof(ddsd);
+	ddsd.dwFlags = DDSD_CAPS;
+	ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
+	ddrval = lpDD->CreateSurface( &ddsd, &lpDDSPrimary, NULL );
 	CheckDDFail("Create Primary Surface failed");
 
 	// Create clippers for the primary and back surfaces
-    ddrval = lpDD->CreateClipper(0, &lpClipperPrimary, NULL);
+	ddrval = lpDD->CreateClipper(0, &lpClipperPrimary, NULL);
 	CheckDDFail("Create Primay Surface Clipper FAILED"); 
-    ddrval = lpDD->CreateClipper(0, &lpClipperBack, NULL);
+	ddrval = lpDD->CreateClipper(0, &lpClipperBack, NULL);
 	CheckDDFail("Create Back Surface Clipper FAILED"); 
 
-    ddrval = lpClipperPrimary->SetHWnd(0, AfxGetMainWnd()->m_hWnd);
+	ddrval = lpClipperPrimary->SetHWnd(0, AfxGetMainWnd()->m_hWnd);
 	CheckDDFail("Primary Surface SetHWnd FAILED"); 
 
 	typedef struct {
 		RGNDATAHEADER hdr;
 		RECT rgndata[4]; 
-    } CLIPLIST, *LPCLIPLIST; 
+	} CLIPLIST, *LPCLIPLIST; 
 	CLIPLIST    ClipList; 
 	RECT rc;
 	SetRect(&rc, 0, 0, size_x, size_y);  
-    ClipList.hdr.dwSize = sizeof(RGNDATAHEADER); 
-    ClipList.hdr.iType = RDH_RECTANGLES;
+	ClipList.hdr.dwSize = sizeof(RGNDATAHEADER); 
+	ClipList.hdr.iType = RDH_RECTANGLES;
 	ClipList.hdr.nCount = 1; 
-    ClipList.hdr.nRgnSize = 0; 
-    memcpy(&ClipList.hdr.rcBound, &rc, sizeof(RECT)); 
-    memcpy(&ClipList.rgndata, &rc, sizeof(RECT)); 
+	ClipList.hdr.nRgnSize = 0; 
+	memcpy(&ClipList.hdr.rcBound, &rc, sizeof(RECT)); 
+	memcpy(&ClipList.rgndata, &rc, sizeof(RECT)); 
 	ddrval = lpClipperBack->SetClipList((LPRGNDATA)&ClipList,0); 
 	CheckDDFail("SetHWnd FAILED"); 
 
 	// Create Back (Secondary) Surface
 	ddsd.dwFlags = DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH;
-    ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN;
+	ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN;
 	ddsd.dwHeight = size_y; ddsd.dwWidth = size_x;
-    ddrval = lpDD->CreateSurface( &ddsd, &lpDDSBack, NULL );
+	ddrval = lpDD->CreateSurface( &ddsd, &lpDDSBack, NULL );
 	CheckDDFail("Can not create back plain");
 
 	ddrval = lpDDSPrimary->SetClipper(lpClipperPrimary);
 	CheckDDFail("SetClipper FAILED");  
 	lpClipperPrimary->Release();
-    ddrval = lpDDSBack->SetClipper(lpClipperBack);
+	ddrval = lpDDSBack->SetClipper(lpClipperBack);
 	CheckDDFail("SetClipper FAILED");  
 	lpClipperBack->Release();
 
@@ -1039,7 +1041,7 @@ void CDDraw::Init(int sx, int sy)
 	size_x = sx, size_y = sy;
 	// init lpDD
 	LPDIRECTDRAW lpDD0;
-    ddrval = DirectDrawCreate(NULL, &lpDD0, NULL);
+	ddrval = DirectDrawCreate(NULL, &lpDD0, NULL);
 	CheckDDFail("DDraw create failed");
 	ddrval = lpDD0->QueryInterface(IID_IDirectDraw2, (void **) &lpDD);
 	CheckDDFail("DDraw surface 2 create failed");
@@ -1078,7 +1080,7 @@ void CDDraw::LoadBitmap(int i, int IDB_BITMAP)
 	ddrval = lpDD->CreateSurface(&ddsd, &lpDDS[i], NULL);
 	CheckDDFail("Create Bitmap Surface Failed");
 	HDC hdc;
-    ddrval= lpDDS[i]->GetDC(&hdc);
+	ddrval= lpDDS[i]->GetDC(&hdc);
 	CheckDDFail("Get surface HDC failed");
 	CDC cdc;
 	cdc.Attach(hdc);
@@ -1114,7 +1116,7 @@ void CDDraw::LoadBitmap(int i, char *filename)
 	ddrval = lpDD->CreateSurface(&ddsd, &lpDDS[i], NULL);
 	CheckDDFail("Create Bitmap Surface Failed");
 	HDC hdc;
-    ddrval= lpDDS[i]->GetDC(&hdc);
+	ddrval= lpDDS[i]->GetDC(&hdc);
 	CheckDDFail("Get surface HDC failed");
 	CDC cdc;
 	cdc.Attach(hdc);
@@ -1131,7 +1133,7 @@ void CDDraw::LoadBitmap(int i, char *filename)
 
 DWORD CDDraw::MatchColorKey(LPDIRECTDRAWSURFACE lpDDSurface, COLORREF color)
 {
-    DDSURFACEDESC ddsd;
+	DDSURFACEDESC ddsd;
 	HDC hdc;
 	HRESULT hres;
 	COLORREF rgbT= CLR_INVALID;
@@ -1163,7 +1165,7 @@ CDC* CDDraw::GetBackCDC()
 {
 	if (lpDDSBack->IsLost())
 		RestoreSurface();
-    ddrval= lpDDSBack->GetDC(&hdc);
+	ddrval= lpDDSBack->GetDC(&hdc);
 	CheckDDFail("Get back surface HDC failed");
 	cdc.Attach(hdc);
 	return &cdc;
@@ -1216,23 +1218,23 @@ void CDDraw::ReleaseBackCDC()
 
 void CDDraw::ReleaseSurface()
 {
-    if (lpDD)
-    {
+	if (lpDD)
+	{
 		for (unsigned i = 0; i < lpDDS.size(); i++)
 			if (lpDDS[i]) {
 				lpDDS[i]->Release();
 				lpDDS[i] = NULL;
 			}
-        if (lpDDSBack)
-        {
-            lpDDSBack->Release();
-            lpDDSBack = NULL;
-        }
-        if (lpDDSPrimary)
-        {
-            lpDDSPrimary->Release();
-            lpDDSPrimary = NULL;
-        }
+		if (lpDDSBack)
+		{
+			lpDDSBack->Release();
+			lpDDSBack = NULL;
+		}
+		if (lpDDSPrimary)
+		{
+			lpDDSPrimary->Release();
+			lpDDSPrimary = NULL;
+		}
 	}
 }
 
@@ -1242,14 +1244,14 @@ void CDDraw::RestoreSurface()
 	// Since all surfaces are restored and reloaded, this operation can be very slow.
 	//
 	SetCursor(AfxGetApp()->LoadStandardCursor(IDC_WAIT));
-    if (lpDD != NULL)
-    {
+	if (lpDD != NULL)
+	{
 		CreateSurface();
 		while (lpDDSBack->IsLost() || lpDDSPrimary->IsLost()) {
 			Sleep(100);
 			CreateSurface();
 		}
-    }
+	}
 }
 
 void CDDraw::SetColorKey(unsigned SurfaceID, COLORREF color)
